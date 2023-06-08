@@ -20,7 +20,7 @@ import "../../assets/Css/Common.css";
 
 const Footer = () => {
   return (
-    <div>
+    <div id="about">
       <footer className="footer bg-[#f1f2f6] px-[6%] flex flex-col justify-between items-center lg:flex-row  p-10  text-base-content">
         <div className="basis-1/3">
           {/* logo */}

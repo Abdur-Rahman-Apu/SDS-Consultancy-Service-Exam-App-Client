@@ -4,3 +4,10 @@
   box-sizing: border-box;
   scroll-behavior: smooth;
 }
+li .active{
+  background: transparent;
+  color: black;
+}
+
+
+

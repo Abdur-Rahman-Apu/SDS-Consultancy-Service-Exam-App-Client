@@ -11,9 +11,12 @@ import {
   faLocationDot,
   faPhone,
 } from "@fortawesome/free-solid-svg-icons";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
+import {useState} from "react"
 
 const Navbar = () => {
+const [activeLink,setActiveLink]= useState(false);
+const Active="underline-4 underline-offset-8 bg-none"
   return (
     <div className={`${Nav.container} shadow-md`}>
       {/* upper part  */}
@@ -116,14 +119,14 @@ const Navbar = () => {
 
           <div className="hidden lg:flex">
             <ul className="menu menu-horizontal px-1 text-base font-semibold">
-              <li>
-                <Link to="/">Home</Link>
+              <li className={"bg-none underline decoration-2 underline-offset-8 focus-visible:invisible"}>
+                <a href="#home">Home</a>
               </li>
               <li>
-                <Link>Certifications</Link>
+                <a href="#certification">Certifications</a>
               </li>
               <li>
-                <Link>About Us</Link>
+                <a href="#about">About Us</a>
               </li>
             </ul>
           </div>
