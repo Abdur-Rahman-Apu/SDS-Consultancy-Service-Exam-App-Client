@@ -1,428 +1,1343 @@
-[{
-    "question": "A flashing red traffic light signifies that a driver should do what?",
-    "A": "stop",
-    "B": "speed up",
-    "C": "proceed with caution",
-    "D": "honk the horn",
-    "answer": "A"
-  }, {
-    "question": "A knish is traditionally stuffed with what filling?",
-    "A": "potato",
-    "B": "creamed corn",
-    "C": "lemon custard",
-    "D": "raspberry jelly",
-    "answer": "A"
-  }, {
-    "question": "A pita is a type of what?",
-    "A": "fresh fruit",
-    "B": "flat bread",
-    "C": "French tart",
-    "D": "friend bean dip",
-    "answer": "B"
-  }, {
-    "question": "A portrait that comically exaggerates a person's physical traits is called a what?",
-    "A": "landscape",
-    "B": "caricature",
-    "C": "still life",
-    "D": "Impressionism",
-    "answer": "B"
-  }, {
-    "question": "A second-year college student is usually called a what?",
-    "A": "sophomore",
-    "B": "senior",
-    "C": "freshman ",
-    "D": "junior ",
-    "answer": "A"
-  }, {
-    "question": "A student who earns a J.D. can begin his or her career as a what?",
-    "A": "lawyer",
-    "B": "bricklayer",
-    "C": "doctor",
-    "D": "accountant",
-    "answer": "A"
-  }, {
-    "question": "A triptych is a work of art that is painted on how many panels?",
-    "A": "two",
-    "B": "three",
-    "C": "five",
-    "D": "eight",
-    "answer": "B"
-  }, {
-    "question": "According to a famous line from the existentialist play 'No Exit' what is hell?",
-    "A": "oneself",
-    "B": "other people",
-    "C": "little made large",
-    "D": "hued in green and blue",
-    "answer": "B"
-  }, {
-    "question": "According to a popular slogan, what state should people not 'mess with'?",
-    "A": "New York",
-    "B": "Texas",
-    "C": "Montana",
-    "D": "Rhode Island",
-    "answer": "B"
-  }, {
-    "question": "According to a Yale University study, what smell is the most recognizable to American adults?",
-    "A": "tuna",
-    "B": "laundry",
-    "C": "popcorn",
-    "D": "coffee",
-    "answer": "D"
-  }, {
-    "question": "According to folklore, the 'jackalope' is an antlered version of what animal?",
-    "A": "chicken",
-    "B": "rabbit",
-    "C": "moose",
-    "D": "snake",
-    "answer": "B"
-  }, {
-    "question": "According to Greek mythology, who was Apollo's twin sister?",
-    "A": "Aphrodite",
-    "B": "Artemis",
-    "C": "Venus",
-    "D": "Athena",
-    "answer": "B"
-  }, {
-    "question": "According to legend, if you give someone the 'evil eye' what are you doing?",
-    "A": "cursing them",
-    "B": "blessing a child",
-    "C": "counting money",
-    "D": "passing time",
-    "answer": "A"
-  }, {
-    "question": "According to legend, in what country are you most likely to meet a leprechaun?",
-    "A": "Ireland",
-    "B": "Poland",
-    "C": "Greenland",
-    "D": "Scotland",
-    "answer": "A"
-  }, {
-    "question": "According to the American Kennel Club, what is the most popular breed of dog in the US as of 1999?",
-    "A": "Poodle",
-    "B": "Beagle",
-    "C": "German shepherd",
-    "D": "Labrador retriever",
-    "answer": "D"
-  }, {
-    "question": "According to the Bible, Moses and Aaron had a sister named what?",
-    "A": "Jochebed",
-    "B": "Ruth",
-    "C": "Leah",
-    "D": "Miriam",
-    "answer": "D"
-  }, {
-    "question": "According to the children's nursery rhyme, what type of ocean did Columbus sail in 1492?",
-    "A": "calm",
-    "B": "blue",
-    "C": "windy",
-    "D": "really big",
-    "answer": "B"
-  }, {
-    "question": "According to the Mother Goose nursery rhyme, which child is full of woe?",
-    "A": "Monday's child",
-    "B": "Wednesday's child",
-    "C": "Thursday's child",
-    "D": "Saturday's child",
-    "answer": "B"
-  }, {
-    "question": "According to the popular saying, what should you do 'when in Rome'?",
-    "A": "watch your wallet",
-    "B": "see the Coliseum",
-    "C": "as the Romans do",
-    "D": "don't drink the water",
-    "answer": "C"
-  }, {
-    "question": "According to the proverb, necessity is the mother of what?",
-    "A": "Invention",
-    "B": "Luck",
-    "C": "Problems",
-    "D": "Procrastination",
-    "answer": "A"
-  }, {
-    "question": "According to the title of a popular children's TV show, what color is Bear's big house?",
-    "A": "red",
-    "B": "green",
-    "C": "purple",
-    "D": "blue",
-    "answer": "D"
-  }, {
-    "question": "According to the USDA, which food group should you eat the most servings of per day?",
-    "A": "vegetables",
-    "B": "dairy",
-    "C": "meats",
-    "D": "breads",
-    "answer": "D"
-  }, {
-    "question": "Ada Lovelace is credited with being the first person to have made what?",
-    "A": "a computer program",
-    "B": "a souffle",
-    "C": "a brassiere",
-    "D": "a mystery novel",
-    "answer": "A"
-  }, {
-    "question": "After Prince Charles, who is next in line to be the king of England?",
-    "A": "Prince William",
-    "B": "Prince Andrew",
-    "C": "Prince Edward",
-    "D": "Fresh Prince",
-    "answer": "A"
-  }, {
-    "question": "An airplane's black box is usually what color?",
-    "A": "black",
-    "B": "white",
-    "C": "orange",
-    "D": "purple",
-    "answer": "C"
-  }, {
-    "question": "As of 1999, which state has the most Girl Scouts?",
-    "A": "California",
-    "B": "Illinois",
-    "C": "New York",
-    "D": "Pennsylvania",
-    "answer": "A"
-  }, {
-    "question": "Astronaut John Glenn served as a pilot in what branch of the military?",
-    "A": "Army",
-    "B": "Air Force",
-    "C": "Marines",
-    "D": "Navy",
-    "answer": "C"
-  }, {
-    "question": "At the equator, how fast is the earth's surface turning?",
-    "A": "about 100 miles per hour",
-    "B": "about 500 miles per hour",
-    "C": "about 1000 miles per hour",
-    "D": "about 2000 miles per hour",
-    "answer": "C"
-  }, {
-    "question": "At what age can someone first attend an R-rated movie without an accompanying adult?",
-    "A": "15",
-    "B": "17",
-    "C": "18",
-    "D": "21",
-    "answer": "C"
-  }, {
-    "question": "Backgammon is a how many player game?",
-    "A": "Two",
-    "B": "Three",
-    "C": "Four",
-    "D": "Six",
-    "answer": "A"
-  }, {
-    "question": "Before he went into coaching, Phil Jackson played for which of the following NBA teams?",
-    "A": "Boston Celtics",
-    "B": "Los Angeles Lakers",
-    "C": "New York Knicks",
-    "D": "Philadelphia 76ers",
-    "answer": "C"
-  }, {
-    "question": "By what name is Bob Keeshan better known?",
-    "A": "Bozo the Clown",
-    "B": "Pee Wee Herman",
-    "C": "Captain Kangaroo",
-    "D": "Buffalo Bob",
-    "answer": "C"
-  }, {
-    "question": "By what collective name do Christians refer to God the Father, God the Son and the Holy Ghost?",
-    "A": "the Trio",
-    "B": "the Troika",
-    "C": "the Triumvirate",
-    "D": "the Trinity",
-    "answer": "D"
-  }, {
-    "question": "By what nickname is the Federal National Mortgage Association known?",
-    "A": "Morty",
-    "B": "FEMA",
-    "C": "Freddie Mac",
-    "D": "Fannie Mae",
-    "answer": "D"
-  }, {
-    "question": "Cheddar cheese got its name from a village in what country?",
-    "A": "England",
-    "B": "France",
-    "C": "Switzerland",
-    "D": "Denmark",
-    "answer": "A"
-  }, {
-    "question": "Cheese is a necessary ingredient in which of these dishes?",
-    "A": "sushi",
-    "B": "french fries",
-    "C": "veal parmigiano",
-    "D": "chicken pot pie",
-    "answer": "C"
-  }, {
-    "question": "During what war did Francis Scott Key write the words to 'The Star-Spangled Banner'?",
-    "A": "American Revolution",
-    "B": "War of 1812",
-    "C": "Civil War",
-    "D": "World War I",
-    "answer": "B"
-  }, {
-    "question": "During which war did US troops fight the Battle of New Orleans?",
-    "A": "American Revolution",
-    "B": "Civil War",
-    "C": "Mexican War",
-    "D": "War of 1812",
-    "answer": "D"
-  }, {
-    "question": "Each year in pro baseball, the player voted as the best fielder at his position wins what?",
-    "A": "a brand new car",
-    "B": "the Gold Glove",
-    "C": "the Silver Bat",
-    "D": "the Brass Baseball",
-    "answer": "B"
-  }, {
-    "question": "Elephant tusks are made of what material?",
-    "A": "coral",
-    "B": "ivory",
-    "C": "bone",
-    "D": "calcium",
-    "answer": "B"
-  }, {
-    "question": "Excluding wisdom teeth, how many adult teeth do humans have?",
-    "A": "28",
-    "B": "32",
-    "C": "35",
-    "D": "40",
-    "answer": "A"
-  }, {
-    "question": "For a man and woman on a date, 'dutch treat' means what?",
-    "A": "the man pays",
-    "B": "the woman pays",
-    "C": "the Dutch pay",
-    "D": "each pays their own way",
-    "answer": "D"
-  }, {
-    "question": "For what purpose would you use an awl?",
-    "A": "to shoot ducks",
-    "B": "to polish floors",
-    "C": "to make holes",
-    "D": "to weigh fruit",
-    "answer": "C"
-  }, {
-    "question": "From 1971 to 1997, the Democratic Republic of Congo was known as what?",
-    "A": "Zaire",
-    "B": "Angola",
-    "C": "Rhodesia",
-    "D": "Belgian Congo",
-    "answer": "A"
-  }, {
-    "question": "From what language does the term 'R.S.V.P.' originate?",
-    "A": "Russian",
-    "B": "Italian",
-    "C": "Portuguese",
-    "D": "French",
-    "answer": "D"
-  }, {
-    "question": "From whom does the Lutheran Church get its name?",
-    "A": "Martin Luther King Jr",
-    "B": "Martin Luther",
-    "C": "Luther Vandross",
-    "D": "Lex Luthor",
-    "answer": "B"
-  }, {
-    "question": "Gerry Adams is the president of what organization?",
-    "A": "Greenpeace",
-    "B": "NASCAR",
-    "C": "Sinn Fein",
-    "D": "PLO",
-    "answer": "C"
-  }, {
-    "question": "Girls of what religious community traditionally wear bonnets?",
-    "A": "Amish",
-    "B": "Sikh",
-    "C": "Roman Catholic",
-    "D": "Christian",
-    "answer": "A"
-  }, {
-    "question": "How are actors Charlie Sheen and Emilio Estevez related?",
-    "A": "they're cousins",
-    "B": "they're brothers",
-    "C": "they're father and son",
-    "D": "they're uncle and nephew",
-    "answer": "B"
-  }, {
-    "question": "How do you express 3/4 as a decimal?",
-    "A": ".25",
-    "B": ".50",
-    "C": ".75",
-    "D": ".90",
-    "answer": "C"
-  }, {
-    "question": "How is 4:00 pm expressed in military time?",
-    "A": "1600",
-    "B": "004",
-    "C": "0400 ",
-    "D": "4:00",
-    "answer": "A"
-  }, {
-    "question": "How is the Arabic numeral for '2' written?",
-    "A": "2",
-    "B": "II",
-    "C": "I",
-    "D": "ii",
-    "answer": "A"
-  }, {
-    "question": "How is the word 'ambulance' normally written on the front of American ambulances?",
-    "A": "in French",
-    "B": "in reverse",
-    "C": "in braille",
-    "D": "in gibberish",
-    "answer": "B"
-  }, {
-    "question": "How long is a single term in the US Senate?",
-    "A": "two years",
-    "B": "four years",
-    "C": "six years",
-    "D": "eight years",
-    "answer": "C"
-  }, {
-    "question": "How long is the time on an NBA shot clock?",
-    "A": "18 seconds",
-    "B": "24 seconds",
-    "C": "30 seconds",
-    "D": "35 seconds",
-    "answer": "B"
-  }, {
-    "question": "How many $100 bills does it take to equal one million dollars?",
-    "A": "one thousand",
-    "B": "five thousand",
-    "C": "ten thousand",
-    "D": "one hundred thousand",
-    "answer": "C"
-  }, {
-    "question": "How many axles does a standard automobile have?",
-    "A": "one",
-    "B": "two",
-    "C": "four",
-    "D": "eight",
-    "answer": "B"
-  }, {
-    "question": "How many digits are in a standard Visa credit card number?",
-    "A": "12",
-    "B": "15",
-    "C": "16",
-    "D": "20",
-    "answer": "C"
-  }, {
-    "question": "How many eyes does a Giraffe have?",
-    "A": "one",
-    "B": "two",
-    "C": "three",
-    "D": "four",
-    "answer": "B"
-  }, {
-    "question": "How many innings are there in a regular Major League Baseball game?",
-    "A": "seven",
-    "B": "eight",
-    "C": "nine",
-    "D": "ten",
-    "answer": "C"
-  }, {
-    "question": "How many keys are on a standard piano?",
-    "A": "20",
-    "B": "54",
-    "C": "88",
-    "D": "100",
-    "answer": "C"
-  }]
+[ {
+            "question": "A flashing red traffic light signifies that a driver should do what?",
+            "options": [
+              {
+                "id": "A",
+                "option": "stop"
+              },
+              {
+                "id": "B",
+                "option": "speed up"
+              },
+              {
+                "id": "C",
+                "option": "proceed with caution"
+              },
+              {
+                "id": "D",
+                "option": "honk the horn"
+              }
+            ],
+            "answer": "A"
+          },
+          {
+            "question": "A knish is traditionally stuffed with what filling?",
+            "options": [
+              {
+                "id": "A",
+                "option": "potato"
+              },
+              {
+                "id": "B",
+                "option": "creamed corn"
+              },
+              {
+                "id": "C",
+                "option": "lemon custard"
+              },
+              {
+                "id": "D",
+                "option": "raspberry jelly"
+              }
+            ],
+            "answer": "A"
+          },
+          {
+            "question": "A pita is a type of what?",
+            "options": [
+              {
+                "id": "A",
+                "option": "fresh fruit"
+              },
+              {
+                "id": "B",
+                "option": "flat bread"
+              },
+              {
+                "id": "C",
+                "option": "French tart"
+              },
+              {
+                "id": "D",
+                "option": "friend bean dip"
+              }
+            ],
+            "answer": "B"
+          },
+          {
+            "question": "A portrait that comically exaggerates a person's physical traits is called a what?",
+            "options": [
+              {
+                "id": "A",
+                "option": "landscape"
+              },
+              {
+                "id": "B",
+                "option": "caricature"
+              },
+              {
+                "id": "C",
+                "option": "still life"
+              },
+              {
+                "id": "D",
+                "option": "Impressionism"
+              }
+            ],
+            "answer": "B"
+          },
+          {
+            "question": "A second-year college student is usually called a what?",
+            "options": [
+              {
+                "id": "A",
+                "option": "sophomore"
+              },
+              {
+                "id": "B",
+                "option": "senior"
+              },
+              {
+                "id": "C",
+                "option": "freshman "
+              },
+              {
+                "id": "D",
+                "option": "junior "
+              }
+            ],
+            "answer": "A"
+          },
+          {
+            "question": "A student who earns a J.D. can begin his or her career as a what?",
+            "options": [
+              {
+                "id": "A",
+                "option": "lawyer"
+              },
+              {
+                "id": "B",
+                "option": "bricklayer"
+              },
+              {
+                "id": "C",
+                "option": "doctor"
+              },
+              {
+                "id": "D",
+                "option": "accountant"
+              }
+            ],
+            "answer": "A"
+          },
+          {
+            "question": "A triptych is a work of art that is painted on how many panels?",
+            "options": [
+              {
+                "id": "A",
+                "option": "two"
+              },
+              {
+                "id": "B",
+                "option": "three"
+              },
+              {
+                "id": "C",
+                "option": "five"
+              },
+              {
+                "id": "D",
+                "option": "eight"
+              }
+            ],
+            "answer": "B"
+          },
+          {
+            "question": "According to a famous line from the existentialist play 'No Exit' what is hell?",
+            "options": [
+              {
+                "id": "A",
+                "option": "oneself"
+              },
+              {
+                "id": "B",
+                "option": "other people"
+              },
+              {
+                "id": "C",
+                "option": "little made large"
+              },
+              {
+                "id": "D",
+                "option": "hued in green and blue"
+              }
+            ],
+            "answer": "B"
+          },
+          {
+            "question": "According to a popular slogan, what state should people not 'mess with'?",
+            "options": [
+              {
+                "id": "A",
+                "option": "New York"
+              },
+              {
+                "id": "B",
+                "option": "Texas"
+              },
+              {
+                "id": "C",
+                "option": "Montana"
+              },
+              {
+                "id": "D",
+                "option": "Rhode Island"
+              }
+            ],
+            "answer": "B"
+          },
+          {
+            "question": "According to a Yale University study, what smell is the most recognizable to American adults?",
+            "options": [
+              {
+                "id": "A",
+                "option": "tuna"
+              },
+              {
+                "id": "B",
+                "option": "laundry"
+              },
+              {
+                "id": "C",
+                "option": "popcorn"
+              },
+              {
+                "id": "D",
+                "option": "coffee"
+              }
+            ],
+            "answer": "D"
+          },
+          {
+            "question": "According to folklore, the 'jackalope' is an antlered version of what animal?",
+            "options": [
+              {
+                "id": "A",
+                "option": "chicken"
+              },
+              {
+                "id": "B",
+                "option": "rabbit"
+              },
+              {
+                "id": "C",
+                "option": "moose"
+              },
+              {
+                "id": "D",
+                "option": "snake"
+              }
+            ],
+            "answer": "B"
+          },
+          {
+            "question": "According to Greek mythology, who was Apollo's twin sister?",
+            "options": [
+              {
+                "id": "A",
+                "option": "Aphrodite"
+              },
+              {
+                "id": "B",
+                "option": "Artemis"
+              },
+              {
+                "id": "C",
+                "option": "Venus"
+              },
+              {
+                "id": "D",
+                "option": "Athena"
+              }
+            ],
+            "answer": "B"
+          },
+          {
+            "question": "According to legend, if you give someone the 'evil eye' what are you doing?",
+            "options": [
+              {
+                "id": "A",
+                "option": "cursing them"
+              },
+              {
+                "id": "B",
+                "option": "blessing a child"
+              },
+              {
+                "id": "C",
+                "option": "counting money"
+              },
+              {
+                "id": "D",
+                "option": "passing time"
+              }
+            ],
+            "answer": "A"
+          },
+          {
+            "question": "According to legend, in what country are you most likely to meet a leprechaun?",
+            "options": [
+              {
+                "id": "A",
+                "option": "Ireland"
+              },
+              {
+                "id": "B",
+                "option": "Poland"
+              },
+              {
+                "id": "C",
+                "option": "Greenland"
+              },
+              {
+                "id": "D",
+                "option": "Scotland"
+              }
+            ],
+            "answer": "A"
+          },
+          {
+            "question": "According to the American Kennel Club, what is the most popular breed of dog in the US as of 1999?",
+            "options": [
+              {
+                "id": "A",
+                "option": "Poodle"
+              },
+              {
+                "id": "B",
+                "option": "Beagle"
+              },
+              {
+                "id": "C",
+                "option": "German shepherd"
+              },
+              {
+                "id": "D",
+                "option": "Labrador retriever"
+              }
+            ],
+            "answer": "D"
+          },
+          {
+            "question": "According to the Bible, Moses and Aaron had a sister named what?",
+            "options": [
+              {
+                "id": "A",
+                "option": "Jochebed"
+              },
+              {
+                "id": "B",
+                "option": "Ruth"
+              },
+              {
+                "id": "C",
+                "option": "Leah"
+              },
+              {
+                "id": "D",
+                "option": "Miriam"
+              }
+            ],
+            "answer": "D"
+          },
+          {
+            "question": "According to the children's nursery rhyme, what type of ocean did Columbus sail in 1492?",
+            "options": [
+              {
+                "id": "A",
+                "option": "calm"
+              },
+              {
+                "id": "B",
+                "option": "blue"
+              },
+              {
+                "id": "C",
+                "option": "windy"
+              },
+              {
+                "id": "D",
+                "option": "really big"
+              }
+            ],
+            "answer": "B"
+          },
+          {
+            "question": "According to the Mother Goose nursery rhyme, which child is full of woe?",
+            "options": [
+              {
+                "id": "A",
+                "option": "Monday's child"
+              },
+              {
+                "id": "B",
+                "option": "Wednesday's child"
+              },
+              {
+                "id": "C",
+                "option": "Thursday's child"
+              },
+              {
+                "id": "D",
+                "option": "Saturday's child"
+              }
+            ],
+            "answer": "B"
+          },
+          {
+            "question": "According to the popular saying, what should you do 'when in Rome'?",
+            "options": [
+              {
+                "id": "A",
+                "option": "watch your wallet"
+              },
+              {
+                "id": "B",
+                "option": "see the Coliseum"
+              },
+              {
+                "id": "C",
+                "option": "as the Romans do"
+              },
+              {
+                "id": "D",
+                "option": "don't drink the water"
+              }
+            ],
+            "answer": "C"
+          },
+          {
+            "question": "According to the proverb, necessity is the mother of what?",
+            "options": [
+              {
+                "id": "A",
+                "option": "Invention"
+              },
+              {
+                "id": "B",
+                "option": "Luck"
+              },
+              {
+                "id": "C",
+                "option": "Problems"
+              },
+              {
+                "id": "D",
+                "option": "Procrastination"
+              }
+            ],
+            "answer": "A"
+          },
+          {
+            "question": "According to the title of a popular children's TV show, what color is Bear's big house?",
+            "options": [
+              {
+                "id": "A",
+                "option": "red"
+              },
+              {
+                "id": "B",
+                "option": "green"
+              },
+              {
+                "id": "C",
+                "option": "purple"
+              },
+              {
+                "id": "D",
+                "option": "blue"
+              }
+            ],
+            "answer": "D"
+          },
+          {
+            "question": "According to the USDA, which food group should you eat the most servings of per day?",
+            "options": [
+              {
+                "id": "A",
+                "option": "vegetables"
+              },
+              {
+                "id": "B",
+                "option": "dairy"
+              },
+              {
+                "id": "C",
+                "option": "meats"
+              },
+              {
+                "id": "D",
+                "option": "breads"
+              }
+            ],
+            "answer": "D"
+          },
+          {
+            "question": "Ada Lovelace is credited with being the first person to have made what?",
+            "options": [
+              {
+                "id": "A",
+                "option": "a computer program"
+              },
+              {
+                "id": "B",
+                "option": "a souffle"
+              },
+              {
+                "id": "C",
+                "option": "a brassiere"
+              },
+              {
+                "id": "D",
+                "option": "a mystery novel"
+              }
+            ],
+            "answer": "A"
+          },
+          {
+            "question": "After Prince Charles, who is next in line to be the king of England?",
+            "options": [
+              {
+                "id": "A",
+                "option": "Prince William"
+              },
+              {
+                "id": "B",
+                "option": "Prince Andrew"
+              },
+              {
+                "id": "C",
+                "option": "Prince Edward"
+              },
+              {
+                "id": "D",
+                "option": "Fresh Prince"
+              }
+            ],
+            "answer": "A"
+          },
+          {
+            "question": "An airplane's black box is usually what color?",
+            "options": [
+              {
+                "id": "A",
+                "option": "black"
+              },
+              {
+                "id": "B",
+                "option": "white"
+              },
+              {
+                "id": "C",
+                "option": "orange"
+              },
+              {
+                "id": "D",
+                "option": "purple"
+              }
+            ],
+            "answer": "C"
+          },
+          {
+            "question": "As of 1999, which state has the most Girl Scouts?",
+            "options": [
+              {
+                "id": "A",
+                "option": "California"
+              },
+              {
+                "id": "B",
+                "option": "Illinois"
+              },
+              {
+                "id": "C",
+                "option": "New York"
+              },
+              {
+                "id": "D",
+                "option": "Pennsylvania"
+              }
+            ],
+            "answer": "A"
+          },
+          {
+            "question": "Astronaut John Glenn served as a pilot in what branch of the military?",
+            "options": [
+              {
+                "id": "A",
+                "option": "Army"
+              },
+              {
+                "id": "B",
+                "option": "Air Force"
+              },
+              {
+                "id": "C",
+                "option": "Marines"
+              },
+              {
+                "id": "D",
+                "option": "Navy"
+              }
+            ],
+            "answer": "C"
+          },
+          {
+            "question": "At the equator, how fast is the earth's surface turning?",
+            "options": [
+              {
+                "id": "A",
+                "option": "about 100 miles per hour"
+              },
+              {
+                "id": "B",
+                "option": "about 500 miles per hour"
+              },
+              {
+                "id": "C",
+                "option": "about 1000 miles per hour"
+              },
+              {
+                "id": "D",
+                "option": "about 2000 miles per hour"
+              }
+            ],
+            "answer": "C"
+          },
+          {
+            "question": "At what age can someone first attend an R-rated movie without an accompanying adult?",
+            "options": [
+              {
+                "id": "A",
+                "option": "15"
+              },
+              {
+                "id": "B",
+                "option": "17"
+              },
+              {
+                "id": "C",
+                "option": "18"
+              },
+              {
+                "id": "D",
+                "option": "21"
+              }
+            ],
+            "answer": "C"
+          },
+          {
+            "question": "Backgammon is a how many player game?",
+            "options": [
+              {
+                "id": "A",
+                "option": "Two"
+              },
+              {
+                "id": "B",
+                "option": "Three"
+              },
+              {
+                "id": "C",
+                "option": "Four"
+              },
+              {
+                "id": "D",
+                "option": "Six"
+              }
+            ],
+            "answer": "A"
+          },
+          {
+            "question": "Before he went into coaching, Phil Jackson played for which of the following NBA teams?",
+            "options": [
+              {
+                "id": "A",
+                "option": "Boston Celtics"
+              },
+              {
+                "id": "B",
+                "option": "Los Angeles Lakers"
+              },
+              {
+                "id": "C",
+                "option": "New York Knicks"
+              },
+              {
+                "id": "D",
+                "option": "Philadelphia 76ers"
+              }
+            ],
+            "answer": "C"
+          },
+          {
+            "question": "By what name is Bob Keeshan better known?",
+            "options": [
+              {
+                "id": "A",
+                "option": "Bozo the Clown"
+              },
+              {
+                "id": "B",
+                "option": "Pee Wee Herman"
+              },
+              {
+                "id": "C",
+                "option": "Captain Kangaroo"
+              },
+              {
+                "id": "D",
+                "option": "Buffalo Bob"
+              }
+            ],
+            "answer": "C"
+          },
+          {
+            "question": "By what collective name do Christians refer to God the Father, God the Son and the Holy Ghost?",
+            "options": [
+              {
+                "id": "A",
+                "option": "the Trio"
+              },
+              {
+                "id": "B",
+                "option": "the Troika"
+              },
+              {
+                "id": "C",
+                "option": "the Triumvirate"
+              },
+              {
+                "id": "D",
+                "option": "the Trinity"
+              }
+            ],
+            "answer": "D"
+          },
+          {
+            "question": "By what nickname is the Federal National Mortgage Association known?",
+            "options": [
+              {
+                "id": "A",
+                "option": "Morty"
+              },
+              {
+                "id": "B",
+                "option": "FEMA"
+              },
+              {
+                "id": "C",
+                "option": "Freddie Mac"
+              },
+              {
+                "id": "D",
+                "option": "Fannie Mae"
+              }
+            ],
+            "answer": "D"
+          },
+          {
+            "question": "Cheddar cheese got its name from a village in what country?",
+            "options": [
+              {
+                "id": "A",
+                "option": "England"
+              },
+              {
+                "id": "B",
+                "option": "France"
+              },
+              {
+                "id": "C",
+                "option": "Switzerland"
+              },
+              {
+                "id": "D",
+                "option": "Denmark"
+              }
+            ],
+            "answer": "A"
+          },
+          {
+            "question": "Cheese is a necessary ingredient in which of these dishes?",
+            "options": [
+              {
+                "id": "A",
+                "option": "sushi"
+              },
+              {
+                "id": "B",
+                "option": "french fries"
+              },
+              {
+                "id": "C",
+                "option": "veal parmigiano"
+              },
+              {
+                "id": "D",
+                "option": "chicken pot pie"
+              }
+            ],
+            "answer": "C"
+          },
+          {
+            "question": "During what war did Francis Scott Key write the words to 'The Star-Spangled Banner'?",
+            "options": [
+              {
+                "id": "A",
+                "option": "American Revolution"
+              },
+              {
+                "id": "B",
+                "option": "War of 1812"
+              },
+              {
+                "id": "C",
+                "option": "Civil War"
+              },
+              {
+                "id": "D",
+                "option": "World War I"
+              }
+            ],
+            "answer": "B"
+          },
+          {
+            "question": "During which war did US troops fight the Battle of New Orleans?",
+            "options": [
+              {
+                "id": "A",
+                "option": "American Revolution"
+              },
+              {
+                "id": "B",
+                "option": "Civil War"
+              },
+              {
+                "id": "C",
+                "option": "Mexican War"
+              },
+              {
+                "id": "D",
+                "option": "War of 1812"
+              }
+            ],
+            "answer": "D"
+          },
+          {
+            "question": "Each year in pro baseball, the player voted as the best fielder at his position wins what?",
+            "options": [
+              {
+                "id": "A",
+                "option": "a brand new car"
+              },
+              {
+                "id": "B",
+                "option": "the Gold Glove"
+              },
+              {
+                "id": "C",
+                "option": "the Silver Bat"
+              },
+              {
+                "id": "D",
+                "option": "the Brass Baseball"
+              }
+            ],
+            "answer": "B"
+          },
+          {
+            "question": "Elephant tusks are made of what material?",
+            "options": [
+              {
+                "id": "A",
+                "option": "coral"
+              },
+              {
+                "id": "B",
+                "option": "ivory"
+              },
+              {
+                "id": "C",
+                "option": "bone"
+              },
+              {
+                "id": "D",
+                "option": "calcium"
+              }
+            ],
+            "answer": "B"
+          },
+          {
+            "question": "Excluding wisdom teeth, how many adult teeth do humans have?",
+            "options": [
+              {
+                "id": "A",
+                "option": "28"
+              },
+              {
+                "id": "B",
+                "option": "32"
+              },
+              {
+                "id": "C",
+                "option": "35"
+              },
+              {
+                "id": "D",
+                "option": "40"
+              }
+            ],
+            "answer": "A"
+          },
+          {
+            "question": "For a man and woman on a date, 'dutch treat' means what?",
+            "options": [
+              {
+                "id": "A",
+                "option": "the man pays"
+              },
+              {
+                "id": "B",
+                "option": "the woman pays"
+              },
+              {
+                "id": "C",
+                "option": "the Dutch pay"
+              },
+              {
+                "id": "D",
+                "option": "each pays their own way"
+              }
+            ],
+            "answer": "D"
+          },
+          {
+            "question": "For what purpose would you use an awl?",
+            "options": [
+              {
+                "id": "A",
+                "option": "to shoot ducks"
+              },
+              {
+                "id": "B",
+                "option": "to polish floors"
+              },
+              {
+                "id": "C",
+                "option": "to make holes"
+              },
+              {
+                "id": "D",
+                "option": "to weigh fruit"
+              }
+            ],
+            "answer": "C"
+          },
+          {
+            "question": "From 1971 to 1997, the Democratic Republic of Congo was known as what?",
+            "options": [
+              {
+                "id": "A",
+                "option": "Zaire"
+              },
+              {
+                "id": "B",
+                "option": "Angola"
+              },
+              {
+                "id": "C",
+                "option": "Rhodesia"
+              },
+              {
+                "id": "D",
+                "option": "Belgian Congo"
+              }
+            ],
+            "answer": "A"
+          },
+          {
+            "question": "From what language does the term 'R.S.V.P.' originate?",
+            "options": [
+              {
+                "id": "A",
+                "option": "Russian"
+              },
+              {
+                "id": "B",
+                "option": "Italian"
+              },
+              {
+                "id": "C",
+                "option": "Portuguese"
+              },
+              {
+                "id": "D",
+                "option": "French"
+              }
+            ],
+            "answer": "D"
+          },
+          {
+            "question": "From whom does the Lutheran Church get its name?",
+            "options": [
+              {
+                "id": "A",
+                "option": "Martin Luther King Jr"
+              },
+              {
+                "id": "B",
+                "option": "Martin Luther"
+              },
+              {
+                "id": "C",
+                "option": "Luther Vandross"
+              },
+              {
+                "id": "D",
+                "option": "Lex Luthor"
+              }
+            ],
+            "answer": "B"
+          },
+          {
+            "question": "Gerry Adams is the president of what organization?",
+            "options": [
+              {
+                "id": "A",
+                "option": "Greenpeace"
+              },
+              {
+                "id": "B",
+                "option": "NASCAR"
+              },
+              {
+                "id": "C",
+                "option": "Sinn Fein"
+              },
+              {
+                "id": "D",
+                "option": "PLO"
+              }
+            ],
+            "answer": "C"
+          },
+          {
+            "question": "Girls of what religious community traditionally wear bonnets?",
+            "options": [
+              {
+                "id": "A",
+                "option": "Amish"
+              },
+              {
+                "id": "B",
+                "option": "Sikh"
+              },
+              {
+                "id": "C",
+                "option": "Roman Catholic"
+              },
+              {
+                "id": "D",
+                "option": "Christian"
+              }
+            ],
+            "answer": "A"
+          },
+          {
+            "question": "How are actors Charlie Sheen and Emilio Estevez related?",
+            "options": [
+              {
+                "id": "A",
+                "option": "they're cousins"
+              },
+              {
+                "id": "B",
+                "option": "they're brothers"
+              },
+              {
+                "id": "C",
+                "option": "they're father and son"
+              },
+              {
+                "id": "D",
+                "option": "they're uncle and nephew"
+              }
+            ],
+            "answer": "B"
+          },
+          {
+            "question": "How do you express 3/4 as a decimal?",
+            "options": [
+              {
+                "id": "A",
+                "option": ".25"
+              },
+              {
+                "id": "B",
+                "option": ".50"
+              },
+              {
+                "id": "C",
+                "option": ".75"
+              },
+              {
+                "id": "D",
+                "option": ".90"
+              }
+            ],
+            "answer": "C"
+          },
+          {
+            "question": "How is 4:00 pm expressed in military time?",
+            "options": [
+              {
+                "id": "A",
+                "option": "1600"
+              },
+              {
+                "id": "B",
+                "option": "004"
+              },
+              {
+                "id": "C",
+                "option": "0400 "
+              },
+              {
+                "id": "D",
+                "option": "4:00"
+              }
+            ],
+            "answer": "A"
+          },
+          {
+            "question": "How is the Arabic numeral for '2' written?",
+            "options": [
+              {
+                "id": "A",
+                "option": "2"
+              },
+              {
+                "id": "B",
+                "option": "II"
+              },
+              {
+                "id": "C",
+                "option": "I"
+              },
+              {
+                "id": "D",
+                "option": "ii"
+              }
+            ],
+            "answer": "A"
+          },
+          {
+            "question": "How is the word 'ambulance' normally written on the front of American ambulances?",
+            "options": [
+              {
+                "id": "A",
+                "option": "in French"
+              },
+              {
+                "id": "B",
+                "option": "in reverse"
+              },
+              {
+                "id": "C",
+                "option": "in braille"
+              },
+              {
+                "id": "D",
+                "option": "in gibberish"
+              }
+            ],
+            "answer": "B"
+          },
+          {
+            "question": "How long is a single term in the US Senate?",
+            "options": [
+              {
+                "id": "A",
+                "option": "two years"
+              },
+              {
+                "id": "B",
+                "option": "four years"
+              },
+              {
+                "id": "C",
+                "option": "six years"
+              },
+              {
+                "id": "D",
+                "option": "eight years"
+              }
+            ],
+            "answer": "C"
+          },
+          {
+            "question": "How long is the time on an NBA shot clock?",
+            "options": [
+              {
+                "id": "A",
+                "option": "18 seconds"
+              },
+              {
+                "id": "B",
+                "option": "24 seconds"
+              },
+              {
+                "id": "C",
+                "option": "30 seconds"
+              },
+              {
+                "id": "D",
+                "option": "35 seconds"
+              }
+            ],
+            "answer": "B"
+          },
+          {
+            "question": "How many $100 bills does it take to equal one million dollars?",
+            "options": [
+              {
+                "id": "A",
+                "option": "one thousand"
+              },
+              {
+                "id": "B",
+                "option": "five thousand"
+              },
+              {
+                "id": "C",
+                "option": "ten thousand"
+              },
+              {
+                "id": "D",
+                "option": "one hundred thousand"
+              }
+            ],
+            "answer": "C"
+          },
+          {
+            "question": "How many axles does a standard automobile have?",
+            "options": [
+              {
+                "id": "A",
+                "option": "one"
+              },
+              {
+                "id": "B",
+                "option": "two"
+              },
+              {
+                "id": "C",
+                "option": "four"
+              },
+              {
+                "id": "D",
+                "option": "eight"
+              }
+            ],
+            "answer": "B"
+          },
+          {
+            "question": "How many digits are in a standard Visa credit card number?",
+            "options": [
+              {
+                "id": "A",
+                "option": "12"
+              },
+              {
+                "id": "B",
+                "option": "15"
+              },
+              {
+                "id": "C",
+                "option": "16"
+              },
+              {
+                "id": "D",
+                "option": "20"
+              }
+            ],
+            "answer": "C"
+          },
+          {
+            "question": "How many eyes does a Giraffe have?",
+            "options": [
+              {
+                "id": "A",
+                "option": "one"
+              },
+              {
+                "id": "B",
+                "option": "two"
+              },
+              {
+                "id": "C",
+                "option": "three"
+              },
+              {
+                "id": "D",
+                "option": "four"
+              }
+            ],
+            "answer": "B"
+          },
+          {
+            "question": "How many innings are there in a regular Major League Baseball game?",
+            "options": [
+              {
+                "id": "A",
+                "option": "seven"
+              },
+              {
+                "id": "B",
+                "option": "eight"
+              },
+              {
+                "id": "C",
+                "option": "nine"
+              },
+              {
+                "id": "D",
+                "option": "ten"
+              }
+            ],
+            "answer": "C"
+          },
+          {
+            "question": "How many keys are on a standard piano?",
+            "options": [
+              {
+                "id": "A",
+                "option": "20"
+              },
+              {
+                "id": "B",
+                "option": "54"
+              },
+              {
+                "id": "C",
+                "option": "88"
+              },
+              {
+                "id": "D",
+                "option": "100"
+              }
+            ],
+            "answer": "C"
+          }
+        ]

@@ -4,6 +4,7 @@ import Main from "../../Layout/Main";
 import LogIn from "../../Pages/LogIn/LogIn";
 import Home from "../../Pages/Home/Home/Home";
 import Error from "../../Pages/Error/Error";
+import ExamPage from "../../Pages/Exam/Exam";
 
 export const router = createBrowserRouter([
   {
@@ -20,5 +21,9 @@ export const router = createBrowserRouter([
         element: <LogIn />,
       },
     ],
+  },
+  {
+    path: "/python/exam",
+    element: <ExamPage/>,
   },
 ]);

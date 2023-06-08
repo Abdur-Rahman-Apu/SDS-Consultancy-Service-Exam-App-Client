@@ -1,14 +1,14 @@
 import Banner from "../Banner/Banner";
 import Exam from "../../../assets/Features/banner-image.png";
-import Course from "../../../assets/Features/course.jpg";
 import Question from "../../../assets/Features/question.jpg";
-import ExamPage from "../../Exam/Exam";
+import Course from "../../Course/Course";
+
 
 const Home = () => {
   return (
     <div>
       <Banner />
-
+      <Course></Course>
       {/* features  */}
       <div className="py-10 bg-[#f5f6fa]">
         {/* intro  */}
@@ -77,7 +77,6 @@ const Home = () => {
           </div>
         </div>
       </div>
-      <ExamPage></ExamPage>
     </div>
   );
 };
