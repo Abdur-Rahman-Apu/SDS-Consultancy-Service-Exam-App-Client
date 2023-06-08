@@ -1,13 +1,13 @@
 import { Outlet } from "react-router-dom";
 import Navbar from "../Pages/Navbar/Navbar";
 import Footer from "../Pages/Footer/Footer";
-import ExamPage from "../Pages/Exam/Exam";
+import Home from "../Pages/Home/Home/Home";
 
 const Main = () => {
   return (
-    <div>
+    <div id="home">
       <Navbar />
-      <ExamPage></ExamPage>
+      <Home></Home>
       <Outlet></Outlet>
       <Footer />
     </div>

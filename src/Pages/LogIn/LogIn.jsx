@@ -5,8 +5,8 @@ import LoginAnimation from "../../assets/LottieFiles/login.json";
 
 const LogIn = () => {
   return (
-    <div className="hero min-h-screen my-10">
-      <div className="hero-content w-[80%] flex-col lg:flex-row justify-between">
+    <div id="login" className="hero min-h-screen my-10">
+      <div className="hero-content w-[85%] flex-col lg:flex-row justify-between">
         {/* left side  */}
         <div className="text-center mb-10 lg:mb-0 lg:text-left">
           <Lottie animationData={LoginAnimation} loop={true} />

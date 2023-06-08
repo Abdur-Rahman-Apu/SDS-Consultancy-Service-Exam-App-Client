@@ -1,6 +1,10 @@
 .container {
+  position: sticky;
+  top: 0;
+  background-color: #fff;
   min-height: 150px;
   padding: 0 6%;
+  z-index: 100;
 }
 
 .gradientBg {
@@ -19,6 +23,7 @@
 
 .upper {
   height: 50%;
+  background-color: #fff;
 }
 
 .logo {
@@ -35,7 +40,7 @@
   display: inline-flex;
   justify-content: center;
   align-items: center;
-  background-color: #00b894;
+  background-color: #42bec3;
   width: 30px;
   height: 30px;
   color: #fff;

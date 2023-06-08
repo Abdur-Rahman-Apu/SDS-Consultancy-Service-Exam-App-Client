@@ -1,30 +1,27 @@
 import Nav from "./Navbar.module.css";
 import Logo from "../../assets/Logo/logo.jpg";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faFacebookF,
-  faInstagram,
-  faLinkedin,
-} from "@fortawesome/free-brands-svg-icons";
-import {
-  faClock,
-  faLocationDot,
-  faPhone,
-} from "@fortawesome/free-solid-svg-icons";
-import { Link, NavLink } from "react-router-dom";
-import {useState} from "react"
+import {faFacebookF, faInstagram,faLinkedin} from "@fortawesome/free-brands-svg-icons";
+import {faClock,faLocationDot,faPhone} from "@fortawesome/free-solid-svg-icons";
+import { Link} from "react-router-dom";
+import { useState } from "react"
 
 const Navbar = () => {
-const [activeLink,setActiveLink]= useState(false);
-const Active="underline-4 underline-offset-8 bg-none"
+  const [ActiveLink, setActiveLink] = useState(null);
+  const ActiveStyle = "bg-transparent underline decoration-2 underline-offset-8"
+  const DefalutStyleRemove="hover:bg-transparent focus:bg-transparent focus:text-black"
+
+const handleActive=(data)=>{
+setActiveLink(data)
+}
   return (
-    <div className={`${Nav.container} shadow-md`}>
+    <div className={`${Nav.container} shadow-md `}>
       {/* upper part  */}
       <div
-        className={`${Nav.upper}  flex  md:items-center md:justify-between mb-2`}
+        className={`${Nav.upper} pb-2 flex md:items-center md:justify-between z-10 `}
       >
         <div
-          className={`${Nav.logo} md:basis-1/2 flex justify-center items-center md:justify-start `}
+          className={`${Nav.logo} md:basis-1/2 flex justify-center items-center md:justify-start`}
         >
           <img src={Logo} alt="Logo" />
 
@@ -39,7 +36,7 @@ const Active="underline-4 underline-offset-8 bg-none"
           {/* call info  */}
           <div className="flex">
             <div className="mr-2">
-              <FontAwesomeIcon className="text-[#FF735C]" icon={faPhone} />
+              <FontAwesomeIcon className="text-[#42BEC3]" icon={faPhone} />
             </div>
             <div className="flex flex-col">
               <p className="font-bold text-sm">Call</p>
@@ -50,7 +47,7 @@ const Active="underline-4 underline-offset-8 bg-none"
           {/* work time info  */}
           <div className="flex ">
             <div className="mr-2">
-              <FontAwesomeIcon className="text-[#FF735C]" icon={faClock} />
+              <FontAwesomeIcon className="text-[#42BEC3]" icon={faClock} />
             </div>
             <div className="flex flex-col">
               <p className="font-bold text-sm">Work Time</p>
@@ -64,7 +61,7 @@ const Active="underline-4 underline-offset-8 bg-none"
           <div className="flex">
             <div className="mr-2">
               <FontAwesomeIcon
-                className="text-[#FF735C]"
+                className="text-[#42BEC3]"
                 icon={faLocationDot}
               />
             </div>
@@ -77,11 +74,12 @@ const Active="underline-4 underline-offset-8 bg-none"
           </div>
         </div>
       </div>
+
       <hr />
 
       {/* bottom part  */}
 
-      <div className="navbar bg-base-100">
+      <div className="navbar bg-base-100 pt-3">
         <div className="navbar-start">
           <div className="dropdown">
             <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -119,14 +117,14 @@ const Active="underline-4 underline-offset-8 bg-none"
 
           <div className="hidden lg:flex">
             <ul className="menu menu-horizontal px-1 text-base font-semibold">
-              <li className={"bg-none underline decoration-2 underline-offset-8 focus-visible:invisible"}>
-                <a href="#home">Home</a>
+              <li onClick={()=>handleActive("home")} className={`${ActiveLink==="home"?ActiveStyle:""}`}>
+                <a href="#home" className={DefalutStyleRemove}>Home</a>
               </li>
-              <li>
-                <a href="#certification">Certifications</a>
+              <li onClick={()=>handleActive("certifications")} className={`${ActiveLink==="certifications"?ActiveStyle:""}`}>
+                <a href="#certification" className={DefalutStyleRemove}>Certifications</a>
               </li>
-              <li>
-                <a href="#about">About Us</a>
+              <li onClick={()=>handleActive("about")} className={`${ActiveLink==="about"?ActiveStyle:""}`}>
+                <a href="#about" className={DefalutStyleRemove}>About Us</a>
               </li>
             </ul>
           </div>
@@ -145,9 +143,9 @@ const Active="underline-4 underline-offset-8 bg-none"
               <FontAwesomeIcon icon={faInstagram} />
             </a>
           </div>
-          <Link to="/login" className={`btn text-white ${Nav.gradientBg}`}>
+          <a href="#login"  className={`btn text-white ${Nav.gradientBg}`}>
             LogIn
-          </Link>
+          </a>
         </div>
       </div>
     </div>
