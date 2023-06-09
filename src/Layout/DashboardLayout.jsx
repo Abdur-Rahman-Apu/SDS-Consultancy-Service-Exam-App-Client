@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import { MdDashboard } from "react-icons/md";
 import { AiFillProfile } from "react-icons/ai";
+import { FaBook } from "react-icons/fa";
 import { BsPersonFillAdd, BsFillPeopleFill } from "react-icons/bs";
 import Navbar from "../Pages/Navbar/Navbar";
 import { Link, Outlet, useLocation } from "react-router-dom";
@@ -39,6 +40,19 @@ const DashboardLayout = () => {
             Profile
           </Link>
         </li>
+        <li>
+          <Link
+            to="/dashboard/courses"
+            className={
+              pathName === "/dashboard/courses" ? `${style.activeMenu}` : ""
+            }
+          >
+            {" "}
+            <FaBook />
+            Courses
+          </Link>
+        </li>
+
         <li>
           <Link
             to="/dashboard/addEmployee"

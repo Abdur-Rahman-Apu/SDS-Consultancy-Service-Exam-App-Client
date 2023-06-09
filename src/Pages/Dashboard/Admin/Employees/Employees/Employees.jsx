@@ -7,7 +7,9 @@ const Employees = () => {
   const { data: employees, refetch } = useQuery({
     queryKey: ["allEmployees"],
     queryFn: async () => {
-      const response = await fetch(`http://localhost:5000/onlyEmployees`);
+      const response = await fetch(
+        `https://quiz-five-beta.vercel.app/onlyEmployees`
+      );
       return response.json();
     },
   });
@@ -15,7 +17,7 @@ const Employees = () => {
   const handleDeleteEmployee = (id) => {
     console.log(id);
 
-    fetch(`http://localhost:5000/deleteEmployee?id=${id}`, {
+    fetch(`https://quiz-five-beta.vercel.app/deleteEmployee?id=${id}`, {
       method: "DELETE",
     })
       .then((res) => res.json())

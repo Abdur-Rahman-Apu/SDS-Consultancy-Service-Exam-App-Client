@@ -13,7 +13,7 @@ const AddEmployee = () => {
   const navigate = useNavigate();
 
   const onSubmit = (data) => {
-    fetch("http://localhost:5000/addEmployee", {
+    fetch("https://quiz-five-beta.vercel.app/addEmployee", {
       method: "POST",
       headers: {
         "content-type": "application/json",

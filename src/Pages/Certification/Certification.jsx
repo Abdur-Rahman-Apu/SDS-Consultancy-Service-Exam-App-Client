@@ -1,17 +1,8 @@
-import { useEffect, useState } from "react";
 import IndividualCertification from "./IndividualCertification";
+import useCourses from "../../CustomHook/useCourses/useCourses";
 
 const Certification = () => {
-  const [courses, setCourses] = useState(null);
-
-  useEffect(() => {
-    fetch("http://localhost:5000/certifications")
-      .then((res) => res.json())
-      .then((data) => setCourses(data))
-      .catch((err) => {
-        console.log(err);
-      });
-  }, []);
+  const [courses] = useCourses();
 
   return (
     <div className="py-10 px-[6%]">

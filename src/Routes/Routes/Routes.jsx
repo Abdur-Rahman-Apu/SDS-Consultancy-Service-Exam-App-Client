@@ -13,6 +13,8 @@ import AddEmployee from "../../Pages/Dashboard/Admin/AddEmployee/AddEmployee";
 import Employees from "../../Pages/Dashboard/Admin/Employees/Employees/Employees";
 import About from "../../Pages/About/About";
 import ExamPage from "../../Pages/Exam/ExamPage";
+import Courses from "../../Pages/Dashboard/Admin/Courses/Courses/Courses";
+import AddCourseQuestion from "../../Pages/Dashboard/Admin/Courses/AddCourseQuestion/AddCourseQuestion";
 
 export const router = createBrowserRouter([
   {
@@ -76,6 +78,22 @@ export const router = createBrowserRouter([
         element: (
           <PrivateRoute>
             <Employees />
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "/dashboard/courses",
+        element: (
+          <PrivateRoute>
+            <Courses />
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "/dashboard/addQuestion/:courseName",
+        element: (
+          <PrivateRoute>
+            <AddCourseQuestion />
           </PrivateRoute>
         ),
       },

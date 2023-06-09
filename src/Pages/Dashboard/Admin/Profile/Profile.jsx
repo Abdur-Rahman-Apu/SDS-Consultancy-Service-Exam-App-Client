@@ -23,7 +23,7 @@ const Profile = () => {
     // check new password is given in the field or not
     if (password !== data.password) {
       // update password using patch method to update specific admin
-      fetch(`http://localhost:5000/updateAdminPassword?id=${_id}`, {
+      fetch(`https://quiz-five-beta.vercel.app/updateAdminPassword?id=${_id}`, {
         method: "PATCH",
         headers: {
           "content-type": "application/json",
