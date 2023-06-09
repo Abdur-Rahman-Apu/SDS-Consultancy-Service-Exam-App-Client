@@ -33,8 +33,8 @@ const AddEmployee = () => {
   };
 
   return (
-    <div className="p-10">
-      <h1 className="text-3xl text-center mb-10 font-roboto font-bold">
+    <div className="p-10 mt-10">
+      <h1 className="text-2xl md:text-3xl text-center mb-10 font-roboto font-bold">
         Add an employee
       </h1>
 

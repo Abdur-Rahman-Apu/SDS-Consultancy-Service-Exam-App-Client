@@ -14,7 +14,9 @@ const Certifications = () => {
           alt="trophy image"
           className="w-[90px] h-[90px] object-contain"
         />
-        <h1 className="text-4xl uppercase font-bold font-roboto">quiz</h1>
+        <h1 className="text-3xl md:text-4xl uppercase font-bold font-roboto">
+          quiz
+        </h1>
       </div>
 
       {/* animation  */}
@@ -23,13 +25,16 @@ const Certifications = () => {
       </div>
 
       <div className="text-center">
-        <h1 className="text-3xl font-semibold font-roboto">
+        <h1 className="text-2xl md:text-3xl font-semibold font-roboto">
           Choose subject & attend exam
         </h1>
-        <p className="text-gray-500 text-sm py-3 font-poppins">
+        <p className="text-gray-500 text-xs md:text-sm py-3 font-poppins">
           Select your exam subject and attend the exam
         </p>
-        <Link to="/certifications" className={`${style.btn} inline-block`}>
+        <Link
+          to="/certifications"
+          className={`${style.btn} inline-block text-xs md:text-sm`}
+        >
           Certifications <AiOutlineArrowRight className="inline-block" />{" "}
         </Link>
       </div>

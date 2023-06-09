@@ -93,15 +93,15 @@ const DashboardLayout = () => {
           <Outlet />
           <label
             htmlFor="my-drawer-2"
-            className="btn btn-primary drawer-button lg:hidden"
+            className="btn bg-[#3FB3BE] btn-sm font-roboto absolute top-5 ml-2 drawer-button lg:hidden"
           >
-            Open drawer
+            Open Sidebar
           </label>
         </div>
-        <div className="drawer-side">
+        <div className="drawer-side z-[100] lg:z-0">
           <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
           <ul
-            className={`menu p-4 w-80 h-full bg-[#30b6bc80] text-base-content text-base font-roboto ${style.dashboardMenu}`}
+            className={`menu p-4 w-80 h-full bg-[#3FB3BE] lg:bg-[#30b6bc80] text-base-content text-base font-roboto ${style.dashboardMenu}`}
           >
             {/* Sidebar content here */}
             {menus}

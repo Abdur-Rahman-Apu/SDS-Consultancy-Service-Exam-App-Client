@@ -31,7 +31,7 @@ const Footer = () => {
               alt="logo"
             />
 
-            <p className="text-center lg:text-justify font-poppins text-sm">
+            <p className="text-center lg:text-justify font-poppins text-xs mt-[-30px] md:text-sm">
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores
               non ex consequatur facere eius quos, architecto exercitationem
               totam id voluptas?

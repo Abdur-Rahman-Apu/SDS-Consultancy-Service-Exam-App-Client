@@ -32,25 +32,25 @@ const Employees = () => {
 
   console.log(employees);
   return (
-    <div className="px-16">
-      <h1 className="text-center font-roboto text-3xl font-bold my-10">
+    <div className="md:px-16">
+      <h1 className="text-center font-roboto text-2xl md:text-3xl font-bold mt-16 mb-10">
         Employees
       </h1>
 
       {/* show employees data as table using list  */}
 
-      <div className="overflow-x-auto">
-        <table className="table">
+      <div className="w-full overflow-x-auto">
+        <table className="table w-[100%]">
           {/* head */}
           <thead className="bg-[#30b6bc4d]">
-            <tr className="text-lg font-roboto font-bold text-black">
+            <tr className="text-base md:text-lg font-roboto font-bold text-black">
               <th>Name</th>
               <th>Registration Id</th>
               <th>Password</th>
               <th>Action</th>
             </tr>
           </thead>
-          <tbody className="font-roboto text-base">
+          <tbody className="font-roboto text-sm md:text-base">
             {employees?.map((employee) => (
               <Employee
                 key={employee._id}

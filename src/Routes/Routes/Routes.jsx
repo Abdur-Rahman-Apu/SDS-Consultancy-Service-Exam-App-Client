@@ -12,6 +12,7 @@ import Profile from "../../Pages/Dashboard/Admin/Profile/Profile";
 import AddEmployee from "../../Pages/Dashboard/Admin/AddEmployee/AddEmployee";
 import Employees from "../../Pages/Dashboard/Admin/Employees/Employees/Employees";
 import About from "../../Pages/About/About";
+import ExamPage from "../../Pages/Exam/ExamPage";
 
 export const router = createBrowserRouter([
   {
@@ -34,6 +35,10 @@ export const router = createBrowserRouter([
       {
         path: "/about",
         element: <About />,
+      },
+      {
+        path: "/exam",
+        element: <ExamPage />,
       },
     ],
   },

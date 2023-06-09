@@ -11,7 +11,7 @@ const Features = () => {
           Welcome to <span className="text-[#00ADB4]">SDS</span>
         </h1>
 
-        <p className="my-4 text-sm  font-poppins">
+        <p className="my-4 text-xs md:text-sm  font-poppins">
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit
           assumenda nam odio illum asperiores consectetur.
         </p>
@@ -30,7 +30,7 @@ const Features = () => {
           </div>
 
           <div>
-            <p className="text-center font-bold text-xl font-roboto">
+            <p className="text-center font-bold text-lg md:text-xl font-roboto">
               Exam on different certifications
             </p>
           </div>
@@ -47,7 +47,7 @@ const Features = () => {
           </div>
 
           <div>
-            <p className="text-center font-bold text-xl font-roboto">
+            <p className="text-center font-bold text-lg md:text-xl font-roboto">
               Five certifications
             </p>
           </div>
@@ -64,7 +64,7 @@ const Features = () => {
           </div>
 
           <div>
-            <p className="text-center font-bold text-xl font-roboto">
+            <p className="text-center font-bold text-lg md:text-xl font-roboto">
               Each course has 100 questions
             </p>
           </div>
