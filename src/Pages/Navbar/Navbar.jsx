@@ -7,13 +7,14 @@ import { Link} from "react-router-dom";
 import { useState } from "react"
 
 const Navbar = () => {
-  const [ActiveLink, setActiveLink] = useState(null);
+  const [ActiveLink, setActiveLink] = useState("empty");
   const ActiveStyle = "bg-transparent underline decoration-2 underline-offset-8"
   const DefalutStyleRemove="hover:bg-transparent focus:bg-transparent focus:text-black"
 
 const handleActive=(data)=>{
 setActiveLink(data)
 }
+const HomeActiveLink=["home","empty"]
   return (
     <div className={`${Nav.container} shadow-md `}>
       {/* upper part  */}
@@ -117,7 +118,7 @@ setActiveLink(data)
 
           <div className="hidden lg:flex">
             <ul className="menu menu-horizontal px-1 text-base font-semibold">
-              <li onClick={()=>handleActive("home")} className={`${ActiveLink==="home"?ActiveStyle:""}`}>
+              <li onClick={()=>handleActive("home")} className={`${HomeActiveLink.includes(ActiveLink)?ActiveStyle:""}`}>
                 <a href="#home" className={DefalutStyleRemove}>Home</a>
               </li>
               <li onClick={()=>handleActive("certifications")} className={`${ActiveLink==="certifications"?ActiveStyle:""}`}>

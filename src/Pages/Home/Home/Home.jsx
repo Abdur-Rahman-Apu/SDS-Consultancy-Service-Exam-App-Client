@@ -1,14 +1,15 @@
 import Banner from "../Banner/Banner";
 import Exam from "../../../assets/Features/banner-image.png";
 import Question from "../../../assets/Features/question.jpg";
-import Course from "../../Course/Course";
+import Course from "../../../assets/Features/course.jpg";
+import CoursePage from "../../Course/Course";
 
 
 const Home = () => {
   return (
     <div>
       <Banner />
-      <Course></Course>
+      <CoursePage></CoursePage>
       {/* features  */}
       <div className="py-10 bg-[#f5f6fa]">
         {/* intro  */}
