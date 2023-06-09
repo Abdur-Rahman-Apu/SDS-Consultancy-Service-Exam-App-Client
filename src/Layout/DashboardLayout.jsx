@@ -44,7 +44,10 @@ const DashboardLayout = () => {
           <Link
             to="/dashboard/courses"
             className={
-              pathName === "/dashboard/courses" ? `${style.activeMenu}` : ""
+              pathName.includes("/dashboard/courses") ||
+              pathName.includes("/dashboard/addQuestion")
+                ? `${style.activeMenu}`
+                : ""
             }
           >
             {" "}
