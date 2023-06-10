@@ -10,7 +10,7 @@ const AddCourseQuestion = () => {
     handleSubmit,
   } = useForm();
 
-  const courseName = useParams();
+  const { courseName } = useParams();
 
   // Read JSON file and insert into the database
   const onSubmit = (data) => {
@@ -18,9 +18,30 @@ const AddCourseQuestion = () => {
 
     const jsonFile = data.file[0];
 
+    console.log(jsonFile);
+
     new Response(jsonFile).json().then(
       (data) => {
-        console.log(data);
+        // convert into json
+        const strings = data.map((o) => JSON.stringify(o));
+
+        // send data into the database
+        fetch(`http://localhost:5000/addQuestion?courseName=${courseName}`, {
+          method: "PATCH",
+          headers: {
+            "content-type": "application/json",
+          },
+          body: JSON.stringify(strings),
+        })
+          .then((res) => res.json())
+          .then((result) => {
+            if (result.acknowledged) {
+              toast.success("Question added successfully");
+            }
+          })
+          .catch(() => {
+            toast.error("Failed to add question");
+          });
       },
       (err) => {
         console.log(err);
