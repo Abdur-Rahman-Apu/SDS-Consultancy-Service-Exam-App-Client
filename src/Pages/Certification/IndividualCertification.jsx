@@ -121,7 +121,7 @@ const IndividualCertification = ({ course }) => {
                   <h1 className="text-3xl font-bold my-4">Are you ready?</h1>
 
                   {/* Exam rules  */}
-                  <h2 className="text-2xl text-start text-red-500 font-bold my-3">
+                  <h2 className="text-2xl text-start  font-bold my-3">
                     Read the following rules again:
                   </h2>
                   <ol
@@ -138,8 +138,8 @@ const IndividualCertification = ({ course }) => {
                       will be finished.
                     </li>
                     <li>
-                      Users scoring 80 marks or more will pass, while those
-                      scoring less than 80 will fail.
+                      If you achieve 80 marks or more then you will pass,
+                      otherwise you will fail.
                     </li>
                   </ol>
 
