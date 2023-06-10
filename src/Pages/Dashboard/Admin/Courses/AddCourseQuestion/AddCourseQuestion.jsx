@@ -52,7 +52,7 @@ const AddCourseQuestion = () => {
 
   return (
     <div>
-      <h1 className="text-4xl font-roboto font-bold text-center mt-16">
+      <h1 className="text-3xl md:text-4xl font-roboto font-bold text-center mt-20">
         Add New Questions & Answers
       </h1>
 
@@ -64,7 +64,7 @@ const AddCourseQuestion = () => {
       >
         <div className="mr-3">
           <label
-            className="block mb-2 text-lg font-bold font-roboto text-gray-900"
+            className="block mb-2 text-base md:text-lg font-bold font-roboto text-gray-900"
             htmlFor="file_input"
           >
             Upload a JSON file
