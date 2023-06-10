@@ -145,14 +145,14 @@ const IndividualCertification = ({ course }) => {
 
                   <div className="flex justify-between md:w-[30%] mx-auto my-10">
                     <button
-                      className="bg-[#e74c3c] text-white font-roboto py-[15px] px-[20px] rounded-full"
+                      className="bg-[#e74c3c] text-white font-bold font-roboto py-[15px] px-[20px] rounded-full"
                       onClick={toggleConfirmationModal}
                     >
                       Cancel
                     </button>
                     <Link
                       to="#"
-                      className="bg-[#2ecc71] text-white py-[15px] px-[20px] font-roboto rounded-full"
+                      className="bg-[#2ecc71] text-white font-bold py-[15px] px-[20px] font-roboto rounded-full"
                     >
                       Proceed
                     </Link>
