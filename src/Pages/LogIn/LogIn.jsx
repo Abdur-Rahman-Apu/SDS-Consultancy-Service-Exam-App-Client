@@ -15,6 +15,8 @@ const LogIn = () => {
 
   const [passwordInputType, setPasswordInputType] = useState("password");
 
+  const [found, setFound] = useState(0);
+
   // form elements
   const {
     register,
@@ -45,14 +47,19 @@ const LogIn = () => {
           console.log(employeeInfo);
 
           if (regId === givenId && password === givenPass) {
+            setFound((prev) => prev + 1);
+            toast.success("LogIn successfully");
             localStorage.setItem("Employee-Info", JSON.stringify(employeeInfo));
             navigate(from, { replace: true });
-            toast.success("LogIn successfully");
           }
         });
+
+        if (found === 0) {
+          toast.error("No match");
+        }
       })
       .catch(() => {
-        toast.error("No match");
+        toast.error("Server error");
       });
 
     setLoading(false);

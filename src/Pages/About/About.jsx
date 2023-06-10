@@ -21,9 +21,9 @@ const About = () => {
             Welcome to <span className="text-[#44b2bf]">SDS</span>
           </h1>
           <p className="text-xs md:text-sm font-poppins ">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum
-            totam sapiente ratione tempore illo officia cum! Quidem animi alias
-            eaque!
+            SDS Consultancy Service conducts exams for different certifications.
+            It provides you to judge your learning and provide you report of
+            your progress.
           </p>
         </div>
         <div className="basis-1/2 relative mt-20 lg:mt-0">
@@ -81,26 +81,24 @@ const About = () => {
             Our Mission
           </h1>
           <p className="text-xs md:text-sm text-justify my-3 font-poppins">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum
-            magnam dolorem minus sit praesentium odit perspiciatis sint vel
-            doloremque rem.
+            The main aim to judge employees knowledge. Some few points are -
           </p>
 
           <ul className="text-xs md:text-sm font-poppins">
             <li className="flex items-center">
               {" "}
-              <FaHandPointRight className="mr-2 text-[#36B4BD]" /> Lorem ipsum
-              dolor sit amet.
+              <FaHandPointRight className="mr-2 text-[#36B4BD]" /> To see the
+              employees ability.
             </li>
             <li className="flex items-center">
               {" "}
-              <FaHandPointRight className="mr-2 text-[#36B4BD]" /> Lorem ipsum
-              dolor sit amet.
+              <FaHandPointRight className="mr-2 text-[#36B4BD]" /> To find out
+              the weakness of the employee.
             </li>
             <li className="flex items-center">
               {" "}
-              <FaHandPointRight className="mr-2 text-[#36B4BD]" /> Lorem ipsum
-              dolor sit amet.
+              <FaHandPointRight className="mr-2 text-[#36B4BD]" /> To encourage
+              employees
             </li>
           </ul>
         </div>

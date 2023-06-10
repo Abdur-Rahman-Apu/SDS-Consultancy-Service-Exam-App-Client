@@ -32,9 +32,10 @@ const Footer = () => {
             />
 
             <p className="text-center lg:text-justify font-poppins text-xs mt-[-30px] md:text-sm">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores
-              non ex consequatur facere eius quos, architecto exercitationem
-              totam id voluptas?
+              SDS Consultancy Service conducts exams for different
+              certifications. It provides you to judge your learning and provide
+              you report of your progress. If you have any confusion, please
+              contact with us.
             </p>
           </div>
         </div>

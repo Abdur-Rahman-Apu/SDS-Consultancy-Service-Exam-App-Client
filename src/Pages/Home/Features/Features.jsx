@@ -12,8 +12,8 @@ const Features = () => {
         </h1>
 
         <p className="my-4 text-xs md:text-sm  font-poppins">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit
-          assumenda nam odio illum asperiores consectetur.
+          SDS Consultancy service provide you an opportunity to judge your
+          knowledge. It provides awesome features.
         </p>
       </div>
 

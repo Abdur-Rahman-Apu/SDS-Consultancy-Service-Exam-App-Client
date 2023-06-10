@@ -14,9 +14,7 @@ const Banner = () => {
         <div className="basis-1/2">
           <h1 className="text-3xl md:text-5xl font-bold font-roboto">
             The Smarter Way to Learn{" "}
-            <span className="text-[#42BEC3] inline-block underline mt-5">
-              Anything
-            </span>
+            <span className="text-[#42BEC3] inline-block  mt-5">Anything</span>
           </h1>
           <p className="py-6 font-poppins text-sm">
             Learning is very important in this modern era. Your confidence will
