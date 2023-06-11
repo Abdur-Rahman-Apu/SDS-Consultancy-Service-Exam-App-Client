@@ -214,17 +214,17 @@ const ExamPage = () => {
   const AddResultToLocal = () => {
     // Add Employee Answer to Local Storage
     const data = {
-      Title,
+      Title: PathCourseName,
       userAnswers: userAnswers,
       ExamDate: new Date().toISOString(),
     };
 
+    console.log(data);
+
     const getItemData = localStorage.getItem("ExamResult");
     if (!getItemData) {
       localStorage.setItem("ExamResult", JSON.stringify([data]));
-      console.log("Hello");
 
-      //   setToDatabase();
       return;
     }
 
