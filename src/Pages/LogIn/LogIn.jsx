@@ -54,9 +54,7 @@ const LogIn = () => {
           }
         });
 
-        if (found === false) {
-          toast.error("No match");
-        }
+        found === false && toast.error("No match");
       })
       .catch(() => {
         toast.error("Server error");
