@@ -1,16 +1,18 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import Alert from "../../assets/Audio/alert.mp3";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import Swal from "sweetalert2";
 import useExamData from "../../CustomHook/useExamData/useExamData";
 import Loading from "../Loading/Loading";
 import { toast } from "react-toastify";
+import { AuthContext } from "../../Context/AuthProvider";
 
 const ExamPage = () => {
   const [userAnswers, setUserAnswers] = useState({});
   const [OptionStyle, setOptionStyle] = useState(null);
   const [timeRemaining, setTimeRemaining] = useState(300); // 2 hours
   const [isTimeUp, setIsTimeUp] = useState(false);
+  const { employeeInfo } = useContext(AuthContext);
 
   const Params = useParams();
   const PathCourseName = Params.courseName;
@@ -38,12 +40,14 @@ const ExamPage = () => {
         }).then((result) => {
           AddResultToLocal();
           if (result.isConfirmed) {
+            setToDatabase();
             Swal.fire({
               icon: "success",
               title: "Your work has been saved",
               showConfirmButton: false,
               html: `
-							<a href="/certifications/${PathCourseName}/result" target="_blank" style='display: inline-block;
+							<a href="/certifications/${PathCourseName}/result" 
+							 target="_blank" style='display: inline-block;
 										padding: 10px 20px;
 										background-color: #007bff;
 										color: #fff;
@@ -67,7 +71,7 @@ const ExamPage = () => {
     return () => {
       window.removeEventListener("visibilitychange", handleVisibilityChange);
     };
-  }, []);
+  }, [PathCourseName]);
 
   const handleAnswerChange = (questionId, selectedOption, option) => {
     setUserAnswers((prevAnswers) => ({
@@ -75,6 +79,93 @@ const ExamPage = () => {
       [questionId]: selectedOption,
     }));
     setOptionStyle(option);
+  };
+
+  const setToDatabase = () => {
+    fetch(`https://quiz-five-beta.vercel.app/certifications/${PathCourseName}`)
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data, "data");
+        const ExamData = data;
+        const GetLocalExamResult = JSON.parse(
+          localStorage.getItem("ExamResult")
+        );
+        const MatchedResultData = GetLocalExamResult.find(
+          (result) => result.Title === PathCourseName
+        );
+
+        console.log(MatchedResultData);
+
+        const formattedExamDate = new Date(MatchedResultData.ExamDate)
+          .toLocaleString()
+          .split(",")[0];
+
+        //   user's answers
+        const userAnswersArray = Object.entries(
+          MatchedResultData.userAnswers
+        ).map(([key, value]) => ({
+          SubmitQNo: key,
+          SubmitAnswer: value,
+        }));
+
+        //   all questions correct answer
+        const AnswerArray = ExamData.questionPaper.map((questions) => ({
+          questionNo: questions.questionNo,
+          answer: questions.answer,
+        }));
+
+        let correctAns = [];
+        let wrongAns = [];
+
+        AnswerArray.forEach((originalAns) => {
+          userAnswersArray.forEach((userAns) => {
+            if (userAns.SubmitQNo == originalAns.questionNo) {
+              if (userAns.SubmitAnswer == originalAns.answer) {
+                correctAns.push(userAns);
+              } else if (userAns.SubmitAnswer != originalAns.answer) {
+                wrongAns.push(userAns);
+              }
+            }
+          });
+        });
+
+        console.log(correctAns.length);
+        //   calculation of total mark
+
+        let totalMark =
+          correctAns.length - wrongAns.length <= 0
+            ? 0
+            : correctAns.length - wrongAns.length;
+
+        console.log(totalMark);
+
+        const markSheet = {
+          courseName: MatchedResultData.Title,
+          examDate: formattedExamDate,
+          totalMark,
+        };
+
+        console.log("Mark sheet", markSheet);
+
+        fetch(`http://localhost:5000/userResult?id=${employeeInfo?._id}`, {
+          method: "PATCH",
+          headers: {
+            "content-type": "application/json",
+          },
+          body: JSON.stringify(markSheet),
+        })
+          .then((res) => res.json())
+          .then((result) => {
+            if (result.acknowledged) {
+              toast.success("Result added");
+            } else {
+              toast.success("Failed to added");
+            }
+          })
+          .catch(() => {
+            toast.error("Server error");
+          });
+      });
   };
 
   // Employee Answer Submit Function
@@ -101,7 +192,9 @@ const ExamPage = () => {
           icon: "success",
           title: "Answer Submitted!",
           html: `
-					<a href="/certifications/${PathCourseName}/result" target="_blank" style='display: inline-block;
+					<a href="/certifications/${PathCourseName}/result"  target="_blank"
+					onClick=${setToDatabase()}
+					style='display: inline-block;
 								padding: 10px 20px;
 								background-color: #007bff;
 								color: #fff;
@@ -118,84 +211,6 @@ const ExamPage = () => {
     });
   };
 
-  const setToDatabase = () => {
-    const GetLocalExamResult = JSON.parse(localStorage.getItem("ExamResult"));
-    const MatchedResultData = GetLocalExamResult.find(
-      (result) => result.Title === PathCourseName
-    );
-
-    console.log(MatchedResultData);
-
-    const formattedExamDate = new Date(MatchedResultData.ExamDate)
-      .toLocaleString()
-      .split(",")[0];
-
-    //   user's answers
-    const userAnswersArray = Object.entries(MatchedResultData.userAnswers).map(
-      ([key, value]) => ({
-        SubmitQNo: key,
-        SubmitAnswer: value,
-      })
-    );
-
-    //   all questions correct answer
-    const AnswerArray = ExamData.questionPaper.map((questions) => ({
-      questionNo: questions.questionNo,
-      answer: questions.answer,
-    }));
-
-    let correctAns = [];
-    let wrongAns = [];
-
-    AnswerArray.forEach((originalAns) => {
-      userAnswersArray.forEach((userAns) => {
-        if (userAns.SubmitQNo == originalAns.questionNo) {
-          if (userAns.SubmitAnswer == originalAns.answer) {
-            correctAns.push(userAns);
-          } else if (userAns.SubmitAnswer != originalAns.answer) {
-            wrongAns.push(userAns);
-          }
-        }
-      });
-    });
-
-    console.log(correctAns.length);
-    //   calculation of total mark
-
-    let totalMark =
-      correctAns.length - wrongAns.length <= 0
-        ? 0
-        : correctAns.length - wrongAns.length;
-
-    console.log(totalMark);
-
-    const markSheet = {
-      courseName: MatchedResultData.Title,
-      examDate: formattedExamDate,
-      totalMark,
-    };
-
-    console.log("Mark sheet", markSheet);
-
-    fetch(`http://localhost:5000/userResult?id=${employeeInfo._id}`, {
-      method: "PATCH",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(markSheet),
-    })
-      .then((res) => res.json())
-      .then((result) => {
-        if (result.acknowledged) {
-          toast.success("Result added");
-        } else {
-          toast.success("Failed to added");
-        }
-      })
-      .catch(() => {
-        toast.error("Server error");
-      });
-  };
   const AddResultToLocal = () => {
     // Add Employee Answer to Local Storage
     const data = {
@@ -355,7 +370,8 @@ const ExamPage = () => {
               icon: "success",
               title: "Your work has been saved",
               html: `
-					<a href="/certifications/${PathCourseName}/result" target="_blank" style='display: inline-block;
+					<a href="/certifications/${PathCourseName}/result" target="_blank" 
+					onClick=${setToDatabase()} style='display: inline-block;
 								padding: 10px 20px;
 								background-color: #007bff;
 								color: #fff;
