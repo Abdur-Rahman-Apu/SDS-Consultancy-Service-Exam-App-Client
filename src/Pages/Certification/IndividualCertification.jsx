@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import RuleImage from "../../assets/Certifications/rule.png";
+import ReadyImg from "../../assets/Certifications/7494932.jpg";
 import style from "./individualCertification.module.css";
 
 const IndividualCertification = ({ course }) => {
@@ -120,12 +121,21 @@ const IndividualCertification = ({ course }) => {
                   {/* course name  */}
                   <h1 className="text-3xl font-bold my-4">Are you ready?</h1>
 
+                  {/* image  */}
+                  <div className=" w-[90%] md:w-[50%] h-[300px] mx-auto mb-10">
+                    <img
+                      src={ReadyImg}
+                      alt="image"
+                      className="w-full h-full object-cover rounded-3xl"
+                    />
+                  </div>
+
                   {/* Exam rules  */}
                   <h2 className="text-2xl text-start  font-bold my-3">
                     Read the following rules again:
                   </h2>
                   <ol
-                    className={`${style.orderList} text-start list-disc ml-[10%] pb-5`}
+                    className={`${style.orderList}  text-start list-disc ml-[10%] pb-5`}
                   >
                     <li>The exam duration is 2 hours</li>
                     <li>Total number of question is 100</li>
@@ -154,7 +164,7 @@ const IndividualCertification = ({ course }) => {
                       to="#"
                       className="bg-[#2ecc71] text-white font-bold py-[15px] px-[20px] font-roboto rounded-full"
                     >
-                      Proceed
+                      Start
                     </Link>
                   </div>
                 </div>

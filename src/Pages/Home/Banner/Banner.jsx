@@ -8,7 +8,7 @@ const Banner = () => {
         <div className="basis-1/2  my-7 md:my-0 relative">
           <div className="w-[80px] h-[80px] opacity-40 rounded-full bg-[#7bed9f]  absolute top-0 right-0"></div>
           <div className="w-[20px] h-[20px] opacity-40 rounded-full bg-[#7bed9f]  absolute top-20 right-16"></div>
-          <div className="w-[30px] h-[30px] opacity-40 rounded-full bg-[#eccc68]  absolute bottom-20 left-16"></div>
+          <div className="w-[30px] h-[30px] opacity-40 rounded-full bg-[#21b9ba4d]  absolute bottom-20 left-16"></div>
           <img src={BannerImg} className=" md:max-w-sm md:mx-auto rounded-lg" />
         </div>
         <div className="basis-1/2">
