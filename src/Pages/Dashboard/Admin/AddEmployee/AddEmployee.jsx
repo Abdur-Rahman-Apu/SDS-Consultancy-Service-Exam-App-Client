@@ -18,7 +18,16 @@ const AddEmployee = () => {
       headers: {
         "content-type": "application/json",
       },
-      body: JSON.stringify(data),
+      body: JSON.stringify({
+        ...data,
+        result: [
+          { Java: [] },
+          { Python: [] },
+          { CCNA: [] },
+          { CCSP: [] },
+          { Hadoop: [] },
+        ],
+      }),
     })
       .then((res) => res.json())
       .then((result) => {
