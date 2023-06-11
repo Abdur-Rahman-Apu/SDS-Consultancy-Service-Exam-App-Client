@@ -6,7 +6,7 @@ import RuleImage from "../../assets/Certifications/rule.png";
 import ReadyImg from "../../assets/Certifications/7494932.jpg";
 import style from "./individualCertification.module.css";
 
-const IndividualCertification = ({ course }) => {
+const IndividualCertification = ({ course, employeeInfo }) => {
   const { courseId, courseName, courseImg, courseDesc } = course;
 
   const [ruleModalOpen, setRuleModalOpen] = useState(false);
@@ -109,6 +109,7 @@ const IndividualCertification = ({ course }) => {
           <button
             className="btn bg-[#42B2BE] font-roboto text-white rounded-full"
             onClick={toggleConfirmationModal}
+            disabled={employeeInfo.role === "admin"}
           >
             Give Exam
           </button>

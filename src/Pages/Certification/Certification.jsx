@@ -1,7 +1,10 @@
 import IndividualCertification from "./IndividualCertification";
 import useCourses from "../../CustomHook/useCourses/useCourses";
+import { useContext } from "react";
+import { AuthContext } from "../../Context/AuthProvider";
 
 const Certification = () => {
+  const { employeeInfo } = useContext(AuthContext);
   const [courses] = useCourses();
 
   return (
@@ -20,7 +23,11 @@ const Certification = () => {
       {courses ? (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 my-16">
           {courses?.map((course) => (
-            <IndividualCertification key={course.courseId} course={course} />
+            <IndividualCertification
+              key={course.courseId}
+              course={course}
+              employeeInfo={employeeInfo}
+            />
           ))}
         </div>
       ) : (

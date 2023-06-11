@@ -37,15 +37,15 @@ export const router = createBrowserRouter([
       },
       {
         path: "/certifications",
-        element: <Certification />,
+        element: (
+          <PrivateRoute>
+            <Certification />
+          </PrivateRoute>
+        ),
       },
       {
         path: "/about",
         element: <About />,
-      },
-      {
-        path: "/exam",
-        element: <ExamPage />,
       },
     ],
   },
