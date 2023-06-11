@@ -123,7 +123,7 @@ const DashboardLayout = () => {
             htmlFor="my-drawer-2"
             className="btn bg-[#3FB3BE] btn-sm font-roboto absolute top-5 ml-2 drawer-button lg:hidden"
           >
-            Open Sidebar
+            Sidebar
           </label>
         </div>
         <div className="drawer-side z-[100] lg:z-0">

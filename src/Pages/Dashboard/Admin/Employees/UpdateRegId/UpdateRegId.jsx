@@ -33,7 +33,7 @@ const UpdateRegId = () => {
 
   return (
     <div className="mt-16">
-      <h1 className="text-center font-bold font-roboto text-2xl">
+      <h1 className="text-center font-bold font-roboto text-2xl md:text-3xl">
         Update Employees Registration ID
       </h1>
 
@@ -42,7 +42,7 @@ const UpdateRegId = () => {
         <div>
           <label
             htmlFor="id"
-            className="block mb-2 text-lg font-bold font-roboto text-gray-900 dark:text-white"
+            className="block mb-2 text-base md:text-lg font-bold font-roboto text-gray-900 dark:text-white"
           >
             New Id
           </label>
