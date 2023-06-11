@@ -16,6 +16,8 @@ import ExamPage from "../../Pages/Exam/ExamPage";
 import Courses from "../../Pages/Dashboard/Admin/Courses/Courses/Courses";
 import AddCourseQuestion from "../../Pages/Dashboard/Admin/Courses/AddCourseQuestion/AddCourseQuestion";
 import UpdateRegId from "../../Pages/Dashboard/Admin/Employees/UpdateRegId/UpdateRegId";
+import Result from "../../Pages/Dashboard/Employee/Result/Result/Result";
+import EachCourseResult from "../../Pages/Dashboard/Employee/Result/EachCourseResult/EachCourseResult";
 
 export const router = createBrowserRouter([
   {
@@ -103,6 +105,22 @@ export const router = createBrowserRouter([
         element: (
           <PrivateRoute>
             <UpdateRegId />
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "/dashboard/result",
+        element: (
+          <PrivateRoute>
+            <Result />
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "/dashboard/result/seeMark/:courseName",
+        element: (
+          <PrivateRoute>
+            <EachCourseResult />
           </PrivateRoute>
         ),
       },

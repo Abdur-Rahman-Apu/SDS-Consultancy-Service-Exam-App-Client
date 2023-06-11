@@ -71,7 +71,9 @@ const DashboardLayout = () => {
           <Link
             to="/dashboard/employees"
             className={
-              pathName === "/dashboard/employees" ? `${style.activeMenu}` : ""
+              pathName.includes("/dashboard/employees")
+                ? `${style.activeMenu}`
+                : ""
             }
           >
             <BsFillPeopleFill /> Employees
@@ -90,7 +92,16 @@ const DashboardLayout = () => {
           </Link>
         </li>
         <li>
-          <Link>Result</Link>
+          <Link
+            to="/dashboard/result"
+            className={
+              pathName.includes("/dashboard/result")
+                ? `${style.activeMenu}`
+                : ""
+            }
+          >
+            Result
+          </Link>
         </li>
       </>
     );
