@@ -27,11 +27,11 @@ const Course = ({ course }) => {
         <th>
           <Link
             to={`/dashboard/addQuestion/${course?.courseName}`}
-            className="btn btn-success btn-xs mb-3 md:mr-3"
+            className="btn btn-success btn-xs"
           >
             Add Questions
           </Link>
-          <button className="btn btn-warning btn-xs">View Questions</button>
+          {/* <button className="btn btn-warning btn-xs">View Questions</button> */}
         </th>
       ) : (
         <th>
