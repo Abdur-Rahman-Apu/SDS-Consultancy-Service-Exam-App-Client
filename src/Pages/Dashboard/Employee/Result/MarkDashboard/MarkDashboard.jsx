@@ -1,7 +1,7 @@
 import useCourses from "../../../../../CustomHook/useCourses/useCourses";
 import Course from "../../../Admin/Courses/Course/Course";
 
-const Result = () => {
+const MarkDashboard = () => {
   // get all courses
   const [courses] = useCourses();
 
@@ -38,4 +38,4 @@ const Result = () => {
   );
 };
 
-export default Result;
+export default MarkDashboard;

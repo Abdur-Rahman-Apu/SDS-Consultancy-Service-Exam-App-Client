@@ -1,12 +1,9 @@
-import Lottie from "lottie-react";
-import LoadingAnimation from "../../assets/Loading/loading.json";
-
-const Loading = () => {
+function Loading() {
   return (
-    <div className="w-[50%] mx-auto">
-      <Lottie animationData={LoadingAnimation} loop={true} />
+    <div className="h-screen w-full flex justify-center items-center bg-gray-50">
+      <span className="loading loading-ring w-14"></span>
     </div>
   );
-};
+}
 
 export default Loading;

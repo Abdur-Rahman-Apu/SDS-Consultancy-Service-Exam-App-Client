@@ -161,7 +161,7 @@ const IndividualCertification = ({ course }) => {
                       Cancel
                     </button>
                     <Link
-                      to="#"
+                      to={`/certifications/${courseName}/exam`}
                       className="bg-[#2ecc71] text-white font-bold py-[15px] px-[20px] font-roboto rounded-full"
                     >
                       Start

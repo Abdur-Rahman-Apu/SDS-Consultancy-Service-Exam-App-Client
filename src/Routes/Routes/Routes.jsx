@@ -12,12 +12,14 @@ import Profile from "../../Pages/Dashboard/Admin/Profile/Profile";
 import AddEmployee from "../../Pages/Dashboard/Admin/AddEmployee/AddEmployee";
 import Employees from "../../Pages/Dashboard/Admin/Employees/Employees/Employees";
 import About from "../../Pages/About/About";
-import ExamPage from "../../Pages/Exam/ExamPage";
 import Courses from "../../Pages/Dashboard/Admin/Courses/Courses/Courses";
 import AddCourseQuestion from "../../Pages/Dashboard/Admin/Courses/AddCourseQuestion/AddCourseQuestion";
 import UpdateRegId from "../../Pages/Dashboard/Admin/Employees/UpdateRegId/UpdateRegId";
-import Result from "../../Pages/Dashboard/Employee/Result/Result/Result";
+
 import EachCourseResult from "../../Pages/Dashboard/Employee/Result/EachCourseResult/EachCourseResult";
+import ExamPage from "../../Pages/ExamPage/ExamPage";
+import MarkDashboard from "../../Pages/Dashboard/Employee/Result/MarkDashboard/MarkDashboard";
+import Result from "../../Pages/ExamPage/Result";
 
 export const router = createBrowserRouter([
   {
@@ -46,6 +48,14 @@ export const router = createBrowserRouter([
         element: <ExamPage />,
       },
     ],
+  },
+  {
+    path: "/certifications/:courseName/exam",
+    element: <ExamPage />,
+  },
+  {
+    path: "/certifications/:courseName/result",
+    element: <Result />,
   },
   {
     path: "/dashboard",
@@ -112,7 +122,7 @@ export const router = createBrowserRouter([
         path: "/dashboard/result",
         element: (
           <PrivateRoute>
-            <Result />
+            <MarkDashboard />
           </PrivateRoute>
         ),
       },
