@@ -14,6 +14,7 @@ const Employees = () => {
     },
   });
 
+  // delete an employee
   const handleDeleteEmployee = (id) => {
     console.log(id);
 
@@ -42,7 +43,7 @@ const Employees = () => {
       {/* show employees data as table using list  */}
 
       <div className="w-full overflow-x-auto">
-        <table className="table w-[100%]">
+        <table className="table w-[100%] text-center">
           {/* head */}
           <thead className="bg-[#30b6bc4d]">
             <tr className="text-base md:text-lg font-roboto font-bold text-black">

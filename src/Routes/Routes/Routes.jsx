@@ -15,6 +15,7 @@ import About from "../../Pages/About/About";
 import ExamPage from "../../Pages/Exam/ExamPage";
 import Courses from "../../Pages/Dashboard/Admin/Courses/Courses/Courses";
 import AddCourseQuestion from "../../Pages/Dashboard/Admin/Courses/AddCourseQuestion/AddCourseQuestion";
+import UpdateRegId from "../../Pages/Dashboard/Admin/Employees/UpdateRegId/UpdateRegId";
 
 export const router = createBrowserRouter([
   {
@@ -94,6 +95,14 @@ export const router = createBrowserRouter([
         element: (
           <PrivateRoute>
             <AddCourseQuestion />
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "/dashboard/employees/updateRegId/:id",
+        element: (
+          <PrivateRoute>
+            <UpdateRegId />
           </PrivateRoute>
         ),
       },
