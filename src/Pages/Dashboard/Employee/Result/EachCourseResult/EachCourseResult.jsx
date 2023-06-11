@@ -1,7 +1,12 @@
+import { useContext } from "react";
 import { useParams } from "react-router-dom";
+import { AuthContext } from "../../../../../Context/AuthProvider";
 
 const EachCourseResult = () => {
   const { courseName } = useParams();
+  const { employeeInfo } = useContext(AuthContext);
+  console.log(courseName);
+  console.log(employeeInfo);
 
   return (
     <div className="my-16">

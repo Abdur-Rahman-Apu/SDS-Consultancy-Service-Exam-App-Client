@@ -58,21 +58,21 @@ const Profile = () => {
       <div className="w-[90%] md:w-[60%] mx-auto mt-20 mb-10   border border-gray-200 rounded-lg shadow">
         <div className=" py-10 bg-[#44b2bf33]">
           <h1 className="text-2xl md:text-3xl text-center font-bold font-roboto uppercase">
-            Profile Info
+            Profile
           </h1>
 
           {/* profile information  */}
           <div className="px-[20px] font-roboto ">
-            <h5 className="mb-1 text-lg md:text-xl  font-medium text-gray-900 capitalize mt-4">
+            <h5 className="mb-1 text-lg md:text-xl  font-medium text-gray-900  mt-4">
               <span className="font-bold text-[#3DB3BD]"> Name:</span>
               {" " + name}
             </h5>
-            <h5 className="mb-1 text-lg md:text-xl font-medium text-gray-900 capitalize mt-4">
+            <h5 className="mb-1 text-lg md:text-xl font-medium text-gray-900  mt-4">
               <span className="font-bold text-[#3DB3BD]"> Designation:</span>
               {" " + role}
             </h5>
 
-            <h5 className="mb-1 text-lg md:text-xl font-medium text-gray-900 capitalize mt-4">
+            <h5 className="mb-1 text-lg md:text-xl font-medium text-gray-900  mt-4">
               <span className="font-bold text-[#3DB3BD]">Registration Id:</span>
               {" " + regId}
             </h5>
