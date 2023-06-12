@@ -1,9 +1,14 @@
 import useCourses from "../../../../../CustomHook/useCourses/useCourses";
+import Loading2 from "../../../../Loading2/Loading2";
 import Course from "../../../Admin/Courses/Course/Course";
 
 const MarkDashboard = () => {
   // get all courses
   const [courses] = useCourses();
+
+  if (!courses) {
+    return <Loading2 />;
+  }
 
   return (
     <div className="mt-10">

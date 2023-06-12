@@ -11,7 +11,7 @@ import Logo from "../../assets/Logo/logo.png";
 const ExamPage = () => {
   const [userAnswers, setUserAnswers] = useState({});
   const [OptionStyle, setOptionStyle] = useState(null);
-  const [timeRemaining, setTimeRemaining] = useState(10); // 2 hours
+  const [timeRemaining, setTimeRemaining] = useState(3600 * 2); // 2 hours
   const [isTimeUp, setIsTimeUp] = useState(false);
   const { employeeInfo } = useContext(AuthContext);
 
@@ -274,7 +274,7 @@ const ExamPage = () => {
   if (!ExamData) {
     return <Loading></Loading>;
   }
-  // Exam Time Formating
+  // Exam Time Formatting
   const formatTime = (time) => {
     const minutes = Math.floor(time / 60);
     const seconds = time % 60;
@@ -308,7 +308,7 @@ const ExamPage = () => {
         </div>
 
         <div className="border-2 border-[#12bcb8] rounded-full w-[55px] h-[55px] lg:w-[80px] lg:h-[80px] fixed top-40 right-0 md:top-24 md:right-10">
-          <p className="absolute top-[16px] right-[10px] lg:top-[25px] lg:left-[15px] font-bold font-roboto text-sm lg:text-xl">
+          <p className="absolute top-[16px] right-[6px] lg:top-[25px] lg:left-[12px] font-bold font-roboto text-sm lg:text-xl">
             {formatTime(timeRemaining)}
           </p>
         </div>

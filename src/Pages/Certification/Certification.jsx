@@ -3,6 +3,7 @@ import useCourses from "../../CustomHook/useCourses/useCourses";
 import { useContext } from "react";
 import { AuthContext } from "../../Context/AuthProvider";
 import useSpecificEmployee from "../../CustomHook/useSpecificEmployee/useSpecificEmployee";
+import Loading2 from "../Loading2/Loading2";
 
 const Certification = () => {
   const { employeeInfo } = useContext(AuthContext);
@@ -12,6 +13,10 @@ const Certification = () => {
 
   console.log("employee", employee);
   const [courses] = useCourses();
+
+  if (!courses) {
+    return <Loading2 />;
+  }
 
   return (
     <div className="py-10 px-[6%]">

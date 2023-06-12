@@ -2,6 +2,7 @@ import { useContext } from "react";
 import { MdDashboard } from "react-icons/md";
 import { AiFillProfile } from "react-icons/ai";
 import { FaBook } from "react-icons/fa";
+import { VscOutput } from "react-icons/vsc";
 import { BsPersonFillAdd, BsFillPeopleFill } from "react-icons/bs";
 import Navbar from "../Pages/Navbar/Navbar";
 import { Link, Outlet, useLocation } from "react-router-dom";
@@ -88,6 +89,7 @@ const DashboardLayout = () => {
           <Link
             className={pathName === "/dashboard" ? `${style.activeMenu}` : ""}
           >
+            <MdDashboard />
             Dashboard
           </Link>
         </li>
@@ -100,6 +102,7 @@ const DashboardLayout = () => {
                 : ""
             }
           >
+            <VscOutput />
             Result
           </Link>
         </li>
