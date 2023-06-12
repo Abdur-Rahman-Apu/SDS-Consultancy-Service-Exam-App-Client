@@ -307,8 +307,8 @@ const ExamPage = () => {
           <p>Total Marks: {ExamData.examInfo.questions}</p>
         </div>
 
-        <div className="border-2 border-[#12bcb8] rounded-full w-[60px] h-[60px] md:w-[80px] md:h-[80px] fixed top-44 md:top-24 md:right-10">
-          <p className="absolute top-[20px] left-[10px] md:top-[25px] md:left-[15px] font-bold font-roboto text-base md:text-xl">
+        <div className="border-2 border-[#12bcb8] rounded-full w-[55px] h-[55px] lg:w-[80px] lg:h-[80px] fixed top-40 right-0 md:top-24 md:right-10">
+          <p className="absolute top-[16px] right-[10px] lg:top-[25px] lg:left-[15px] font-bold font-roboto text-sm lg:text-xl">
             {formatTime(timeRemaining)}
           </p>
         </div>
@@ -321,10 +321,10 @@ const ExamPage = () => {
         return (
           <div key={questionNo} className="mt-24 " id={questionNo}>
             <div className="my-10 bg-gray-100 shadow-xl px-10 py-5 rounded-lg">
-              <p className="text-white bg-black inline-block rounded p-1">
+              <p className="text-base md:text-lg  text-white bg-black inline-block rounded p-1">
                 Question-{questionNo}
               </p>
-              <h3 className="my-5 font-bold font-roboto font-IBM md:text-xl">
+              <h3 className="my-5 font-bold font-roboto font-IBM text-lg md:text-xl">
                 {question}
               </h3>
 
@@ -336,14 +336,14 @@ const ExamPage = () => {
                     <p
                       key={option}
                       onClick={() => handleAnswerChange(questionNo, id, option)}
-                      className={`p-4 rounded-md flex items-center cursor-pointer ${
+                      className={`p-4  rounded-md flex items-center cursor-pointer ${
                         userAnswers[questionNo] === id
                           ? "bg-[#1dd1a180] text-white"
                           : "border bg-gray-50 border-gray-300"
                       } 
 														${OptionStyle === option ? "font-extrabold" : "font-normal"}`}
                     >
-                      <span className="pt-2 text-center rounded-full w-[40px] h-[40px] bg-[#1dd1a1] text-white">
+                      <span className="pt-1 md:pt-2 text-center rounded-full w-[35px] h-[35px] md:w-[40px] md:h-[40px] bg-[#1dd1a1] text-white">
                         {id}
                       </span>
                       <span className={`pl-3 text-black`}>{option}</span>
@@ -411,14 +411,14 @@ const ExamPage = () => {
           }
         })}
       {/* Question Scrolling Button */}
-      <div className="fixed top-60 right-1 sm:right-5 md:right-14 space-y-3">
+      <div className="hidden lg:block fixed top-56 right-1 sm:right-5 md:top-60 md:right-14 space-y-3">
         {ExamData.questionPaper.map((question, index) => {
           if (index % 10 === 0) {
             return (
               <div key={index + 1}>
                 <a
                   href={`#${index + 1}`}
-                  className="btn bg-green-200 btn-sm border-none w-[40px] h-[40px] rounded-full"
+                  className="btn bg-green-200 btn-sm border-none w-[25px] h-[25px] md:w-[40px] md:h-[40px] rounded-full"
                 >
                   {index + 1}
                 </a>
