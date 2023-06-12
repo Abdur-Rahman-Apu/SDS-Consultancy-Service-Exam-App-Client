@@ -6,13 +6,13 @@ import RuleImage from "../../assets/Certifications/rule.png";
 import ReadyImg from "../../assets/Certifications/7494932.jpg";
 import style from "./individualCertification.module.css";
 
-const IndividualCertification = ({ course, employeeInfo }) => {
+const IndividualCertification = ({ course, employee, employeeInfo }) => {
   const { courseId, courseName, courseImg, courseDesc } = course;
 
   let diffDays;
 
-  const result = employeeInfo?.result[`${courseName}`];
-  if (result.length > 0) {
+  const result = employee?.result[`${courseName}`];
+  if (result?.length > 0) {
     const latestExamDate = result[0].examDate;
     const todayDate = new Date().toLocaleDateString();
 
@@ -23,7 +23,6 @@ const IndividualCertification = ({ course, employeeInfo }) => {
     diffDays = parseInt((date2 - date1) / (1000 * 60 * 60 * 24), 10);
   }
 
-  console.log(diffDays, "dayPass");
   const [ruleModalOpen, setRuleModalOpen] = useState(false);
   const [confirmModalOpen, setConfirmModalOpen] = useState(false);
 

@@ -2,9 +2,15 @@ import IndividualCertification from "./IndividualCertification";
 import useCourses from "../../CustomHook/useCourses/useCourses";
 import { useContext } from "react";
 import { AuthContext } from "../../Context/AuthProvider";
+import useSpecificEmployee from "../../CustomHook/useSpecificEmployee/useSpecificEmployee";
 
 const Certification = () => {
   const { employeeInfo } = useContext(AuthContext);
+
+  console.log(employeeInfo, "employeeInfo");
+  const [employee] = useSpecificEmployee(employeeInfo?._id);
+
+  console.log("employee", employee);
   const [courses] = useCourses();
 
   return (
@@ -26,6 +32,7 @@ const Certification = () => {
             <IndividualCertification
               key={course.courseId}
               course={course}
+              employee={employee}
               employeeInfo={employeeInfo}
             />
           ))}
