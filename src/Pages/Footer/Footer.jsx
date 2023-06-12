@@ -114,13 +114,13 @@ const Footer = () => {
           <div
             className={`hidden w-[120px] md:flex justify-between mr-4 ${FooterCss.socialIcon}`}
           >
-            <a href="#">
+            <a href="https://www.facebook.com/">
               <FontAwesomeIcon icon={faFacebookF} />
             </a>
-            <a href="#">
+            <a href="https://www.linkedin.com/">
               <FontAwesomeIcon icon={faLinkedin} />
             </a>
-            <a href="#">
+            <a href="https://www.instagram.com/">
               <FontAwesomeIcon icon={faInstagram} />
             </a>
           </div>

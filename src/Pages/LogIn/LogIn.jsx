@@ -15,8 +15,6 @@ const LogIn = () => {
 
   const [passwordInputType, setPasswordInputType] = useState("password");
 
-  const [found, setFound] = useState(false);
-
   // form elements
   const {
     register,
@@ -36,6 +34,7 @@ const LogIn = () => {
     const { regId: givenId, password: givenPass } = data;
 
     setLoading(true);
+    let flag = 0;
 
     fetch("https://quiz-five-beta.vercel.app/employees")
       .then((res) => res.json())
@@ -47,14 +46,16 @@ const LogIn = () => {
           console.log(employeeInfo);
 
           if (regId === givenId && password === givenPass) {
-            setFound(true);
+            flag = 1;
+            //now click the hidden button using Javascript
             toast.success("LogIn successfully");
             localStorage.setItem("Employee-Info", JSON.stringify(employeeInfo));
+            document.getElementById("hiddenBtn").click();
             navigate(from, { replace: true });
           }
         });
 
-        found === false && toast.error("No match");
+        flag === 0 && toast.error("No match");
       })
       .catch(() => {
         toast.error("Server error");

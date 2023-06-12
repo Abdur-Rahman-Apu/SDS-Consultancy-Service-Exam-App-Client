@@ -11,26 +11,26 @@ import {
   faLocationDot,
   faPhone,
 } from "@fortawesome/free-solid-svg-icons";
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { useContext } from "react";
 import { AuthContext } from "../../Context/AuthProvider";
 import AvatarImg from "../../assets/Nav/user.png";
+import { toast } from "react-toastify";
 
 const Navbar = () => {
-  const navigate = useNavigate();
-
   const pathName = useLocation().pathname;
-  console.log(pathName);
 
-  // refresh
-  navigate(0);
+  const { employeeInfo, logOut, setEmployeeInfo } = useContext(AuthContext);
 
-  const { employeeInfo, logOut } = useContext(AuthContext);
+  const getEmployeeInfo = () => {
+    const employeeInfo = JSON.parse(localStorage.getItem("Employee-Info"));
+    setEmployeeInfo(employeeInfo);
+  };
 
   const handleLogOut = () => {
     logOut();
-    // refresh
-    navigate(0);
+    toast.success("LogOut successfully");
+    setEmployeeInfo(null);
   };
 
   return (
@@ -223,25 +223,32 @@ const Navbar = () => {
             <div
               className={`hidden w-[120px] md:flex justify-between mr-4 ${Nav.socialIcon}`}
             >
-              <a href="#">
+              <a href="https://www.facebook.com/">
                 <FontAwesomeIcon icon={faFacebookF} />
               </a>
-              <a href="#">
+              <a href="https://www.linkedin.com/">
                 <FontAwesomeIcon icon={faLinkedin} />
               </a>
-              <a href="#">
+              <a href="https://www.instagram.com/">
                 <FontAwesomeIcon icon={faInstagram} />
               </a>
             </div>
+            <button
+              style={{ display: "none" }}
+              onClick={getEmployeeInfo}
+              id="hiddenBtn"
+            >
+              Hidden Button
+            </button>
             {employeeInfo ? (
               <>
                 <div
                   className="tooltip tooltip-bottom"
-                  data-tip={employeeInfo.name}
+                  data-tip={employeeInfo?.name}
                 >
                   <div className="avatar online mr-4 ">
                     <div className="w-12 rounded-full ">
-                      <img src={AvatarImg} />
+                      <img src={AvatarImg} className="object-cover" />
                     </div>
                   </div>
                 </div>

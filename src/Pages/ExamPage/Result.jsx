@@ -83,9 +83,6 @@ const Result = () => {
     return question;
   });
 
-  let CorrectAnswer = 0;
-  let WrongAnswer = 0;
-
   return (
     <div
       className="mt-4 px-4 sm:px-6 md:px-10 max-w-5xl mx-auto"
@@ -146,11 +143,9 @@ const Result = () => {
           question,
           options,
           answer,
-          Submitted: { SubmitQNo, SubmitAnswer } = {},
+          Submitted: { SubmitAnswer } = {},
         } = Question;
-        // Total Mark Calculation
-        CorrectAnswer += SubmitQNo && SubmitAnswer === answer ? 1 : 0;
-        WrongAnswer += SubmitQNo && SubmitAnswer !== answer ? 1 : 0;
+
         return (
           <div key={questionNo} className="mt-16" id={questionNo}>
             <div className="my-10 bg-gray-100 shadow-xl px-10 py-5 rounded-lg">

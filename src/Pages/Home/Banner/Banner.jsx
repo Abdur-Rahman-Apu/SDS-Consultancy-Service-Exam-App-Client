@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import BannerImg from "../../../assets/Banner/Learning-cuate.png";
 import "../../../Common/Css/Common.css";
 
@@ -20,9 +21,12 @@ const Banner = () => {
             Learning is very important in this modern era. Your confidence will
             be increased, If you sit for an exam. You can judge yourself.
           </p>
-          <button className="btn hover:bg-[#42BEC3] bg-[#42BEC3] border-0 text-white font-roboto">
+          <Link
+            to="/certifications"
+            className="btn hover:bg-[#42BEC3] bg-[#42BEC3] border-0 text-white font-roboto"
+          >
             Get Started
-          </button>
+          </Link>
         </div>
       </div>
     </div>
