@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import { AuthContext } from "../../../Context/AuthProvider";
 import AdminDashboard from "../Admin/AdminDashboard/AdminDashboard";
+import EmployeeDashboard from "../Employee/EmployeeDashboard/EmployeeDashboard";
 
 const Dashboard = () => {
   const { employeeInfo } = useContext(AuthContext);
@@ -13,6 +14,7 @@ const Dashboard = () => {
       </h1>
 
       <div>{role === "admin" && <AdminDashboard />}</div>
+      <div>{role === "employee" && <EmployeeDashboard />}</div>
     </div>
   );
 };
