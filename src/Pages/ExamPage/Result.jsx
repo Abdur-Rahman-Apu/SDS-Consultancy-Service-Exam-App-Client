@@ -2,9 +2,10 @@ import React from "react";
 import { useParams } from "react-router-dom";
 import Loading from "../Loading/Loading";
 import useExamData from "../../CustomHook/useExamData/useExamData";
-import { useContext, useEffect } from "react";
-import { toast } from "react-toastify";
+import { useContext } from "react";
 import { AuthContext } from "../../Context/AuthProvider";
+import PassImg from "../../assets/Result/pass.jpg";
+import FailImg from "../../assets/Result/fail.jpg";
 
 const Result = () => {
   console.log("Result page rendered");
@@ -23,44 +24,6 @@ const Result = () => {
   const formattedExamDate = new Date(MatchedResultData.ExamDate)
     .toLocaleString()
     .split(",")[0];
-
-  useEffect(() => {
-    // users marksheet
-
-    console.log(totalMark);
-
-    if (totalMark >= 0) {
-      const markSheet = {
-        courseName: MatchedResultData.Title,
-        examDate: formattedExamDate,
-        totalMark,
-      };
-
-      console.log("Inside hook", totalMark);
-
-      fetch(
-        `https://quiz-five-beta.vercel.app/userResult?id=${employeeInfo._id}`,
-        {
-          method: "PATCH",
-          headers: {
-            "content-type": "application/json",
-          },
-          body: JSON.stringify(markSheet),
-        }
-      )
-        .then((res) => res.json())
-        .then((result) => {
-          if (result.acknowledged) {
-            toast.success("Result added");
-          } else {
-            toast.success("Failed to added");
-          }
-        })
-        .catch(() => {
-          toast.error("Server error");
-        });
-    }
-  }, []);
 
   if (!ExamData) {
     return <Loading></Loading>;
@@ -125,13 +88,55 @@ const Result = () => {
 
   return (
     <div
-      className="px-4 sm:px-6 md:px-10 max-w-5xl mx-auto"
+      className="mt-4 px-4 sm:px-6 md:px-10 max-w-5xl mx-auto"
       style={{ fontFamily: "Roboto Slab, serif" }}
     >
       {/* Exam Title */}
-      <div className="fixed top-0 inset-0 flex justify-start sm:justify-center space-x-2 sm:space-x-4 text-xs sm:text-sm items-center h-10 bg-gray-500 py-8 text-white">
-        <h2>Course Name: {MatchedResultData.Title}</h2>
-        <h2>Exam Date: {formattedExamDate}</h2>
+      <div className="  text-lg sm:text-sm items-center rounded-3xl px-4 font-roboto font-bold md:text-xl h-[450px]  border-2 border-[#1dd1a180] py-8 mt-10 ">
+        <h1 className="text-3xl md:text-4xl text-center">
+          Your <span className="text-[#2CB7BB]">Result</span>
+        </h1>
+        <div className="flex justify-evenly mt-8">
+          <div className="mt-7">
+            <p>Course Name: {MatchedResultData.Title}</p>
+            <p className="my-4">Exam Date: {formattedExamDate}</p>
+            <p className="my-4">Correct: {correctAns.length}</p>
+            <p className="my-4">Wrong: {wrongAns.length}</p>
+            <p className="my-4">Total Mark: {totalMark}</p>
+            <p>
+              Result:{" "}
+              <span
+                className={`${
+                  totalMark >= 80 ? "text-green-500" : "text-red-500"
+                }`}
+              >
+                {totalMark >= 80 ? "Pass" : "Fail"}
+              </span>
+            </p>
+          </div>
+          <div className="w-[300px] ">
+            <img src={totalMark >= 80 ? PassImg : FailImg} alt="image" />
+          </div>
+        </div>
+      </div>
+
+      <h1 className="text-4xl font-roboto font-bold my-10">Check Answers</h1>
+
+      <div className="card p-2 md:p-4 ">
+        {/* Color Checkup */}
+
+        <div className="flex items-center">
+          <span className="bg-green-600 badge badge-outline border-none"></span>
+          <p className="ml-4">Your Answer is correct</p>
+        </div>
+        <div className="flex items-center my-3">
+          <span className="bg-red-600 badge badge-outline border-none"></span>
+          <p className="ml-4">Your Answer is wrong</p>
+        </div>
+        <div className="flex items-center">
+          <span className="bg-sky-600 badge badge-outline border-none"></span>
+          <p className="ml-4">Original Answer</p>
+        </div>
       </div>
       {IntigratedArray.map((Question) => {
         const {
@@ -145,12 +150,14 @@ const Result = () => {
         CorrectAnswer += SubmitQNo && SubmitAnswer === answer ? 1 : 0;
         WrongAnswer += SubmitQNo && SubmitAnswer !== answer ? 1 : 0;
         return (
-          <div key={questionNo} className="mt-24" id={questionNo}>
+          <div key={questionNo} className="mt-16" id={questionNo}>
             <div className="my-10 bg-gray-100 shadow-xl px-10 py-5 rounded-lg">
-              <p className="text-white bg-gray-600 inline-block rounded p-1">
+              <p className="text-base md:text-lg  text-white bg-black inline-block rounded p-1">
                 Question-{questionNo}
               </p>
-              <h3 className="my-5 font-bold md:text-lg">{question}</h3>
+              <h3 className="my-5 font-bold font-roboto font-IBM text-lg md:text-xl">
+                {question}
+              </h3>
 
               {/*Question's Options Mapping */}
               <div className="space-y-5">
@@ -162,10 +169,10 @@ const Result = () => {
 												 ${
                            id === SubmitAnswer
                              ? SubmitAnswer === answer
-                               ? "bg-green-600 font-bold"
-                               : "bg-red-600 font-bold"
+                               ? "bg-green-300 font-bold"
+                               : "bg-red-300 font-bold"
                              : id === answer
-                             ? "bg-sky-600 font-bold"
+                             ? "bg-sky-300 font-bold"
                              : ""
                          }`}
                       key={option}
@@ -193,38 +200,6 @@ const Result = () => {
           </div>
         );
       })}
-      <div className="fixed top-0 right-0 card bg-gray-300 p-2 md:p-4 text-xs sm:text-sm">
-        {/* Color Checkup */}
-        <p className="space-x-2">
-          <span className="bg-green-600 badge badge-outline border-none">
-            Correct
-          </span>
-          <span className="bg-red-600 badge badge-outline border-none">
-            Wrong
-          </span>
-          <span className="bg-sky-600 badge badge-outline border-none">
-            Answer
-          </span>
-        </p>
-        <p className="flex flex-col mt-2 md:mt-5">
-          <span>
-            Right Answer:{" "}
-            <span className="font-bold text-green-600">{CorrectAnswer}</span>
-          </span>
-          <span>
-            Wrong Answer:{" "}
-            <span className="font-bold text-green-600">{WrongAnswer}</span>
-          </span>
-          <span>
-            Total Mark:{" "}
-            <span className="font-bold text-green-600">
-              {CorrectAnswer - WrongAnswer <= 0
-                ? 0
-                : CorrectAnswer - WrongAnswer}
-            </span>
-          </span>
-        </p>
-      </div>
     </div>
   );
 };

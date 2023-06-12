@@ -285,7 +285,7 @@ const ExamPage = () => {
 
   return (
     <div
-      className={`max-w-3xl mx-auto pb-24 font-Roboto`}
+      className={`max-w-3xl mx-auto pb-24 font-roboto`}
       style={{ fontFamily: "Roboto Slab, serif" }}
     >
       {/*Exam Close Button  */}
