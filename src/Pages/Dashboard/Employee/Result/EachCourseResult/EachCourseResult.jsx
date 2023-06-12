@@ -1,12 +1,20 @@
 import { useContext } from "react";
 import { useParams } from "react-router-dom";
 import { AuthContext } from "../../../../../Context/AuthProvider";
+import useSpecificEmployee from "../../../../../CustomHook/useSpecificEmployee/useSpecificEmployee";
+import ShowResult from "./ShowResult";
 
 const EachCourseResult = () => {
   const { courseName } = useParams();
   const { employeeInfo } = useContext(AuthContext);
   console.log(courseName);
   console.log(employeeInfo);
+
+  const [employee] = useSpecificEmployee(employeeInfo?._id);
+
+  console.log(employee, "employee");
+
+  const allResult = employee?.result[`${courseName}`];
 
   return (
     <div className="my-16">
@@ -18,18 +26,18 @@ const EachCourseResult = () => {
       <div className="overflow-x-auto my-10">
         <table className={`table text-center w-[90%] mx-auto`}>
           {/* head */}
-          <thead className="text-base md:text-lg text-black font-roboto font-bold bg-[#706fd333]">
+          <thead className=" text-lg md:text-xl text-black font-roboto font-bold bg-[#f9ca24]">
             <tr>
               <th>Date</th>
               <th>Mark</th>
             </tr>
           </thead>
-          <tbody>
+          <tbody className="bg-[#badc5866]">
             {
-              /* display all courses  */
-              //   courses?.map((course) => (
-              //     <Course key={course._id} course={course} />
-              //   ))
+              /* display all result  */
+              allResult?.map((result, index) => (
+                <ShowResult key={index} result={result} />
+              ))
             }
           </tbody>
         </table>
