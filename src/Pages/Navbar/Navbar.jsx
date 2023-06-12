@@ -14,7 +14,7 @@ import {
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useContext } from "react";
 import { AuthContext } from "../../Context/AuthProvider";
-import AvatarImg from "../../assets/Nav/avatar.jpg";
+import AvatarImg from "../../assets/Nav/user.png";
 
 const Navbar = () => {
   const navigate = useNavigate();

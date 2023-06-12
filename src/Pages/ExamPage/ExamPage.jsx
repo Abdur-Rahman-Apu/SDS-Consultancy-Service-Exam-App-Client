@@ -11,7 +11,7 @@ import Logo from "../../assets/Logo/logo.png";
 const ExamPage = () => {
   const [userAnswers, setUserAnswers] = useState({});
   const [OptionStyle, setOptionStyle] = useState(null);
-  const [timeRemaining, setTimeRemaining] = useState(3000); // 2 hours
+  const [timeRemaining, setTimeRemaining] = useState(10); // 2 hours
   const [isTimeUp, setIsTimeUp] = useState(false);
   const { employeeInfo } = useContext(AuthContext);
 
