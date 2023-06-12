@@ -123,10 +123,7 @@ const IndividualCertification = ({ course, employee, employeeInfo }) => {
           <button
             className="btn bg-[#42B2BE] font-roboto text-white rounded-full"
             onClick={toggleConfirmationModal}
-            disabled={
-              employeeInfo?.role === "admin" ||
-              (diffDays != null && diffDays <= 7)
-            }
+            disabled={employeeInfo?.role === "admin"}
           >
             Give Exam
           </button>

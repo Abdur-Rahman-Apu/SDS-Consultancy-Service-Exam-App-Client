@@ -6,11 +6,12 @@ import useExamData from "../../CustomHook/useExamData/useExamData";
 import Loading from "../Loading/Loading";
 import { toast } from "react-toastify";
 import { AuthContext } from "../../Context/AuthProvider";
+import Logo from "../../assets/Logo/logo.png";
 
 const ExamPage = () => {
   const [userAnswers, setUserAnswers] = useState({});
   const [OptionStyle, setOptionStyle] = useState(null);
-  const [timeRemaining, setTimeRemaining] = useState(300); // 2 hours
+  const [timeRemaining, setTimeRemaining] = useState(3000); // 2 hours
   const [isTimeUp, setIsTimeUp] = useState(false);
   const { employeeInfo } = useContext(AuthContext);
 
@@ -79,6 +80,7 @@ const ExamPage = () => {
       [questionId]: selectedOption,
     }));
     setOptionStyle(option);
+    console.log(userAnswers, "user answers");
   };
 
   const setToDatabase = () => {
@@ -286,10 +288,27 @@ const ExamPage = () => {
       {/*Exam Close Button  */}
       <p className="fixed bottom-10 right-10 z-40"></p>
       {/* Exam Title */}
-      <div className="fixed top-0 inset-0 flex justify-around items-center h-10 bg-gray-500 py-10 text-white">
-        <h2>Course Name: {ExamData.courseName}</h2>
-        <h2>Exam Duration: {ExamData.examInfo.duration}</h2>
-        <h2>Time Remaining: {formatTime(timeRemaining)}</h2>
+
+      <div className="p-5 bg-[#12bcb833] md:rounded-3xl md:mt-5">
+        <div className="w-[60%] mx-auto">
+          <img
+            src={Logo}
+            alt="logo"
+            className="object-cover w-[100px] h-[100px] md:w-[150px] md:h-[150px] mx-auto"
+          />
+        </div>
+
+        <div className="flex justify-between font-roboto font-semibold text-xs md:text-lg">
+          <p>Course Name: {ExamData.courseName}</p>
+          <p>Duration: {ExamData.examInfo.duration}</p>
+          <p>Total Marks: {ExamData.examInfo.questions}</p>
+        </div>
+
+        <div className="border-2 border-[#12bcb8] rounded-full w-[60px] h-[60px] md:w-[80px] md:h-[80px] fixed top-44 md:top-24 md:right-10">
+          <p className="absolute top-[20px] left-[10px] md:top-[25px] md:left-[15px] font-bold font-roboto text-base md:text-xl">
+            {formatTime(timeRemaining)}
+          </p>
+        </div>
       </div>
 
       {/* Exam Body */}
@@ -297,12 +316,14 @@ const ExamPage = () => {
       {ExamData.questionPaper.map((Question) => {
         const { questionNo, question, options } = Question;
         return (
-          <div key={questionNo} className="mt-24" id={questionNo}>
+          <div key={questionNo} className="mt-24 " id={questionNo}>
             <div className="my-10 bg-gray-100 shadow-xl px-10 py-5 rounded-lg">
-              <p className="text-white bg-gray-600 inline-block rounded p-1">
+              <p className="text-white bg-black inline-block rounded p-1">
                 Question-{questionNo}
               </p>
-              <h3 className="my-5 font-bold font-IBM md:text-lg">{question}</h3>
+              <h3 className="my-5 font-bold font-roboto font-IBM md:text-xl">
+                {question}
+              </h3>
 
               {/*Question's Options Mapping */}
               <div className="space-y-5">
@@ -314,15 +335,15 @@ const ExamPage = () => {
                       onClick={() => handleAnswerChange(questionNo, id, option)}
                       className={`p-4 rounded-md flex items-center cursor-pointer ${
                         userAnswers[questionNo] === id
-                          ? "bg-green-600 text-white"
+                          ? "bg-[#1dd1a180] text-white"
                           : "border bg-gray-50 border-gray-300"
                       } 
 														${OptionStyle === option ? "font-extrabold" : "font-normal"}`}
                     >
-                      <span className="p-3 py-1 rounded-md bg-green-600 text-white">
+                      <span className="pt-2 text-center rounded-full w-[40px] h-[40px] bg-[#1dd1a1] text-white">
                         {id}
                       </span>
-                      <span className={`pl-3`}>{option}</span>
+                      <span className={`pl-3 text-black`}>{option}</span>
                     </p>
                   );
                 })}
@@ -334,7 +355,7 @@ const ExamPage = () => {
       {/* Question Submit Button */}
       <button
         onClick={handleSubmit}
-        className="btn bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded"
+        className="btn bg-[#1dd1a1]  text-base font-roboto rounded-full font-semibold py-2 px-4 block w-fit mx-auto"
       >
         {" "}
         Submit Answers{" "}
@@ -387,14 +408,14 @@ const ExamPage = () => {
           }
         })}
       {/* Question Scrolling Button */}
-      <div className="fixed top-24 right-1 sm:right-5 md:right-10 space-y-3">
+      <div className="fixed top-60 right-1 sm:right-5 md:right-14 space-y-3">
         {ExamData.questionPaper.map((question, index) => {
           if (index % 10 === 0) {
             return (
               <div key={index + 1}>
                 <a
                   href={`#${index + 1}`}
-                  className="btn bg-green-200 btn-sm border-none"
+                  className="btn bg-green-200 btn-sm border-none w-[40px] h-[40px] rounded-full"
                 >
                   {index + 1}
                 </a>
