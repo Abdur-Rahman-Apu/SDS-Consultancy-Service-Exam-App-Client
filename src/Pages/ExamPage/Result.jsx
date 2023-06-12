@@ -92,12 +92,12 @@ const Result = () => {
       style={{ fontFamily: "Roboto Slab, serif" }}
     >
       {/* Exam Title */}
-      <div className="  text-lg sm:text-sm items-center rounded-3xl px-4 font-roboto font-bold md:text-xl h-[450px]  border-2 border-[#1dd1a180] py-8 mt-10 ">
+      <div className="  text-lg sm:text-sm items-center rounded-3xl px-4 font-roboto font-bold md:text-xl min-h-[450px]  border-2 border-[#1dd1a180] py-8 mt-10 ">
         <h1 className="text-3xl md:text-4xl text-center">
           Your <span className="text-[#2CB7BB]">Result</span>
         </h1>
-        <div className="flex justify-evenly mt-8">
-          <div className="mt-7">
+        <div className="flex flex-col md:flex-row justify-evenly items-center  mt-8">
+          <div className="mt-7 text-center md:text-start">
             <p>Course Name: {MatchedResultData.Title}</p>
             <p className="my-4">Exam Date: {formattedExamDate}</p>
             <p className="my-4">Correct: {correctAns.length}</p>
@@ -114,15 +114,17 @@ const Result = () => {
               </span>
             </p>
           </div>
-          <div className="w-[300px] ">
+          <div className="w-[250px]  md:w-[300px] ">
             <img src={totalMark >= 80 ? PassImg : FailImg} alt="image" />
           </div>
         </div>
       </div>
 
-      <h1 className="text-4xl font-roboto font-bold my-10">Check Answers</h1>
+      <h1 className="text-3xl md:text-4xl font-roboto font-bold my-10">
+        Check Answers
+      </h1>
 
-      <div className="card p-2 md:p-4 ">
+      <div className="card p-2 md:p-4 font-roboto font-bold">
         {/* Color Checkup */}
 
         <div className="flex items-center">
