@@ -7,7 +7,7 @@ import style from "./Profile.module.css";
 import { useNavigate } from "react-router-dom";
 
 const Profile = () => {
-  const { employeeInfo } = useContext(AuthContext);
+  const { employeeInfo, setEmployeeInfo } = useContext(AuthContext);
   const { _id, role, name, regId, password } = employeeInfo;
   const {
     register,
@@ -18,10 +18,10 @@ const Profile = () => {
   const navigate = useNavigate();
 
   const onSubmit = (data) => {
-    console.log(data);
+    console.log(data, "update password");
 
     // check new password is given in the field or not
-    if (password !== data.password) {
+    if (password != data.password) {
       // update password using patch method to update specific admin
       fetch(`https://quiz-five-beta.vercel.app/updateAdminPassword?id=${_id}`, {
         method: "PATCH",
@@ -41,6 +41,7 @@ const Profile = () => {
             // update the password in the local-storage
             adminInfo["password"] = data.password;
             localStorage.setItem("Employee-Info", JSON.stringify(adminInfo));
+            setEmployeeInfo(JSON.parse(localStorage.getItem("Employee-Info")));
 
             // navigate to profile page
             navigate("/dashboard/profile");

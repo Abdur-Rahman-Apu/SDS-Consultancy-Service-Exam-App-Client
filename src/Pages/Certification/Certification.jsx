@@ -8,12 +8,11 @@ import Loading2 from "../Loading2/Loading2";
 const Certification = () => {
   const { employeeInfo } = useContext(AuthContext);
 
-  console.log(employeeInfo, "employeeInfo");
+  console.log(employeeInfo, "employeeInfo certification");
   const [employee] = useSpecificEmployee(employeeInfo?._id);
-
   console.log("employee", employee);
   const [courses] = useCourses();
-
+  console.log(courses, "courses");
   if (!courses) {
     return <Loading2 />;
   }

@@ -9,10 +9,14 @@ import style from "./individualCertification.module.css";
 const IndividualCertification = ({ course, employee, employeeInfo }) => {
   const { courseId, courseName, courseImg, courseDesc } = course;
 
+  console.log(course, "course");
+
+  console.log(employee, "employee");
+
   let diffDays;
 
-  const result = employee?.result[`${courseName}`];
-  if (result?.length > 0) {
+  if (course.length > 0 && employee?.result[`${courseName}`]?.length > 0) {
+    const result = employee?.result[`${courseName}`];
     const latestExamDate = result[0].examDate;
     const todayDate = new Date().toLocaleDateString();
 

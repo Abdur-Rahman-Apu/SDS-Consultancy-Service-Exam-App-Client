@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 /* eslint-disable react/prop-types */
 import { createContext, useEffect, useState } from "react";
 
@@ -6,13 +7,19 @@ export const AuthContext = createContext();
 const AuthProvider = ({ children }) => {
   const [loading, setLoading] = useState(false);
 
-  const [employeeInfo, setEmployeeInfo] = useState(null);
+  const [employeeInfo, setEmployeeInfo] = useState(
+    JSON.parse(localStorage.getItem("Employee-Info"))
+  );
 
   // get user info
-  useEffect(() => {
-    let employee = JSON.parse(localStorage.getItem("Employee-Info"));
+  let employee = JSON.parse(localStorage.getItem("Employee-Info"));
+
+  console.log(employee);
+  console.log(employeeInfo);
+
+  if (!_.isEqual(employee, employeeInfo)) {
     setEmployeeInfo(employee);
-  }, []);
+  }
 
   // logout function
   const logOut = () => {
