@@ -378,7 +378,7 @@ const ExamPage = () => {
       )}
 
       {/* Question Scrolling Button */}
-      <div className="  fixed top-56 right-1 sm:right-5  lg:top-52 lg:right-12 space-y-3">
+      <div className="  fixed top-60 right-1 lg:top-36 lg:right-[60px] space-y-3">
         {ExamData.questionPaper.map((question, index) => {
           if (index % 10 === 0 || index === 0) {
             return (

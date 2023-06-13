@@ -19,7 +19,7 @@ function ExamPageTitle({ ExamData, Logo, formatTime, timeRemaining }) {
           <p>Total Marks: {ExamData.examInfo.questions}</p>
         </div>
 
-        <div className="border-2 border-[#12bcb8] rounded-full w-[55px] h-[55px] lg:w-[80px] lg:h-[80px] fixed top-40 right-0 md:top-24 md:right-10">
+        <div className="border-2 border-[#12bcb8] rounded-full w-[55px] h-[55px] lg:w-[80px] lg:h-[80px] fixed top-40 right-0 md:right-3 lg:top-10 lg:right-10">
           <p className="absolute top-[16px] right-[6px] lg:top-[25px] lg:left-[12px] font-bold font-roboto text-sm lg:text-xl">
             {formatTime(timeRemaining)}
           </p>
