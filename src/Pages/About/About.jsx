@@ -3,8 +3,12 @@ import clockImg from "../../assets/About/clock.jpg";
 import studyImg from "../../assets/About/study.jpg";
 import missionImg from "../../assets/About/mission.jpg";
 import { FaHandPointRight } from "react-icons/fa";
+import { useEffect } from "react";
 
 const About = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <div>
       {/* heading  */}
