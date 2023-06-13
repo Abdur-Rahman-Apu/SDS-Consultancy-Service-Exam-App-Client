@@ -12,7 +12,7 @@ import ExamPageTitle from "./ExamPageTitle";
 const ExamPage = () => {
   const [userAnswers, setUserAnswers] = useState({});
   const [OptionStyle, setOptionStyle] = useState(null);
-  const [timeRemaining, setTimeRemaining] = useState(60 * 60 * 2); // 2 hours
+  const [timeRemaining, setTimeRemaining] = useState(3600 * 2); // 2 hours
   const [isTimeUp, setIsTimeUp] = useState(false);
   const { employeeInfo } = useContext(AuthContext);
 
@@ -77,10 +77,10 @@ const ExamPage = () => {
               title: "Your work has been saved",
               showConfirmButton: false,
               html: `<a href="/certifications/${PathCourseName}/result" 
-							 target="_blank" style='display: inline-block;padding: 10px 20px;background-color: #007bff;color: #fff;text-decoration: none;border-radius: 4px;box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);transition: background-color 0.3s;font-size: 16px;font-weight: bold;'> Show Result</a>`,
+							 target="_blank" style='display: inline-block;padding: 10px 20px;background-color: #007bff; color: #fff;text-decoration: none;border-radius: 4px;box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);transition: background-color 0.3s;font-size: 16px;font-weight: bold;'> Show Result</a>`,
             });
             delete localStorage.TempSubmittedData;
-            navigate("/certifications");
+            navigate("/");
           }
         });
       }
@@ -104,7 +104,7 @@ const ExamPage = () => {
 
   // send user answers to the database
   const setToDatabase = () => {
-    fetch(`https://quiz-five-beta.vercel.app/certifications/${PathCourseName}`)
+    fetch(`http://localhost:5000/certifications/${PathCourseName}`)
       .then((res) => res.json())
       .then((data) => {
         const ExamData = data;
@@ -160,16 +160,13 @@ const ExamPage = () => {
           totalMark,
         };
 
-        fetch(
-          `https://quiz-five-beta.vercel.app/userResult?id=${employeeInfo?._id}`,
-          {
-            method: "PATCH",
-            headers: {
-              "content-type": "application/json",
-            },
-            body: JSON.stringify(markSheet),
-          }
-        )
+        fetch(`http://localhost:5000/userResult?id=${employeeInfo?._id}`, {
+          method: "PATCH",
+          headers: {
+            "content-type": "application/json",
+          },
+          body: JSON.stringify(markSheet),
+        })
           .then((res) => res.json())
           .then((result) => {
             if (result.acknowledged) {
@@ -207,10 +204,11 @@ const ExamPage = () => {
           showConfirmButton: false,
           icon: "success",
           title: "Answer Submitted!",
-          html: `<a href="/certifications/${PathCourseName}/result"  target="_blank"onClick=${setToDatabase()}style='display: inline-block;padding: 10px 20px;background-color: #007bff;color: #fff;text-decoration: none;border-radius: 4px;box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);transition: background-color 0.3s;font-size: 16px;font-weight: bold;'> Show Result</a>`,
+          html: `<a href="/certifications/${PathCourseName}/result"  target="_blank" onClick=${setToDatabase()} style='display: inline-block;padding: 10px 20px;background-color: #007bff;color: #fff;text-decoration: none;border-radius: 4px;box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);transition: background-color 0.3s;font-size: 16px;font-weight: bold;'> Show Result</a>`,
         });
         delete localStorage.TempSubmittedData;
-        navigate("/certifications");
+
+        navigate("/");
       }
     });
   };
@@ -301,7 +299,7 @@ const ExamPage = () => {
             html: `<a href="/certifications/${PathCourseName}/result" target="_blank" onClick=${setToDatabase()} style='display: inline-block;padding: 10px 20px;background-color: #007bff;color: #fff;text-decoration: none;border-radius: 4px;box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);transition: background-color 0.3s;font-size: 16px;font-weight: bold;'> Show Result</a>`,
           });
           delete localStorage.TempSubmittedData;
-          return navigate("/certifications");
+          return navigate("/");
         }
       })
     : "";
