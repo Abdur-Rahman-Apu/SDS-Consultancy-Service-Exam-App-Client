@@ -7,11 +7,12 @@ import Loading from "../Loading/Loading";
 import { toast } from "react-toastify";
 import { AuthContext } from "../../Context/AuthProvider";
 import Logo from "../../assets/Logo/logo.png";
+import ExamPageTitle from "./ExamPageTitle";
 
 const ExamPage = () => {
   const [userAnswers, setUserAnswers] = useState({});
   const [OptionStyle, setOptionStyle] = useState(null);
-  const [timeRemaining, setTimeRemaining] = useState(3600 * 2); // 2 hours
+  const [timeRemaining, setTimeRemaining] = useState( 2); // 2 hours
   const [isTimeUp, setIsTimeUp] = useState(false);
   const { employeeInfo } = useContext(AuthContext);
 
@@ -23,11 +24,17 @@ const ExamPage = () => {
   const navigate = useNavigate();
 
   const Title = ExamData?.courseName;
+  localStorage.setItem("TempSubmittedData", JSON.stringify({ Title: PathCourseName, userAnswers }));
 
   // You are Out of Exam For Screen Minimize
   useEffect(() => {
     const handleVisibilityChange = async () => {
       if (document.visibilityState === "hidden") {
+        const SumbitData = JSON.parse(localStorage.getItem("TempSubmittedData"));
+        console.log(SumbitData, "SubmittedData")
+        if (SumbitData) {
+          AddResultToLocal(SumbitData.userAnswers, SumbitData.Title);
+        }
         // User minimized the window
         Swal.fire({
           allowOutsideClick: false,
@@ -39,29 +46,17 @@ const ExamPage = () => {
           confirmButtonColor: "#3085d6",
           confirmButtonText: "Submit",
         }).then((result) => {
-          AddResultToLocal();
           if (result.isConfirmed) {
             setToDatabase();
             Swal.fire({
               icon: "success",
               title: "Your work has been saved",
               showConfirmButton: false,
-              html: `
-							<a href="/certifications/${PathCourseName}/result" 
-							 target="_blank" style='display: inline-block;
-										padding: 10px 20px;
-										background-color: #007bff;
-										color: #fff;
-										text-decoration: none;
-										border-radius: 4px;
-										box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-										transition: background-color 0.3s;
-										font-size: 16px;
-										font-weight: bold;'> Show Result
-							</a>
-						  `,
+              html: `<a href="/certifications/${PathCourseName}/result" 
+							 target="_blank" style='display: inline-block;padding: 10px 20px;background-color: #007bff;color: #fff;text-decoration: none;border-radius: 4px;box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);transition: background-color 0.3s;font-size: 16px;font-weight: bold;'> Show Result</a>`,
             });
-            navigate("/certifications");
+            delete localStorage.TempSubmittedData;
+            navigate('/certifications');
           }
         });
       }
@@ -98,11 +93,9 @@ const ExamPage = () => {
 
         console.log(MatchedResultData);
 
-        const formattedExamDate = new Date(MatchedResultData.ExamDate)
-          .toLocaleString()
-          .split(",")[0];
+        const formattedExamDate = new Date(MatchedResultData.ExamDate).toLocaleString().split(",")[0];
 
-        //   user's answers
+        //   User's Answers
         const userAnswersArray = Object.entries(
           MatchedResultData.userAnswers
         ).map(([key, value]) => ({
@@ -188,7 +181,7 @@ const ExamPage = () => {
       confirmButtonText: "Submit!",
     }).then((result) => {
       if (result.isConfirmed) {
-        AddResultToLocal();
+        AddResultToLocal(userAnswers, Title);
         Swal.fire({
           allowOutsideClick: true,
           allowEscapeKey: true,
@@ -196,27 +189,15 @@ const ExamPage = () => {
           showConfirmButton: false,
           icon: "success",
           title: "Answer Submitted!",
-          html: `
-					<a href="/certifications/${PathCourseName}/result"  target="_blank"
-					onClick=${setToDatabase()}
-					style='display: inline-block;
-								padding: 10px 20px;
-								background-color: #007bff;
-								color: #fff;
-								text-decoration: none;
-								border-radius: 4px;
-								box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-								transition: background-color 0.3s;
-								font-size: 16px;
-								font-weight: bold;'> Show Result
-					</a>`,
+          html: `<a href="/certifications/${PathCourseName}/result"  target="_blank"onClick=${setToDatabase()}style='display: inline-block;padding: 10px 20px;background-color: #007bff;color: #fff;text-decoration: none;border-radius: 4px;box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);transition: background-color 0.3s;font-size: 16px;font-weight: bold;'> Show Result</a>`,
         });
+        delete localStorage.TempSubmittedData;
         navigate("/certifications");
       }
     });
   };
 
-  const AddResultToLocal = () => {
+  const AddResultToLocal = (userAnswers, Title) => {
     // Add Employee Answer to Local Storage
     const data = {
       Title: PathCourseName,
@@ -229,7 +210,6 @@ const ExamPage = () => {
     const getItemData = localStorage.getItem("ExamResult");
     if (!getItemData) {
       localStorage.setItem("ExamResult", JSON.stringify([data]));
-
       return;
     }
 
@@ -292,27 +272,7 @@ const ExamPage = () => {
       <p className="fixed bottom-10 right-10 z-40"></p>
       {/* Exam Title */}
 
-      <div className="p-5 bg-[#12bcb833] md:rounded-3xl md:mt-5">
-        <div className="w-[60%] mx-auto">
-          <img
-            src={Logo}
-            alt="logo"
-            className="object-cover w-[100px] h-[100px] md:w-[150px] md:h-[150px] mx-auto"
-          />
-        </div>
-
-        <div className="flex justify-between font-roboto font-semibold text-xs md:text-lg">
-          <p>Course Name: {ExamData.courseName}</p>
-          <p>Duration: {ExamData.examInfo.duration}</p>
-          <p>Total Marks: {ExamData.examInfo.questions}</p>
-        </div>
-
-        <div className="border-2 border-[#12bcb8] rounded-full w-[55px] h-[55px] lg:w-[80px] lg:h-[80px] fixed top-40 right-0 md:top-24 md:right-10">
-          <p className="absolute top-[16px] right-[6px] lg:top-[25px] lg:left-[12px] font-bold font-roboto text-sm lg:text-xl">
-            {formatTime(timeRemaining)}
-          </p>
-        </div>
-      </div>
+    <ExamPageTitle ExamData={ExamData} Logo={Logo} formatTime={formatTime} timeRemaining={timeRemaining} ></ExamPageTitle>
 
       {/* Exam Body */}
       {/* Questions Json File Mapping */}
@@ -336,11 +296,10 @@ const ExamPage = () => {
                     <p
                       key={option}
                       onClick={() => handleAnswerChange(questionNo, id, option)}
-                      className={`p-4  rounded-md flex items-center cursor-pointer ${
-                        userAnswers[questionNo] === id
-                          ? "bg-[#1dd1a180] text-white"
-                          : "border bg-gray-50 border-gray-300"
-                      } 
+                      className={`p-4  rounded-md flex items-center cursor-pointer ${userAnswers[questionNo] === id
+                        ? "bg-[#1dd1a180] text-white"
+                        : "border bg-gray-50 border-gray-300"
+                        } 
 														${OptionStyle === option ? "font-extrabold" : "font-normal"}`}
                     >
                       <span className="pt-1 md:pt-2 text-center rounded-full w-[35px] h-[35px] md:w-[40px] md:h-[40px] bg-[#1dd1a1] text-white">
@@ -385,7 +344,7 @@ const ExamPage = () => {
           confirmButtonText: "Submit!",
         }).then((result) => {
           if (result.isConfirmed) {
-            AddResultToLocal();
+            AddResultToLocal(userAnswers, Title);
             Swal.fire({
               allowOutsideClick: true,
               allowEscapeKey: true,
@@ -393,34 +352,23 @@ const ExamPage = () => {
               showConfirmButton: false,
               icon: "success",
               title: "Your work has been saved",
-              html: `
-					<a href="/certifications/${PathCourseName}/result" target="_blank" 
-					onClick=${setToDatabase()} style='display: inline-block;
-								padding: 10px 20px;
-								background-color: #007bff;
-								color: #fff;
-								text-decoration: none;
-								border-radius: 4px;
-								box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-								transition: background-color 0.3s;
-								font-size: 16px;
-								font-weight: bold;'> Show Result
-					</a>`,
+              html: `<a href="/certifications/${PathCourseName}/result" target="_blank" onClick=${setToDatabase()} style='display: inline-block;padding: 10px 20px;background-color: #007bff;color: #fff;text-decoration: none;border-radius: 4px;box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);transition: background-color 0.3s;font-size: 16px;font-weight: bold;'> Show Result</a>`,
             });
+            delete localStorage.TempSubmittedData;
             navigate("/certifications");
           }
         })}
       {/* Question Scrolling Button */}
       <div className="hidden lg:block fixed top-56 right-1 sm:right-5 md:top-60 md:right-14 space-y-3">
-        {ExamData.questionPaper.map((question, index) => {
-          if (index % 10 === 0) {
+        {ExamData.questionPaper.map((question, questionNo, index) => {
+          if (questionNo % 10 === 0) {
             return (
-              <div key={index + 1}>
+              <div key={questionNo}>
                 <a
-                  href={`#${index + 1}`}
+                  href={`#${questionNo == 0 ? 1 : questionNo}`}
                   className="btn bg-green-200 btn-sm border-none w-[25px] h-[25px] md:w-[40px] md:h-[40px] rounded-full"
                 >
-                  {index + 1}
+                  {questionNo == 0 ? 1 : questionNo}
                 </a>
               </div>
             );

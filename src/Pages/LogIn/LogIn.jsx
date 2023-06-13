@@ -5,13 +5,16 @@ import Lottie from "lottie-react";
 import LoginAnimation from "../../assets/LottieFiles/login.json";
 import { AuthContext } from "../../Context/AuthProvider";
 import { useContext, useState } from "react";
-import { toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
 import { useLocation, useNavigate } from "react-router-dom";
 import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
+import Swal from "sweetalert2";
+import Loading from "../Loading/Loading";
+import { toast } from "react-toastify";
+
 
 const LogIn = () => {
   const { loading, setLoading } = useContext(AuthContext);
+  const [Loader, setLoader] = useState(false);
 
   const [passwordInputType, setPasswordInputType] = useState("password");
 
@@ -29,39 +32,51 @@ const LogIn = () => {
 
   // get submitted form value & log in
   const onSubmit = (data) => {
-    console.log(data);
+    
+    setLoader(true)
 
     const { regId: givenId, password: givenPass } = data;
 
-    setLoading(true);
+    // setLoading(true);
     let flag = 0;
 
     fetch("https://quiz-five-beta.vercel.app/employees")
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
+        setLoader(false)
 
-        data?.forEach((employeeInfo) => {
+        data.forEach((employeeInfo) => {
           const { regId, password } = employeeInfo;
           console.log(employeeInfo);
-
+       
           if (regId === givenId && password === givenPass) {
             flag = 1;
             //now click the hidden button using Javascript
-            toast.success("LogIn successfully");
+            Swal.fire({
+              icon: 'success',
+              title: 'Login Successful',
+              showConfirmButton: false,
+              timer: 1500
+            })
             localStorage.setItem("Employee-Info", JSON.stringify(employeeInfo));
             document.getElementById("hiddenBtn").click();
             navigate(from, { replace: true });
           }
         });
-
-        flag === 0 && toast.error("No match");
+  setLoader(false)
+        flag === 0 &&  Swal.fire({
+          icon: 'error',
+          title: 'Login Failed',
+          showConfirmButton: false,
+          timer: 1500
+        })
       })
       .catch(() => {
-        toast.error("Server error");
+        setLoader(false)
+        toast.error("Server Failed");
       });
 
-    setLoading(false);
+    // setLoading(false);
   };
 
   // password hide & show functionality
@@ -72,8 +87,8 @@ const LogIn = () => {
   };
 
   // check loading
-  if (loading) {
-    return <div>Loading...</div>;
+  if (Loader) {
+    return <Loading></Loading>;
   }
 
   return (
