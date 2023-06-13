@@ -165,7 +165,10 @@ const Navbar = () => {
                 )}
 
                 <li>
-                  <Link className={pathName === "/about" ? "active-link" : ""}>
+                  <Link
+                    to="/about"
+                    className={pathName === "/about" ? "active-link" : ""}
+                  >
                     About Us
                   </Link>
                 </li>
