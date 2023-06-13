@@ -15,6 +15,7 @@ const ExamPage = () => {
   const [timeRemaining, setTimeRemaining] = useState(3600 * 2); // 2 hours
   const [isTimeUp, setIsTimeUp] = useState(false);
   const { employeeInfo } = useContext(AuthContext);
+  const d = new Date();
 
   const Params = useParams();
   const navigate = useNavigate();
@@ -156,7 +157,7 @@ const ExamPage = () => {
 
         const markSheet = {
           courseName: MatchedResultData.Title,
-          examDate: formattedExamDate,
+          examDate: `${d.getMonth() + 1}/${d.getDate()}/${d.getFullYear()}`,
           totalMark,
         };
 
@@ -218,10 +219,11 @@ const ExamPage = () => {
 
   const AddResultToLocal = (userAnswers, Title) => {
     // Add Employee Answer to Local Storage
+
     const data = {
       Title: PathCourseName,
       userAnswers: userAnswers,
-      ExamDate: new Date().toISOString(),
+      ExamDate: `${d.getMonth() + 1}/${d.getDate()}/${d.getFullYear()}`,
     };
 
     const getItemData = localStorage.getItem("ExamResult");
