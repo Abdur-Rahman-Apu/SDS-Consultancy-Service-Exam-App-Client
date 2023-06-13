@@ -38,7 +38,7 @@ const LogIn = () => {
     // setLoading(true);
     let flag = 0;
 
-    fetch("http://localhost:5000/employees")
+    fetch("https://quiz-five-beta.vercel.app/employees")
       .then((res) => res.json())
       .then((data) => {
         setLoader(false);

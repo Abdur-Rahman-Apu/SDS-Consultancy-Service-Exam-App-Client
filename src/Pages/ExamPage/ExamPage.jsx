@@ -104,7 +104,7 @@ const ExamPage = () => {
 
   // send user answers to the database
   const setToDatabase = () => {
-    fetch(`http://localhost:5000/certifications/${PathCourseName}`)
+    fetch(`https://quiz-five-beta.vercel.app/certifications/${PathCourseName}`)
       .then((res) => res.json())
       .then((data) => {
         const ExamData = data;
@@ -160,13 +160,16 @@ const ExamPage = () => {
           totalMark,
         };
 
-        fetch(`http://localhost:5000/userResult?id=${employeeInfo?._id}`, {
-          method: "PATCH",
-          headers: {
-            "content-type": "application/json",
-          },
-          body: JSON.stringify(markSheet),
-        })
+        fetch(
+          `https://quiz-five-beta.vercel.app/userResult?id=${employeeInfo?._id}`,
+          {
+            method: "PATCH",
+            headers: {
+              "content-type": "application/json",
+            },
+            body: JSON.stringify(markSheet),
+          }
+        )
           .then((res) => res.json())
           .then((result) => {
             if (result.acknowledged) {

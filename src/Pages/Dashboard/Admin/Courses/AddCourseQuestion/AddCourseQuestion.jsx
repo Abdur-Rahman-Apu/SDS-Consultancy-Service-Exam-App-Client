@@ -22,13 +22,16 @@ const AddCourseQuestion = () => {
         const strings = data.map((o) => JSON.stringify(o));
 
         // send data into the database
-        fetch(`http://localhost:5000/addQuestion?courseName=${courseName}`, {
-          method: "PATCH",
-          headers: {
-            "content-type": "application/json",
-          },
-          body: JSON.stringify(strings),
-        })
+        fetch(
+          `https://quiz-five-beta.vercel.app/addQuestion?courseName=${courseName}`,
+          {
+            method: "PATCH",
+            headers: {
+              "content-type": "application/json",
+            },
+            body: JSON.stringify(strings),
+          }
+        )
           .then((res) => res.json())
           .then((result) => {
             if (result.acknowledged) {
