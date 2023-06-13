@@ -12,6 +12,7 @@ const AddEmployee = () => {
 
   const navigate = useNavigate();
 
+  // get employee info and add data into the database
   const onSubmit = (data) => {
     fetch("https://quiz-five-beta.vercel.app/addEmployee", {
       method: "POST",
