@@ -307,8 +307,8 @@ const ExamPage = () => {
           <p>Total Marks: {ExamData.examInfo.questions}</p>
         </div>
 
-        <div className="border-2 border-[#12bcb8] rounded-full w-[55px] h-[55px] lg:w-[80px] lg:h-[80px] fixed top-40 right-0 md:top-24 md:right-10">
-          <p className="absolute top-[16px] right-[6px] lg:top-[25px] lg:left-[12px] font-bold font-roboto text-sm lg:text-xl">
+        <div className="border-2 border-[#12bcb8] rounded-full w-[45px] h-[45px] lg:w-[80px] lg:h-[80px] fixed top-40 right-0 md:top-24 md:right-8">
+          <p className="absolute top-[14px] right-[5px] lg:top-[25px] lg:left-[12px] font-bold font-roboto text-xs lg:text-xl">
             {formatTime(timeRemaining)}
           </p>
         </div>
@@ -319,12 +319,16 @@ const ExamPage = () => {
       {ExamData.questionPaper.map((Question) => {
         const { questionNo, question, options } = Question;
         return (
-          <div key={questionNo} className="mt-24 " id={questionNo}>
-            <div className="my-10 bg-gray-100 shadow-xl px-10 py-5 rounded-lg">
-              <p className="text-base md:text-lg  text-white bg-black inline-block rounded p-1">
+          <div
+            key={questionNo}
+            className="mt-24 w-[320px] md:w-[80%] lg:w-[100%]"
+            id={questionNo}
+          >
+            <div className="my-10 ml-5 lg:ml-0 bg-gray-100 shadow-xl px-8 lg:px-10 py-5 rounded-lg w-[100%]">
+              <p className="text-sm md:text-lg  text-white bg-black inline-block rounded p-1">
                 Question-{questionNo}
               </p>
-              <h3 className="my-5 font-bold font-roboto font-IBM text-lg md:text-xl">
+              <h3 className="my-5 font-bold font-roboto font-IBM text-base md:text-xl">
                 {question}
               </h3>
 
@@ -343,10 +347,12 @@ const ExamPage = () => {
                       } 
 														${OptionStyle === option ? "font-extrabold" : "font-normal"}`}
                     >
-                      <span className="pt-1 md:pt-2 text-center rounded-full w-[35px] h-[35px] md:w-[40px] md:h-[40px] bg-[#1dd1a1] text-white">
+                      <span className="pt-1 md:pt-2 text-center rounded-full w-[25px] h-[25px] md:w-[40px] md:h-[40px] bg-[#1dd1a1] text-white text-xs md:text-base">
                         {id}
                       </span>
-                      <span className={`pl-3 text-black`}>{option}</span>
+                      <span className={`pl-3 text-black text-xs md:text-base`}>
+                        {option}
+                      </span>
                     </p>
                   );
                 })}
@@ -411,14 +417,14 @@ const ExamPage = () => {
           }
         })}
       {/* Question Scrolling Button */}
-      <div className="hidden lg:block fixed top-56 right-1 sm:right-5 md:top-60 md:right-14 space-y-3">
+      <div className="  fixed top-56 right-1 sm:right-5  lg:top-52 lg:right-12 space-y-3">
         {ExamData.questionPaper.map((question, index) => {
           if (index % 10 === 0) {
             return (
               <div key={index + 1}>
                 <a
                   href={`#${index + 1}`}
-                  className="btn bg-green-200 btn-sm border-none w-[25px] h-[25px] md:w-[40px] md:h-[40px] rounded-full"
+                  className="btn bg-green-200 btn-sm border-none w-[25px] h-[25px] md:w-[40px] md:h-[40px] rounded-full text-xs lg:text-lg"
                 >
                   {index + 1}
                 </a>
