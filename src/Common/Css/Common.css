@@ -10,7 +10,7 @@
 }
 
 .active-link {
-  background-color: #36d1dc;
+  background-color: #36d1dc !important;
 }
 
 .leaflet-container {

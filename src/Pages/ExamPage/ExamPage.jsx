@@ -1,6 +1,6 @@
 import { useContext, useEffect, useState } from "react";
 import Alert from "../../assets/Audio/alert.mp3";
-import { Link, useNavigate, useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import Swal from "sweetalert2";
 import useExamData from "../../CustomHook/useExamData/useExamData";
 import Loading from "../Loading/Loading";
@@ -12,29 +12,42 @@ import ExamPageTitle from "./ExamPageTitle";
 const ExamPage = () => {
   const [userAnswers, setUserAnswers] = useState({});
   const [OptionStyle, setOptionStyle] = useState(null);
-  const [timeRemaining, setTimeRemaining] = useState( 2); // 2 hours
+  const [timeRemaining, setTimeRemaining] = useState((60*60)*2); // 2 hours
   const [isTimeUp, setIsTimeUp] = useState(false);
   const { employeeInfo } = useContext(AuthContext);
 
   const Params = useParams();
   const PathCourseName = Params.courseName;
   // Data Fetching From Custom-Hooks
-  const [ExamData] = useExamData(PathCourseName);
-
+  const [ExamData, RandomExamData] = useExamData(PathCourseName);
   const navigate = useNavigate();
 
   const Title = ExamData?.courseName;
   localStorage.setItem("TempSubmittedData", JSON.stringify({ Title: PathCourseName, userAnswers }));
 
-  // You are Out of Exam For Screen Minimize
+  // Window Reload
+  useEffect(()=>{
+    const unloadCallback = (event) => {      
+        const e = event || window.event;
+       
+        e.preventDefault();
+        if (e) {
+          e.returnValue = ''
+        }
+        return '';
+    };
+    
+    window.addEventListener("beforeunload", unloadCallback);
+    return () => {
+      window.removeEventListener("beforeunload", unloadCallback);
+    }
+  },[])
+
+  // You are out of Exam For Screen Minimize
   useEffect(() => {
     const handleVisibilityChange = async () => {
       if (document.visibilityState === "hidden") {
-        const SumbitData = JSON.parse(localStorage.getItem("TempSubmittedData"));
-        console.log(SumbitData, "SubmittedData")
-        if (SumbitData) {
-          AddResultToLocal(SumbitData.userAnswers, SumbitData.Title);
-        }
+
         // User minimized the window
         Swal.fire({
           allowOutsideClick: false,
@@ -46,6 +59,11 @@ const ExamPage = () => {
           confirmButtonColor: "#3085d6",
           confirmButtonText: "Submit",
         }).then((result) => {
+          const SumbitData = JSON.parse(localStorage.getItem("TempSubmittedData"));
+          console.log(SumbitData, "SubmittedData")
+          if (SumbitData) {
+            AddResultToLocal(SumbitData.userAnswers, SumbitData.Title);
+          }
           if (result.isConfirmed) {
             setToDatabase();
             Swal.fire({
@@ -67,8 +85,8 @@ const ExamPage = () => {
     return () => {
       window.removeEventListener("visibilitychange", handleVisibilityChange);
     };
-  }, [PathCourseName]);
-
+  }, []);
+  // Exam Time Over
   const handleAnswerChange = (questionId, selectedOption, option) => {
     setUserAnswers((prevAnswers) => ({
       ...prevAnswers,
@@ -126,7 +144,6 @@ const ExamPage = () => {
 
         console.log(correctAns.length);
         //   calculation of total mark
-
         let totalMark =
           correctAns.length - wrongAns.length <= 0
             ? 0
@@ -155,13 +172,13 @@ const ExamPage = () => {
           .then((res) => res.json())
           .then((result) => {
             if (result.acknowledged) {
-              toast.success("Result added");
+              toast.success("Result Saved");
             } else {
-              toast.success("Failed to added");
+              toast.success("Failed to Result Saved");
             }
           })
           .catch(() => {
-            toast.error("Server error");
+            toast.error("Network Issuses!");
           });
       });
   };
@@ -212,7 +229,6 @@ const ExamPage = () => {
       localStorage.setItem("ExamResult", JSON.stringify([data]));
       return;
     }
-
     const ParseGetItemData = JSON.parse(getItemData);
 
     const existingIndex = ParseGetItemData.findIndex(
@@ -234,26 +250,29 @@ const ExamPage = () => {
   let timer;
   useEffect(() => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    timer = setTimeout(() => {
+    timer = setInterval(() => {
       setTimeRemaining((prevTime) => prevTime - 1);
     }, 1000);
-
-    return () => {
-      clearTimeout(timer);
-    };
+    return () => clearInterval(timer);
   }, [timeRemaining]);
 
   // Looking If Exam Duration Finished
   useEffect(() => {
     if (timeRemaining === 0) {
       setIsTimeUp(true);
-      clearTimeout(timer); // Stop the timer when time reaches 0
+      clearInterval(timer); // Stop the timer when time reaches 0
     }
   }, [timeRemaining, timer]);
 
+  // Loader
   if (!ExamData) {
     return <Loading></Loading>;
   }
+
+  // Random Exam Data Generate
+  const RandomMappedExamData = [...ExamData.questionPaper].sort(() => 0.5 - Math.random());
+  console.log(RandomMappedExamData);
+
   // Exam Time Formatting
   const formatTime = (time) => {
     const minutes = Math.floor(time / 60);
@@ -262,29 +281,36 @@ const ExamPage = () => {
       .toString()
       .padStart(2, "0")}`;
   };
-
+  // Exam Time Over
+  isTimeUp ?
+    Swal.fire({
+      title: "Exam Time Over!", text: "Please, Submit Your Answer!", icon: "success", allowOutsideClick: false, allowEscapeKey: false, showCancelButton: false, confirmButtonColor: "#3085d6", cancelButtonColor: "#d33", confirmButtonText: "Submit!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        AddResultToLocal(userAnswers, Title);
+        Swal.fire({ allowOutsideClick: true, allowEscapeKey: true, showCancelButton: false, showConfirmButton: false, icon: "success", title: "Your work has been saved", html: `<a href="/certifications/${PathCourseName}/result" target="_blank" onClick=${setToDatabase()} style='display: inline-block;padding: 10px 20px;background-color: #007bff;color: #fff;text-decoration: none;border-radius: 4px;box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);transition: background-color 0.3s;font-size: 16px;font-weight: bold;'> Show Result</a>`, });
+        delete localStorage.TempSubmittedData;
+        return navigate("/certifications");
+      }
+    }) : ""
   return (
-    <div
-      className={`max-w-3xl mx-auto pb-24 font-roboto`}
-      style={{ fontFamily: "Roboto Slab, serif" }}
-    >
-      {/*Exam Close Button  */}
-      <p className="fixed bottom-10 right-10 z-40"></p>
+    <div className={`max-w-3xl mx-auto pb-24 font-roboto`} style={{ fontFamily: "Roboto Slab, serif" }}>
       {/* Exam Title */}
-
-    <ExamPageTitle ExamData={ExamData} Logo={Logo} formatTime={formatTime} timeRemaining={timeRemaining} ></ExamPageTitle>
-
+      <ExamPageTitle ExamData={ExamData} Logo={Logo} formatTime={formatTime} timeRemaining={timeRemaining} ></ExamPageTitle>
       {/* Exam Body */}
-      {/* Questions Json File Mapping */}
-      {ExamData.questionPaper.map((Question) => {
+      {RandomExamData.map((Question, index) => {
         const { questionNo, question, options } = Question;
         return (
-          <div key={questionNo} className="mt-24 " id={questionNo}>
-            <div className="my-10 bg-gray-100 shadow-xl px-10 py-5 rounded-lg">
-              <p className="text-base md:text-lg  text-white bg-black inline-block rounded p-1">
-                Question-{questionNo}
+          <div
+            key={questionNo}
+            className="mt-24 w-[320px] md:w-[80%] lg:w-[100%]"
+            id={index + 1}
+          >
+            <div className="my-10 ml-5 lg:ml-0 bg-gray-100 shadow-xl px-8 lg:px-10 py-5 rounded-lg w-[100%]">
+              <p className="text-sm md:text-lg  text-white bg-black inline-block rounded p-1">
+                Question-{index + 1}
               </p>
-              <h3 className="my-5 font-bold font-roboto font-IBM text-lg md:text-xl">
+              <h3 className="my-5 font-bold font-roboto font-IBM text-base md:text-xl">
                 {question}
               </h3>
 
@@ -302,10 +328,12 @@ const ExamPage = () => {
                         } 
 														${OptionStyle === option ? "font-extrabold" : "font-normal"}`}
                     >
-                      <span className="pt-1 md:pt-2 text-center rounded-full w-[35px] h-[35px] md:w-[40px] md:h-[40px] bg-[#1dd1a1] text-white">
+                      <span className="pt-1 md:pt-2 text-center rounded-full w-[25px] h-[25px] md:w-[40px] md:h-[40px] bg-[#1dd1a1] text-white text-xs md:text-base">
                         {id}
                       </span>
-                      <span className={`pl-3 text-black`}>{option}</span>
+                      <span className={`pl-3 text-black text-xs md:text-base`}>
+                        {option}
+                      </span>
                     </p>
                   );
                 })}
@@ -330,51 +358,22 @@ const ExamPage = () => {
         </audio>
       )}
 
-      {/* Exam Time Over Screen Close */}
-      {isTimeUp &&
-        Swal.fire({
-          title: "Exam Time Over!",
-          text: "Please, Submit Your Answer!",
-          icon: "success",
-          allowOutsideClick: false,
-          allowEscapeKey: false,
-          showCancelButton: false,
-          confirmButtonColor: "#3085d6",
-          cancelButtonColor: "#d33",
-          confirmButtonText: "Submit!",
-        }).then((result) => {
-          if (result.isConfirmed) {
-            AddResultToLocal(userAnswers, Title);
-            Swal.fire({
-              allowOutsideClick: true,
-              allowEscapeKey: true,
-              showCancelButton: false,
-              showConfirmButton: false,
-              icon: "success",
-              title: "Your work has been saved",
-              html: `<a href="/certifications/${PathCourseName}/result" target="_blank" onClick=${setToDatabase()} style='display: inline-block;padding: 10px 20px;background-color: #007bff;color: #fff;text-decoration: none;border-radius: 4px;box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);transition: background-color 0.3s;font-size: 16px;font-weight: bold;'> Show Result</a>`,
-            });
-            delete localStorage.TempSubmittedData;
-            navigate("/certifications");
-          }
-        })}
       {/* Question Scrolling Button */}
-      <div className="hidden lg:block fixed top-56 right-1 sm:right-5 md:top-60 md:right-14 space-y-3">
-        {ExamData.questionPaper.map((question, questionNo, index) => {
-          if (questionNo % 10 === 0) {
+      <div className="  fixed top-56 right-1 sm:right-5  lg:top-52 lg:right-12 space-y-3">
+        {ExamData.questionPaper.map((question, index) => {
+          if (index % 10 === 0 || index === 0) {
             return (
-              <div key={questionNo}>
+              <div key={index}>
                 <a
-                  href={`#${questionNo == 0 ? 1 : questionNo}`}
-                  className="btn bg-green-200 btn-sm border-none w-[25px] h-[25px] md:w-[40px] md:h-[40px] rounded-full"
-                >
-                  {questionNo == 0 ? 1 : questionNo}
+                  href={`#${index === 0 ? 1 : index}`}
+                  className="btn bg-green-200 btn-sm border-none w-[25px] h-[25px] md:w-[40px] md:h-[40px] rounded-full text-xs lg:text-lg" >
+                  {index === 0 ? 1 : index}
                 </a>
               </div>
             );
           }
-          return null;
-        })}
+        }
+        )}
       </div>
     </div>
   );

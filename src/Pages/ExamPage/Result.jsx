@@ -100,6 +100,7 @@ const Result = () => {
             <p className="my-4">Correct: {correctAns.length}</p>
             <p className="my-4">Wrong: {wrongAns.length}</p>
             <p className="my-4">Total Mark: {totalMark}</p>
+
             <p>
               Result:{" "}
               <span
