@@ -3,7 +3,7 @@ import Logo from "../../assets/Logo/logo.jpg";
 import "../../Common/Css/Common.css";
 import Lottie from "lottie-react";
 import LoginAnimation from "../../assets/LottieFiles/login.json";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
 import Loading from "../Loading/Loading";
@@ -22,6 +22,10 @@ const LogIn = () => {
     handleSubmit,
     formState: { errors },
   } = useForm();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   const from = location?.from?.state?.pathname || "/";
 
