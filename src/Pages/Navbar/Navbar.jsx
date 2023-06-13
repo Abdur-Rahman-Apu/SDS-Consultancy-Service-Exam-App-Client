@@ -29,7 +29,7 @@ const Navbar = () => {
 
   const handleLogOut = () => {
     logOut();
-    toast.success("LogOut successfully");
+    toast.success("Logout successfully");
     setEmployeeInfo(null);
   };
 

@@ -9,13 +9,9 @@ import style from "./individualCertification.module.css";
 const IndividualCertification = ({ course, employee, employeeInfo }) => {
   const { courseId, courseName, courseImg, courseDesc } = course;
 
-  console.log(course, "course");
-
-  console.log(employee, "employee");
-
   let diffDays;
 
-  if (course.length > 0 && employee?.result[`${courseName}`]?.length > 0) {
+  if (course && employee?.result[`${courseName}`]?.length > 0) {
     const result = employee?.result[`${courseName}`];
     const latestExamDate = result[0].examDate;
     const todayDate = new Date().toLocaleDateString();
@@ -25,6 +21,7 @@ const IndividualCertification = ({ course, employee, employeeInfo }) => {
     console.log(date2);
     console.log(date1);
     diffDays = parseInt((date2 - date1) / (1000 * 60 * 60 * 24), 10);
+    console.log(diffDays, "inside if");
   }
 
   const [ruleModalOpen, setRuleModalOpen] = useState(false);
@@ -39,6 +36,8 @@ const IndividualCertification = ({ course, employee, employeeInfo }) => {
   const toggleConfirmationModal = () => {
     setConfirmModalOpen(confirmModalOpen === true ? false : true);
   };
+
+  console.log(diffDays, courseName);
 
   return (
     <div className="card my-5 bg-base-100 shadow-xl">
@@ -127,7 +126,10 @@ const IndividualCertification = ({ course, employee, employeeInfo }) => {
           <button
             className="btn bg-[#42B2BE] font-roboto text-white rounded-full"
             onClick={toggleConfirmationModal}
-            disabled={employeeInfo?.role === "admin"}
+            disabled={
+              employeeInfo?.role === "admin" ||
+              (diffDays != null && diffDays <= 7)
+            }
           >
             Give Exam
           </button>

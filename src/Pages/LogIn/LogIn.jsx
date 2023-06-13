@@ -11,7 +11,6 @@ import Swal from "sweetalert2";
 import Loading from "../Loading/Loading";
 import { toast } from "react-toastify";
 
-
 const LogIn = () => {
   const { loading, setLoading } = useContext(AuthContext);
   const [Loader, setLoader] = useState(false);
@@ -32,8 +31,7 @@ const LogIn = () => {
 
   // get submitted form value & log in
   const onSubmit = (data) => {
-    
-    setLoader(true)
+    setLoader(true);
 
     const { regId: givenId, password: givenPass } = data;
 
@@ -43,36 +41,32 @@ const LogIn = () => {
     fetch("https://quiz-five-beta.vercel.app/employees")
       .then((res) => res.json())
       .then((data) => {
-        setLoader(false)
+        setLoader(false);
 
         data.forEach((employeeInfo) => {
           const { regId, password } = employeeInfo;
           console.log(employeeInfo);
-       
+
           if (regId === givenId && password === givenPass) {
             flag = 1;
             //now click the hidden button using Javascript
-            Swal.fire({
-              icon: 'success',
-              title: 'Login Successful',
-              showConfirmButton: false,
-              timer: 1500
-            })
+            toast.success("Login successfully");
             localStorage.setItem("Employee-Info", JSON.stringify(employeeInfo));
             document.getElementById("hiddenBtn").click();
             navigate(from, { replace: true });
           }
         });
-  setLoader(false)
-        flag === 0 &&  Swal.fire({
-          icon: 'error',
-          title: 'Login Failed',
-          showConfirmButton: false,
-          timer: 1500
-        })
+        setLoader(false);
+        flag === 0 &&
+          Swal.fire({
+            icon: "error",
+            title: "Login Failed",
+            showConfirmButton: false,
+            timer: 1500,
+          });
       })
       .catch(() => {
-        setLoader(false)
+        setLoader(false);
         toast.error("Server Failed");
       });
 
