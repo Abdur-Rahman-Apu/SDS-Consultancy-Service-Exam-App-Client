@@ -16,32 +16,32 @@ const Gallery = () => {
         <div></div>
       </div>
       <div>
-        <img src={image1} alt="image" />
+        <img src={image1} alt="image" loading="lazy" />
       </div>
       <div>
-        <img src={image2} alt="image" />
+        <img src={image2} alt="image" loading="lazy" />
       </div>
       <div>
-        <img src={image3} alt="image" />
+        <img src={image3} alt="image" loading="lazy" />
       </div>
       <div>
-        <img src={image4} alt="image" />
+        <img src={image4} alt="image" loading="lazy" />
       </div>
       <div>
-        <img src={image5} alt="image" />
+        <img src={image5} alt="image" loading="lazy" />
       </div>
       <div>
-        <img src={image6} alt="image" />
+        <img src={image6} alt="image" loading="lazy" />
       </div>
       <div>
-        <img src={image7} alt="image" />
+        <img src={image7} alt="image" loading="lazy" />
       </div>
       <div>
-        <img src={image8} alt="image" />
+        <img src={image8} alt="image" loading="lazy" />
       </div>
       <div></div>
       <div>
-        <img src={image9} alt="image" />
+        <img src={image9} alt="image" loading="lazy" />
       </div>
       <div></div>
       <div>

@@ -11,10 +11,10 @@ import style from "../Layout/DashboardLayout.module.css";
 
 const DashboardLayout = () => {
   const { employeeInfo } = useContext(AuthContext);
-  console.log(employeeInfo);
 
   //   get pathname to highlight active menu
   const pathName = useLocation().pathname;
+  console.log(pathName);
 
   let menus;
 
