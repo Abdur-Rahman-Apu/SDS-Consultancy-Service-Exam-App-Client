@@ -14,7 +14,11 @@ const IndividualCertification = ({ course, employee, employeeInfo }) => {
   let diffDays;
 
   // Calculate passed days after giving first exam
-  if (course && employee?.result[`${courseName}`]?.length > 0) {
+  if (
+    course &&
+    employee?.role != "admin" &&
+    employee?.result[`${courseName}`]?.length > 0
+  ) {
     const result = employee?.result[`${courseName}`];
     const latestExamDate = result[0]?.examDate;
     const todayDate = new Date().toLocaleDateString();
