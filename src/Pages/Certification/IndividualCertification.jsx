@@ -13,6 +13,9 @@ const IndividualCertification = ({ course, employee, employeeInfo }) => {
 
   let diffDays;
 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   // Calculate passed days after giving first exam
   if (
     course &&
@@ -27,6 +30,8 @@ const IndividualCertification = ({ course, employee, employeeInfo }) => {
     const date2 = new Date(`${todayDate.toString()}`);
     diffDays = parseInt((date2 - date1) / (1000 * 60 * 60 * 24), 10);
   }
+
+  console.log("CourseName", courseName, "diffDays", diffDays);
 
   // modal contains rules of the exam
   const toggleRuleModal = () => {
