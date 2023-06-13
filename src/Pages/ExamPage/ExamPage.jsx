@@ -12,42 +12,46 @@ import ExamPageTitle from "./ExamPageTitle";
 const ExamPage = () => {
   const [userAnswers, setUserAnswers] = useState({});
   const [OptionStyle, setOptionStyle] = useState(null);
-  const [timeRemaining, setTimeRemaining] = useState((60*60)*2); // 2 hours
+  const [timeRemaining, setTimeRemaining] = useState(60 * 60 * 2); // 2 hours
   const [isTimeUp, setIsTimeUp] = useState(false);
   const { employeeInfo } = useContext(AuthContext);
 
   const Params = useParams();
+  const navigate = useNavigate();
   const PathCourseName = Params.courseName;
+
   // Data Fetching From Custom-Hooks
   const [ExamData, RandomExamData] = useExamData(PathCourseName);
-  const navigate = useNavigate();
-
   const Title = ExamData?.courseName;
-  localStorage.setItem("TempSubmittedData", JSON.stringify({ Title: PathCourseName, userAnswers }));
 
-  // Window Reload
-  useEffect(()=>{
-    const unloadCallback = (event) => {      
-        const e = event || window.event;
-       
-        e.preventDefault();
-        if (e) {
-          e.returnValue = ''
-        }
-        return '';
+  // set user answers at localStorage
+  localStorage.setItem(
+    "TempSubmittedData",
+    JSON.stringify({ Title: PathCourseName, userAnswers })
+  );
+
+  // Show confirm page before Reload the website
+  useEffect(() => {
+    const unloadCallback = (event) => {
+      const e = event || window.event;
+
+      e.preventDefault();
+      if (e) {
+        e.returnValue = "";
+      }
+      return "";
     };
-    
+
     window.addEventListener("beforeunload", unloadCallback);
     return () => {
       window.removeEventListener("beforeunload", unloadCallback);
-    }
-  },[])
+    };
+  }, []);
 
   // You are out of Exam For Screen Minimize
   useEffect(() => {
     const handleVisibilityChange = async () => {
       if (document.visibilityState === "hidden") {
-
         // User minimized the window
         Swal.fire({
           allowOutsideClick: false,
@@ -59,8 +63,10 @@ const ExamPage = () => {
           confirmButtonColor: "#3085d6",
           confirmButtonText: "Submit",
         }).then((result) => {
-          const SumbitData = JSON.parse(localStorage.getItem("TempSubmittedData"));
-          console.log(SumbitData, "SubmittedData")
+          const SumbitData = JSON.parse(
+            localStorage.getItem("TempSubmittedData")
+          );
+
           if (SumbitData) {
             AddResultToLocal(SumbitData.userAnswers, SumbitData.Title);
           }
@@ -74,7 +80,7 @@ const ExamPage = () => {
 							 target="_blank" style='display: inline-block;padding: 10px 20px;background-color: #007bff;color: #fff;text-decoration: none;border-radius: 4px;box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);transition: background-color 0.3s;font-size: 16px;font-weight: bold;'> Show Result</a>`,
             });
             delete localStorage.TempSubmittedData;
-            navigate('/certifications');
+            navigate("/certifications");
           }
         });
       }
@@ -86,6 +92,7 @@ const ExamPage = () => {
       window.removeEventListener("visibilitychange", handleVisibilityChange);
     };
   }, []);
+
   // Exam Time Over
   const handleAnswerChange = (questionId, selectedOption, option) => {
     setUserAnswers((prevAnswers) => ({
@@ -93,14 +100,13 @@ const ExamPage = () => {
       [questionId]: selectedOption,
     }));
     setOptionStyle(option);
-    console.log(userAnswers, "user answers");
   };
 
+  // send user answers to the database
   const setToDatabase = () => {
     fetch(`https://quiz-five-beta.vercel.app/certifications/${PathCourseName}`)
       .then((res) => res.json())
       .then((data) => {
-        console.log(data, "data");
         const ExamData = data;
         const GetLocalExamResult = JSON.parse(
           localStorage.getItem("ExamResult")
@@ -109,9 +115,9 @@ const ExamPage = () => {
           (result) => result.Title === PathCourseName
         );
 
-        console.log(MatchedResultData);
-
-        const formattedExamDate = new Date(MatchedResultData.ExamDate).toLocaleString().split(",")[0];
+        const formattedExamDate = new Date(MatchedResultData.ExamDate)
+          .toLocaleString()
+          .split(",")[0];
 
         //   User's Answers
         const userAnswersArray = Object.entries(
@@ -142,22 +148,17 @@ const ExamPage = () => {
           });
         });
 
-        console.log(correctAns.length);
         //   calculation of total mark
         let totalMark =
           correctAns.length - wrongAns.length <= 0
             ? 0
             : correctAns.length - wrongAns.length;
 
-        console.log(totalMark);
-
         const markSheet = {
           courseName: MatchedResultData.Title,
           examDate: formattedExamDate,
           totalMark,
         };
-
-        console.log("Mark sheet", markSheet);
 
         fetch(
           `https://quiz-five-beta.vercel.app/userResult?id=${employeeInfo?._id}`,
@@ -222,8 +223,6 @@ const ExamPage = () => {
       ExamDate: new Date().toISOString(),
     };
 
-    console.log(data);
-
     const getItemData = localStorage.getItem("ExamResult");
     if (!getItemData) {
       localStorage.setItem("ExamResult", JSON.stringify([data]));
@@ -269,10 +268,6 @@ const ExamPage = () => {
     return <Loading></Loading>;
   }
 
-  // Random Exam Data Generate
-  const RandomMappedExamData = [...ExamData.questionPaper].sort(() => 0.5 - Math.random());
-  console.log(RandomMappedExamData);
-
   // Exam Time Formatting
   const formatTime = (time) => {
     const minutes = Math.floor(time / 60);
@@ -282,21 +277,46 @@ const ExamPage = () => {
       .padStart(2, "0")}`;
   };
   // Exam Time Over
-  isTimeUp ?
-    Swal.fire({
-      title: "Exam Time Over!", text: "Please, Submit Your Answer!", icon: "success", allowOutsideClick: false, allowEscapeKey: false, showCancelButton: false, confirmButtonColor: "#3085d6", cancelButtonColor: "#d33", confirmButtonText: "Submit!",
-    }).then((result) => {
-      if (result.isConfirmed) {
-        AddResultToLocal(userAnswers, Title);
-        Swal.fire({ allowOutsideClick: true, allowEscapeKey: true, showCancelButton: false, showConfirmButton: false, icon: "success", title: "Your work has been saved", html: `<a href="/certifications/${PathCourseName}/result" target="_blank" onClick=${setToDatabase()} style='display: inline-block;padding: 10px 20px;background-color: #007bff;color: #fff;text-decoration: none;border-radius: 4px;box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);transition: background-color 0.3s;font-size: 16px;font-weight: bold;'> Show Result</a>`, });
-        delete localStorage.TempSubmittedData;
-        return navigate("/certifications");
-      }
-    }) : ""
+  isTimeUp
+    ? Swal.fire({
+        title: "Exam Time Over!",
+        text: "Please, Submit Your Answer!",
+        icon: "success",
+        allowOutsideClick: false,
+        allowEscapeKey: false,
+        showCancelButton: false,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Submit!",
+      }).then((result) => {
+        if (result.isConfirmed) {
+          AddResultToLocal(userAnswers, Title);
+          Swal.fire({
+            allowOutsideClick: true,
+            allowEscapeKey: true,
+            showCancelButton: false,
+            showConfirmButton: false,
+            icon: "success",
+            title: "Your work has been saved",
+            html: `<a href="/certifications/${PathCourseName}/result" target="_blank" onClick=${setToDatabase()} style='display: inline-block;padding: 10px 20px;background-color: #007bff;color: #fff;text-decoration: none;border-radius: 4px;box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);transition: background-color 0.3s;font-size: 16px;font-weight: bold;'> Show Result</a>`,
+          });
+          delete localStorage.TempSubmittedData;
+          return navigate("/certifications");
+        }
+      })
+    : "";
   return (
-    <div className={`max-w-3xl mx-auto pb-24 font-roboto`} style={{ fontFamily: "Roboto Slab, serif" }}>
+    <div
+      className={`max-w-3xl mx-auto pb-24 font-roboto`}
+      style={{ fontFamily: "Roboto Slab, serif" }}
+    >
       {/* Exam Title */}
-      <ExamPageTitle ExamData={ExamData} Logo={Logo} formatTime={formatTime} timeRemaining={timeRemaining} ></ExamPageTitle>
+      <ExamPageTitle
+        ExamData={ExamData}
+        Logo={Logo}
+        formatTime={formatTime}
+        timeRemaining={timeRemaining}
+      ></ExamPageTitle>
       {/* Exam Body */}
       {RandomExamData.map((Question, index) => {
         const { questionNo, question, options } = Question;
@@ -322,10 +342,11 @@ const ExamPage = () => {
                     <p
                       key={option}
                       onClick={() => handleAnswerChange(questionNo, id, option)}
-                      className={`p-4  rounded-md flex items-center cursor-pointer ${userAnswers[questionNo] === id
-                        ? "bg-[#1dd1a180] text-white"
-                        : "border bg-gray-50 border-gray-300"
-                        } 
+                      className={`p-4  rounded-md flex items-center cursor-pointer ${
+                        userAnswers[questionNo] === id
+                          ? "bg-[#1dd1a180] text-white"
+                          : "border bg-gray-50 border-gray-300"
+                      } 
 														${OptionStyle === option ? "font-extrabold" : "font-normal"}`}
                     >
                       <span className="pt-1 md:pt-2 text-center rounded-full w-[25px] h-[25px] md:w-[40px] md:h-[40px] bg-[#1dd1a1] text-white text-xs md:text-base">
@@ -366,14 +387,14 @@ const ExamPage = () => {
               <div key={index}>
                 <a
                   href={`#${index === 0 ? 1 : index}`}
-                  className="btn bg-green-200 btn-sm border-none w-[25px] h-[25px] md:w-[40px] md:h-[40px] rounded-full text-xs lg:text-lg" >
+                  className="btn bg-green-200 btn-sm border-none w-[25px] h-[25px] md:w-[40px] md:h-[40px] rounded-full text-xs lg:text-lg"
+                >
                   {index === 0 ? 1 : index}
                 </a>
               </div>
             );
           }
-        }
-        )}
+        })}
       </div>
     </div>
   );

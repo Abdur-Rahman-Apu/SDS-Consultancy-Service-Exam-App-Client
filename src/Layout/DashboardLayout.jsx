@@ -14,7 +14,6 @@ const DashboardLayout = () => {
 
   //   get pathname to highlight active menu
   const pathName = useLocation().pathname;
-  console.log(pathName);
 
   let menus;
 

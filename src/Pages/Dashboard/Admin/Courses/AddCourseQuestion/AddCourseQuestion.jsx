@@ -14,11 +14,7 @@ const AddCourseQuestion = () => {
 
   // Read JSON file and insert into the database
   const onSubmit = (data) => {
-    console.log(data);
-
     const jsonFile = data.file[0];
-
-    console.log(jsonFile);
 
     new Response(jsonFile).json().then(
       (data) => {
@@ -51,6 +47,8 @@ const AddCourseQuestion = () => {
         toast.error("Please upload a JSON file");
       }
     );
+
+    event.target.reset();
   };
 
   return (

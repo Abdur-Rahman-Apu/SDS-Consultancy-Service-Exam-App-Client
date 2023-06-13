@@ -7,28 +7,26 @@ import ReadyImg from "../../assets/Certifications/7494932.jpg";
 import style from "./individualCertification.module.css";
 
 const IndividualCertification = ({ course, employee, employeeInfo }) => {
-  const { courseId, courseName, courseImg, courseDesc } = course;
-
-  console.log(course, "course");
-
-  console.log(employee, "employee");
+  const { courseName, courseImg, courseDesc } = course;
+  const [ruleModalOpen, setRuleModalOpen] = useState(false);
+  const [confirmModalOpen, setConfirmModalOpen] = useState(false);
 
   let diffDays;
 
-  if (course.length > 0 && employee?.result[`${courseName}`]?.length > 0) {
+  // Calculate passed days after giving first exam
+  if (
+    course &&
+    employee?.role != "admin" &&
+    employee?.result[`${courseName}`]?.length > 0
+  ) {
     const result = employee?.result[`${courseName}`];
-    const latestExamDate = result[0].examDate;
+    const latestExamDate = result[0]?.examDate;
     const todayDate = new Date().toLocaleDateString();
 
     const date1 = new Date(`${latestExamDate.toString()}`);
     const date2 = new Date(`${todayDate.toString()}`);
-    console.log(date2);
-    console.log(date1);
     diffDays = parseInt((date2 - date1) / (1000 * 60 * 60 * 24), 10);
   }
-
-  const [ruleModalOpen, setRuleModalOpen] = useState(false);
-  const [confirmModalOpen, setConfirmModalOpen] = useState(false);
 
   // modal contains rules of the exam
   const toggleRuleModal = () => {
@@ -127,7 +125,10 @@ const IndividualCertification = ({ course, employee, employeeInfo }) => {
           <button
             className="btn bg-[#42B2BE] font-roboto text-white rounded-full"
             onClick={toggleConfirmationModal}
-            disabled={employeeInfo?.role === "admin"}
+            disabled={
+              employeeInfo?.role === "admin" ||
+              (diffDays != null && diffDays <= 7)
+            }
           >
             Give Exam
           </button>

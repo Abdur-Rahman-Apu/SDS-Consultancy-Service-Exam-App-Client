@@ -1,18 +1,20 @@
 import IndividualCertification from "./IndividualCertification";
 import useCourses from "../../CustomHook/useCourses/useCourses";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { AuthContext } from "../../Context/AuthProvider";
 import useSpecificEmployee from "../../CustomHook/useSpecificEmployee/useSpecificEmployee";
 import Loading2 from "../Loading2/Loading2";
 
 const Certification = () => {
   const { employeeInfo } = useContext(AuthContext);
-
-  console.log(employeeInfo, "employeeInfo certification");
   const [employee] = useSpecificEmployee(employeeInfo?._id);
-  console.log("employee", employee);
   const [courses] = useCourses();
-  console.log(courses, "courses");
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
+  // loader
   if (!courses) {
     return <Loading2 />;
   }

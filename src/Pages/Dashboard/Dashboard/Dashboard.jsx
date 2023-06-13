@@ -6,7 +6,7 @@ import EmployeeDashboard from "../Employee/EmployeeDashboard/EmployeeDashboard";
 const Dashboard = () => {
   const { employeeInfo } = useContext(AuthContext);
   const { role } = employeeInfo;
-  console.log(role);
+
   return (
     <div>
       <h1 className="text-center mt-16 mb-10 font-roboto text-3xl md:text-4xl font-bold">

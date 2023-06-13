@@ -3,17 +3,15 @@ import Logo from "../../assets/Logo/logo.jpg";
 import "../../Common/Css/Common.css";
 import Lottie from "lottie-react";
 import LoginAnimation from "../../assets/LottieFiles/login.json";
-import { AuthContext } from "../../Context/AuthProvider";
-import { useContext, useState } from "react";
+import { useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
-import Swal from "sweetalert2";
 import Loading from "../Loading/Loading";
 import { toast } from "react-toastify";
 
-
 const LogIn = () => {
-  const { loading, setLoading } = useContext(AuthContext);
+  const navigate = useNavigate();
+  const location = useLocation();
   const [Loader, setLoader] = useState(false);
 
   const [passwordInputType, setPasswordInputType] = useState("password");
@@ -25,15 +23,11 @@ const LogIn = () => {
     formState: { errors },
   } = useForm();
 
-  const navigate = useNavigate();
-  const location = useLocation();
-
   const from = location?.from?.state?.pathname || "/";
 
   // get submitted form value & log in
   const onSubmit = (data) => {
-    
-    setLoader(true)
+    setLoader(true);
 
     const { regId: givenId, password: givenPass } = data;
 
@@ -43,36 +37,26 @@ const LogIn = () => {
     fetch("https://quiz-five-beta.vercel.app/employees")
       .then((res) => res.json())
       .then((data) => {
-        setLoader(false)
+        setLoader(false);
 
         data.forEach((employeeInfo) => {
           const { regId, password } = employeeInfo;
-          console.log(employeeInfo);
-       
+
+          // matching user id and password
           if (regId === givenId && password === givenPass) {
             flag = 1;
             //now click the hidden button using Javascript
-            Swal.fire({
-              icon: 'success',
-              title: 'Login Successful',
-              showConfirmButton: false,
-              timer: 1500
-            })
+            toast.success("Login successfully");
             localStorage.setItem("Employee-Info", JSON.stringify(employeeInfo));
             document.getElementById("hiddenBtn").click();
             navigate(from, { replace: true });
           }
         });
-  setLoader(false)
-        flag === 0 &&  Swal.fire({
-          icon: 'error',
-          title: 'Login Failed',
-          showConfirmButton: false,
-          timer: 1500
-        })
+        setLoader(false);
+        flag === 0 && toast.error("No match");
       })
       .catch(() => {
-        setLoader(false)
+        setLoader(false);
         toast.error("Server Failed");
       });
 
@@ -86,7 +70,7 @@ const LogIn = () => {
     );
   };
 
-  // check loading
+  // loader
   if (Loader) {
     return <Loading></Loading>;
   }

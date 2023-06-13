@@ -4,6 +4,7 @@ import "react-toastify/dist/ReactToastify.css";
 import Employee from "../Employee/Employee";
 
 const Employees = () => {
+  // fetch employee info
   const { data: employees, refetch } = useQuery({
     queryKey: ["allEmployees"],
     queryFn: async () => {
@@ -16,8 +17,6 @@ const Employees = () => {
 
   // delete an employee
   const handleDeleteEmployee = (id) => {
-    console.log(id);
-
     fetch(`https://quiz-five-beta.vercel.app/deleteEmployee?id=${id}`, {
       method: "DELETE",
     })
@@ -33,7 +32,6 @@ const Employees = () => {
       });
   };
 
-  console.log(employees);
   return (
     <div className="md:px-16">
       <h1 className="text-center font-roboto text-2xl md:text-3xl font-bold mt-16 mb-10">
