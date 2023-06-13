@@ -1,17 +1,13 @@
 import { useParams } from "react-router-dom";
 import Loading from "../Loading/Loading";
 import useExamData from "../../CustomHook/useExamData/useExamData";
-import { useContext } from "react";
-import { AuthContext } from "../../Context/AuthProvider";
 import PassImg from "../../assets/Result/pass.jpg";
 import FailImg from "../../assets/Result/fail.jpg";
 
 const Result = () => {
-  console.log("Result page rendered");
   const Params = useParams();
   const PathCourseName = Params.courseName;
   const [ExamData] = useExamData(PathCourseName);
-  const { employeeInfo } = useContext(AuthContext);
 
   let totalMark;
 
@@ -36,15 +32,11 @@ const Result = () => {
     })
   );
 
-  console.log(userAnswersArray, "userAnswersArray");
-
   //   all questions correct answer
   const AnswerArray = ExamData.questionPaper.map((questions) => ({
     questionNo: questions.questionNo,
     answer: questions.answer,
   }));
-
-  console.log(AnswerArray, "answer array");
 
   let correctAns = [];
   let wrongAns = [];
@@ -67,10 +59,6 @@ const Result = () => {
     correctAns.length - wrongAns.length <= 0
       ? 0
       : correctAns.length - wrongAns.length;
-
-  console.log(correctAns.length, "Correct ans");
-  console.log(wrongAns.length, "Wrong ans");
-  console.log(totalMark);
 
   const IntigratedArray = ExamData.questionPaper.map((question) => {
     const MatchedResult = userAnswersArray.find((obj) => {

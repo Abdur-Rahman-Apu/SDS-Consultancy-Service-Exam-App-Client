@@ -3,16 +3,15 @@ import Logo from "../../assets/Logo/logo.jpg";
 import "../../Common/Css/Common.css";
 import Lottie from "lottie-react";
 import LoginAnimation from "../../assets/LottieFiles/login.json";
-import { AuthContext } from "../../Context/AuthProvider";
-import { useContext, useState } from "react";
+import { useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
-import Swal from "sweetalert2";
 import Loading from "../Loading/Loading";
 import { toast } from "react-toastify";
 
 const LogIn = () => {
-  const { loading, setLoading } = useContext(AuthContext);
+  const navigate = useNavigate();
+  const location = useLocation();
   const [Loader, setLoader] = useState(false);
 
   const [passwordInputType, setPasswordInputType] = useState("password");
@@ -23,9 +22,6 @@ const LogIn = () => {
     handleSubmit,
     formState: { errors },
   } = useForm();
-
-  const navigate = useNavigate();
-  const location = useLocation();
 
   const from = location?.from?.state?.pathname || "/";
 
@@ -45,8 +41,8 @@ const LogIn = () => {
 
         data.forEach((employeeInfo) => {
           const { regId, password } = employeeInfo;
-          console.log(employeeInfo);
 
+          // matching user id and password
           if (regId === givenId && password === givenPass) {
             flag = 1;
             //now click the hidden button using Javascript
@@ -57,13 +53,7 @@ const LogIn = () => {
           }
         });
         setLoader(false);
-        flag === 0 &&
-          Swal.fire({
-            icon: "error",
-            title: "Login Failed",
-            showConfirmButton: false,
-            timer: 1500,
-          });
+        flag === 0 && toast.error("No match");
       })
       .catch(() => {
         setLoader(false);
@@ -80,7 +70,7 @@ const LogIn = () => {
     );
   };
 
-  // check loading
+  // loader
   if (Loader) {
     return <Loading></Loading>;
   }

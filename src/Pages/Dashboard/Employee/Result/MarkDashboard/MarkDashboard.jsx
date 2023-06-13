@@ -6,6 +6,7 @@ const MarkDashboard = () => {
   // get all courses
   const [courses] = useCourses();
 
+  // loader
   if (!courses) {
     return <Loading2 />;
   }

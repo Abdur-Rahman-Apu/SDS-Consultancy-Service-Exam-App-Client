@@ -17,18 +17,20 @@ const ExamPage = () => {
   const { employeeInfo } = useContext(AuthContext);
 
   const Params = useParams();
+  const navigate = useNavigate();
   const PathCourseName = Params.courseName;
+
   // Data Fetching From Custom-Hooks
   const [ExamData, RandomExamData] = useExamData(PathCourseName);
-  const navigate = useNavigate();
-
   const Title = ExamData?.courseName;
+
+  // set user answers at localStorage
   localStorage.setItem(
     "TempSubmittedData",
     JSON.stringify({ Title: PathCourseName, userAnswers })
   );
 
-  // Window Reload
+  // Show confirm page before Reload the website
   useEffect(() => {
     const unloadCallback = (event) => {
       const e = event || window.event;
@@ -64,7 +66,7 @@ const ExamPage = () => {
           const SumbitData = JSON.parse(
             localStorage.getItem("TempSubmittedData")
           );
-          console.log(SumbitData, "SubmittedData");
+
           if (SumbitData) {
             AddResultToLocal(SumbitData.userAnswers, SumbitData.Title);
           }
@@ -90,6 +92,7 @@ const ExamPage = () => {
       window.removeEventListener("visibilitychange", handleVisibilityChange);
     };
   }, []);
+
   // Exam Time Over
   const handleAnswerChange = (questionId, selectedOption, option) => {
     setUserAnswers((prevAnswers) => ({
@@ -97,14 +100,13 @@ const ExamPage = () => {
       [questionId]: selectedOption,
     }));
     setOptionStyle(option);
-    console.log(userAnswers, "user answers");
   };
 
+  // send user answers to the database
   const setToDatabase = () => {
     fetch(`https://quiz-five-beta.vercel.app/certifications/${PathCourseName}`)
       .then((res) => res.json())
       .then((data) => {
-        console.log(data, "data");
         const ExamData = data;
         const GetLocalExamResult = JSON.parse(
           localStorage.getItem("ExamResult")
@@ -112,8 +114,6 @@ const ExamPage = () => {
         const MatchedResultData = GetLocalExamResult.find(
           (result) => result.Title === PathCourseName
         );
-
-        console.log(MatchedResultData);
 
         const formattedExamDate = new Date(MatchedResultData.ExamDate)
           .toLocaleString()
@@ -148,22 +148,17 @@ const ExamPage = () => {
           });
         });
 
-        console.log(correctAns.length);
         //   calculation of total mark
         let totalMark =
           correctAns.length - wrongAns.length <= 0
             ? 0
             : correctAns.length - wrongAns.length;
 
-        console.log(totalMark);
-
         const markSheet = {
           courseName: MatchedResultData.Title,
           examDate: formattedExamDate,
           totalMark,
         };
-
-        console.log("Mark sheet", markSheet);
 
         fetch(
           `https://quiz-five-beta.vercel.app/userResult?id=${employeeInfo?._id}`,
@@ -228,8 +223,6 @@ const ExamPage = () => {
       ExamDate: new Date().toISOString(),
     };
 
-    console.log(data);
-
     const getItemData = localStorage.getItem("ExamResult");
     if (!getItemData) {
       localStorage.setItem("ExamResult", JSON.stringify([data]));
@@ -274,12 +267,6 @@ const ExamPage = () => {
   if (!ExamData) {
     return <Loading></Loading>;
   }
-
-  // Random Exam Data Generate
-  const RandomMappedExamData = [...ExamData.questionPaper].sort(
-    () => 0.5 - Math.random()
-  );
-  console.log(RandomMappedExamData);
 
   // Exam Time Formatting
   const formatTime = (time) => {

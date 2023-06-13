@@ -1,6 +1,6 @@
 /* eslint-disable no-undef */
 /* eslint-disable react/prop-types */
-import { createContext, useEffect, useState } from "react";
+import { createContext, useState } from "react";
 
 export const AuthContext = createContext();
 
@@ -14,9 +14,7 @@ const AuthProvider = ({ children }) => {
   // get user info
   let employee = JSON.parse(localStorage.getItem("Employee-Info"));
 
-  console.log(employee);
-  console.log(employeeInfo);
-
+  // checking update of employee info to update localStorage employee info
   if (!_.isEqual(employee, employeeInfo)) {
     setEmployeeInfo(employee);
   }

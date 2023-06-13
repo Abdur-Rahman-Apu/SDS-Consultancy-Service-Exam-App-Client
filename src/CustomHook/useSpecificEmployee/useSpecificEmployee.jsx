@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 
 const useSpecificEmployee = (id) => {
-  console.log(id);
   const [employee, setEmployee] = useState(null);
 
   useEffect(() => {

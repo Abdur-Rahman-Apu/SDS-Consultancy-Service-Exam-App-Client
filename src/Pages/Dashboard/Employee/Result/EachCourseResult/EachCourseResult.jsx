@@ -8,17 +8,10 @@ import Loading2 from "../../../../Loading2/Loading2";
 const EachCourseResult = () => {
   const { courseName } = useParams();
   const { employeeInfo } = useContext(AuthContext);
-  console.log(courseName);
-  console.log(employeeInfo);
-
   const [employee] = useSpecificEmployee(employeeInfo?._id);
-
-  console.log(employee, "employee");
-
   const allResult = employee?.result[`${courseName}`];
 
-  console.log(allResult);
-
+  // loader
   if (!allResult) {
     return <Loading2 />;
   }
