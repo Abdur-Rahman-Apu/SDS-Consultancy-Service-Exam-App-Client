@@ -1,9 +1,9 @@
-import Banner from "../Banner/Banner";
 
+import Banner from "../Banner/Banner";
 import Certifications from "../Certifications/Certifications";
-import Gallery from "../Gallery/Gallery";
 import Features from "../Features/Features";
 import { useEffect } from "react";
+import Gallery from "../Gallery/Gallery";
 
 const Home = () => {
   useEffect(() => {
