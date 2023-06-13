@@ -23,7 +23,7 @@ const Course = ({ course }) => {
       </td>
       <td className="text-sm md:text-base">{course?.courseName}</td>
 
-      {employeeInfo.role === "admin" ? (
+      {employeeInfo?.role === "admin" ? (
         <th>
           <Link
             to={`/dashboard/addQuestion/${course?.courseName}`}

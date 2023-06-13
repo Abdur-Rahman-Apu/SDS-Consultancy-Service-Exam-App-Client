@@ -5,6 +5,7 @@ import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import style from "./Profile.module.css";
 import { useNavigate } from "react-router-dom";
+import ProfileAvatar from "../../../../assets/Profile/profile.png";
 
 const Profile = () => {
   const { employeeInfo, setEmployeeInfo } = useContext(AuthContext);
@@ -17,9 +18,8 @@ const Profile = () => {
 
   const navigate = useNavigate();
 
+  // update password
   const onSubmit = (data) => {
-    console.log(data, "update password");
-
     // check new password is given in the field or not
     if (password != data.password) {
       // update password using patch method to update specific admin
@@ -56,25 +56,34 @@ const Profile = () => {
   };
   return (
     <div>
-      <div className="w-[90%] md:w-[60%] mx-auto mt-20 mb-10   border border-gray-200 rounded-lg shadow">
-        <div className=" py-10 bg-[#44b2bf33]">
+      <div className="w-[90%] md:w-[60%] mx-auto mt-20 mb-10   border border-[#1dd1a1] rounded-lg shadow">
+        <div className=" py-10">
           <h1 className="text-2xl md:text-3xl text-center font-bold font-roboto uppercase">
-            Profile
+            Your Profile
           </h1>
+
+          {/* profile avatar  */}
+          <div className="w-[200px] mx-auto">
+            <img
+              src={ProfileAvatar}
+              alt="image"
+              className="object-cover w-full"
+            />
+          </div>
 
           {/* profile information  */}
           <div className="px-[20px] font-roboto ">
             <h5 className="mb-1 text-lg md:text-xl  font-medium text-gray-900  mt-4">
-              <span className="font-bold text-[#3DB3BD]"> Name:</span>
+              <span className="font-bold "> Name:</span>
               {" " + name}
             </h5>
             <h5 className="mb-1 text-lg md:text-xl font-medium text-gray-900  mt-4">
-              <span className="font-bold text-[#3DB3BD]"> Designation:</span>
+              <span className="font-bold "> Designation:</span>
               {" " + role}
             </h5>
 
             <h5 className="mb-1 text-lg md:text-xl font-medium text-gray-900  mt-4">
-              <span className="font-bold text-[#3DB3BD]">Registration Id:</span>
+              <span className="font-bold">Registration Id:</span>
               {" " + regId}
             </h5>
 
@@ -82,7 +91,7 @@ const Profile = () => {
               {/* registration id field  */}
               <div className="form-control">
                 <h5 className="mb-1 text-lg md:text-xl font-medium text-gray-900 capitalize mt-4">
-                  <span className=" font-bold text-[#3DB3BD]">Password</span>
+                  <span className=" font-bold">Password</span>
                 </h5>
                 <input
                   type="text"
