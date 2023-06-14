@@ -47,59 +47,74 @@ const AddEmployee = () => {
     } = data;
 
     const courses = [
-      AI,
-      AWS,
-      Angular,
-      ApacheFlink,
-      ApacheKafka,
-      ApacheSpark,
-      BigdataHadoop,
-      CCENT,
-      CCIE,
-      CCNA,
-      CCNP,
-      CCT,
-      DataScience,
-      Devops,
-      HTML,
-      Linux,
-      ML,
-      MicrosoftAzure,
-      Oracle,
-      Py,
-      Salesforce,
-      Scala,
+      { Artificial_Intelligence: AI },
+      { AWS },
+      { Angular },
+      { ApacheFlink },
+      { ApacheKafka },
+      { ApacheSpark },
+      { BigdataHadoop },
+      { CCENT },
+      { CCIE },
+      { CCNA },
+      { CCNP },
+      { CCT },
+      { DataScience },
+      { Devops },
+      { HTML },
+      { Linux },
+      { ML },
+      { MicrosoftAzure },
+      { Oracle },
+      { Python: Py },
+      { Salesforce },
+      { Scala },
     ];
 
-    const checkTrue = (element) => element === true;
+    console.log(courses);
 
-    if (courses.some(checkTrue)) {
-      // fetch("https://quiz-five-beta.vercel.app/addEmployee", {
-      //   method: "POST",
-      //   headers: {
-      //     "content-type": "application/json",
-      //   },
-      //   body: JSON.stringify({
-      //     ...data,
-      //     result: {
-      //       Java: [],
-      //       Python: [],
-      //       CCNA: [],
-      //       CCSP: [],
-      //       Hadoop: [],
-      //     },
-      //   }),
-      // })
-      //   .then((res) => res.json())
-      //   .then((result) => {
-      //     if (result.acknowledged) {
-      //       toast.success("You added an employee successfully.");
-      //       navigate("/dashboard/employees");
-      //     }
-      //   })
-      //   .catch(() => {
-      //     toast.error("Failed to add an employee.");
-      //   });
+    const selectedCourses = {};
+
+    courses.forEach((course) => {
+      if (Object.values(course)[0]) {
+        const key = Object.keys(course)[0];
+        course[key] = [];
+        selectedCourses[key] = course[key];
+      }
+    });
+    console.log(selectedCourses);
+    if (Object.keys(selectedCourses).length > 0) {
+      console.log("Any selected");
+      console.log(selectedCourses);
+
+      const employeeInfo = {
+        name,
+        role,
+        employee,
+        regId,
+        password,
+        result: selectedCourses,
+      };
+
+      console.log(employeeInfo);
+
+      fetch("https://quiz-five-beta.vercel.app/addEmployee", {
+        method: "POST",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(employeeInfo),
+      })
+        .then((res) => res.json())
+        .then((result) => {
+          if (result.acknowledged) {
+            toast.success("You added an employee successfully.");
+            navigate("/dashboard/employees");
+          }
+        })
+        .catch(() => {
+          toast.error("Failed to add an employee.");
+        });
     } else {
       toast.error("Please assign a course");
     }
