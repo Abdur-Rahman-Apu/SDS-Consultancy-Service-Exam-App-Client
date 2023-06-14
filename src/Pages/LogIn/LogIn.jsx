@@ -43,7 +43,7 @@ const LogIn = () => {
       .then((res) => res.json())
       .then((data) => {
         setLoader(false);
-
+        console.log(data);
         data.forEach((employeeInfo) => {
           const { regId, password } = employeeInfo;
 
@@ -53,14 +53,15 @@ const LogIn = () => {
             //now click the hidden button using Javascript
             toast.success("Login successfully");
             localStorage.setItem("Employee-Info", JSON.stringify(employeeInfo));
-            document.getElementById("hiddenBtn").click();
-            navigate(from, { replace: true });
+            // document.getElementById("hiddenBtn").click();
+            navigate("/certifications");
           }
         });
         setLoader(false);
         flag === 0 && toast.error("No match");
       })
-      .catch(() => {
+      .catch((err) => {
+        console.log(err);
         setLoader(false);
         toast.error("Server Failed");
       });
@@ -81,7 +82,7 @@ const LogIn = () => {
   }
 
   return (
-    <div>
+    <div className="min-h-[100vh]">
       <div>
         <img className="w-[150px] h-[150px] mx-auto" src={Logo} alt="logo" />
       </div>
@@ -109,7 +110,7 @@ const LogIn = () => {
                 <div className="form-control relative">
                   <input
                     type="text"
-                    placeholder="Enter registration id"
+                    placeholder="Enter Registration ID"
                     className="border border-black font-semibold py-4 pl-14  text-black text-sm md:text-base focus:outline-[#00ADB4] block w-full placeholder-black"
                     {...register("regId", { required: true })}
                     aria-invalid={errors.regId ? "true" : "false"}

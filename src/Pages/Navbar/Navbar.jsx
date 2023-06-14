@@ -11,8 +11,8 @@ import {
   faLocationDot,
   faPhone,
 } from "@fortawesome/free-solid-svg-icons";
-import { Link, useLocation } from "react-router-dom";
-import { useContext } from "react";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import { useContext, useEffect } from "react";
 import { AuthContext } from "../../Context/AuthProvider";
 import AvatarImg from "../../assets/Nav/user.png";
 import { toast } from "react-toastify";
@@ -20,17 +20,20 @@ import { toast } from "react-toastify";
 const Navbar = () => {
   const pathName = useLocation().pathname;
 
+  const navigate = useNavigate();
+
   const { employeeInfo, logOut, setEmployeeInfo } = useContext(AuthContext);
 
-  const getEmployeeInfo = () => {
+  useEffect(() => {
     const employeeInfo = JSON.parse(localStorage.getItem("Employee-Info"));
     setEmployeeInfo(employeeInfo);
-  };
+  }, [setEmployeeInfo]);
 
   const handleLogOut = () => {
     logOut();
     toast.success("Logout successfully");
     setEmployeeInfo(null);
+    navigate("/");
   };
 
   return (
@@ -133,20 +136,12 @@ const Navbar = () => {
               >
                 <li>
                   <Link
-                    to="/"
-                    className={pathName === "/" ? "active-link" : ""}
-                  >
-                    Home
-                  </Link>
-                </li>
-                <li>
-                  <Link
                     to="/certifications"
                     className={
                       pathName === "/certifications" ? "active-link" : ""
                     }
                   >
-                    Certifications
+                    Examinations
                   </Link>
                 </li>
 
@@ -163,15 +158,6 @@ const Navbar = () => {
                     </Link>
                   </li>
                 )}
-
-                <li>
-                  <Link
-                    to="/about"
-                    className={pathName === "/about" ? "active-link" : ""}
-                  >
-                    About Us
-                  </Link>
-                </li>
               </ul>
             </div>
             {/* <a className="btn btn-ghost normal-case text-xl">daisyUI</a> */}
@@ -180,20 +166,12 @@ const Navbar = () => {
               <ul className="menu menu-horizontal px-1 text-base font-semibold font-roboto">
                 <li>
                   <Link
-                    to="/"
-                    className={pathName === "/" ? "active-link" : ""}
-                  >
-                    Home
-                  </Link>
-                </li>
-                <li>
-                  <Link
                     to="/certifications"
                     className={
                       pathName === "/certifications" ? "active-link" : ""
                     }
                   >
-                    Certifications
+                    Examinations
                   </Link>
                 </li>
 
@@ -210,15 +188,6 @@ const Navbar = () => {
                     </Link>
                   </li>
                 )}
-
-                <li>
-                  <Link
-                    to="/about"
-                    className={pathName === "/about" ? "active-link" : ""}
-                  >
-                    About Us
-                  </Link>
-                </li>
               </ul>
             </div>
           </div>
@@ -248,13 +217,13 @@ const Navbar = () => {
                 <FontAwesomeIcon icon={faInstagram} />
               </a>
             </div>
-            <button
+            {/* <button
               style={{ display: "none" }}
               onClick={getEmployeeInfo}
               id="hiddenBtn"
             >
               Hidden Button
-            </button>
+            </button> */}
             {employeeInfo ? (
               <>
                 <div

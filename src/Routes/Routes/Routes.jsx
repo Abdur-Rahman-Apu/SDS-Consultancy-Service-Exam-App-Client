@@ -25,25 +25,17 @@ export const router = createBrowserRouter([
     element: <LogIn />,
     errorElement: <Error />,
   },
-  // {
-  //   path: "/",
-  //   element: <MainLayout />,
-  //   errorElement: <Error />,
-  //   children: [
-  //     {
-  //       path: "/",
-  //       element: <LogIn />,
-  //     },
-  //     {
-  //       path: "/certifications",
-  //       element: (
-  //         <PrivateRoute>
-  //           <Certification />
-  //         </PrivateRoute>
-  //       ),
-  //     },
-  //   ],
-  // },
+  {
+    path: "/certifications",
+    element: <MainLayout />,
+    errorElement: <Error />,
+    children: [
+      {
+        path: "/certifications",
+        element: <Certification />,
+      },
+    ],
+  },
   {
     path: "/certifications/:courseName/exam",
     element: <ExamPage />,
