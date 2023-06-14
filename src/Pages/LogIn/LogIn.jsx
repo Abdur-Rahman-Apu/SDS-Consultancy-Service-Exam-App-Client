@@ -9,6 +9,7 @@ import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
 import { FaUserAlt, FaLock, FaLockOpen } from "react-icons/fa";
 import Loading from "../Loading/Loading";
 import { toast } from "react-toastify";
+import Loading2 from "../Loading2/Loading2";
 
 const LogIn = () => {
   const navigate = useNavigate();
@@ -78,7 +79,7 @@ const LogIn = () => {
 
   // loader
   if (Loader) {
-    return <Loading></Loading>;
+    return <Loading2></Loading2>;
   }
 
   return (
@@ -111,7 +112,7 @@ const LogIn = () => {
                   <input
                     type="text"
                     placeholder="Enter Registration ID"
-                    className="border border-black font-semibold py-4 pl-14  text-black text-sm md:text-base focus:outline-[#00ADB4] block w-full placeholder-black"
+                    className="border border-black rounded-xl font-semibold py-4 pl-14  text-black text-sm md:text-base focus:outline-[#00ADB4] block w-full placeholder-black"
                     {...register("regId", { required: true })}
                     aria-invalid={errors.regId ? "true" : "false"}
                   />
@@ -119,20 +120,19 @@ const LogIn = () => {
                   {
                     <FaUserAlt className="absolute text-[#00ADB4] top-[38%] left-6" />
                   }
-
-                  {errors.regId?.type === "required" && (
-                    <p role="alert" className="my-1 text-red-600">
-                      Registration ID is required
-                    </p>
-                  )}
                 </div>
+                {errors.regId?.type === "required" && (
+                  <p role="alert" className="my-1 text-red-600">
+                    Registration ID is required
+                  </p>
+                )}
 
                 {/* password field  */}
                 <div className="form-control my-4 relative">
                   <input
                     type={passwordInputType}
                     placeholder="Enter Password"
-                    className="border border-black font-semibold py-4 pl-14 text-black text-sm md:text-base focus:outline-[#00ADB4] block w-full placeholder-black"
+                    className="border border-black rounded-xl font-semibold py-4 pl-14 text-black text-sm md:text-base focus:outline-[#00ADB4] block w-full placeholder-black"
                     {...register("password", { required: true })}
                     aria-invalid={errors.password ? "true" : "false"}
                   />
@@ -159,13 +159,13 @@ const LogIn = () => {
                       className="absolute top-[62%] right-2 cursor-pointer"
                     />
                   )} */}
-
-                  {errors.regId?.type === "required" && (
-                    <p role="alert" className="my-1 text-red-600">
-                      password is required
-                    </p>
-                  )}
                 </div>
+                {errors.regId?.type === "required" && (
+                  <p role="alert" className="mt-[-10px] text-red-600">
+                    Password is required
+                  </p>
+                )}
+
                 <div className="form-control mt-6">
                   <input
                     type="submit"

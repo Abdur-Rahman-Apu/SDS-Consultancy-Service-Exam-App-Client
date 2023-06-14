@@ -23,7 +23,7 @@ const Certification = () => {
     <div className="py-10 px-[6%]">
       <div className="text-center">
         <h1 className="text-3xl md:text-4xl font-bold mb-4 font-roboto">
-          Certifications
+          Examinations
         </h1>
         <p className="text-sm md:text-base text-gray-400 font-roboto">
           Select your exam subject
