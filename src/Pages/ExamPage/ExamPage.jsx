@@ -116,10 +116,6 @@ const ExamPage = () => {
           (result) => result.Title === PathCourseName
         );
 
-        const formattedExamDate = new Date(MatchedResultData.ExamDate)
-          .toLocaleString()
-          .split(",")[0];
-
         //   User's Answers
         const userAnswersArray = Object.entries(
           MatchedResultData.userAnswers
