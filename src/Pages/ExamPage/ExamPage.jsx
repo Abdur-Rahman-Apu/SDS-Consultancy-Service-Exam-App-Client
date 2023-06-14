@@ -326,7 +326,7 @@ const ExamPage = () => {
         return (
           <div
             key={questionNo}
-            className="mt-24 w-[320px] md:w-[80%] lg:w-[100%]"
+            className="mt-24 w-[80%] lg:w-[100%]"
             id={index + 1}
           >
             <div className="my-10 ml-5 lg:ml-0 bg-gray-100 shadow-xl px-8 lg:px-10 py-5 rounded-lg w-[100%]">
