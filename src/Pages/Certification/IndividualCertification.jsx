@@ -11,6 +11,8 @@ const IndividualCertification = ({ course, employee, employeeInfo }) => {
   const [ruleModalOpen, setRuleModalOpen] = useState(false);
   const [confirmModalOpen, setConfirmModalOpen] = useState(false);
 
+  const d = new Date();
+
   let diffDays;
 
   useEffect(() => {
@@ -24,7 +26,7 @@ const IndividualCertification = ({ course, employee, employeeInfo }) => {
   ) {
     const result = employee?.result[`${courseName}`];
     const latestExamDate = result[0]?.examDate;
-    const todayDate = new Date().toLocaleDateString();
+    const todayDate = `${d.getMonth() + 1}/${d.getDay()}/${d.getFullYear()}`;
 
     const date1 = new Date(`${latestExamDate.toString()}`);
     const date2 = new Date(`${todayDate.toString()}`);
