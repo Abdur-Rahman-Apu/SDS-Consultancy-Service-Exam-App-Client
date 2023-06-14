@@ -4,7 +4,7 @@ const useSpecificEmployee = (id) => {
   const [employee, setEmployee] = useState(null);
 
   useEffect(() => {
-    fetch(`https://quiz-five-beta.vercel.app/onlySpecificEmployee?id=${id}`)
+    fetch(`http://localhost:5000/onlySpecificEmployee?id=${id}`)
       .then((res) => res.json())
       .then((data) => setEmployee(data));
   }, [id]);

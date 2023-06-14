@@ -8,16 +8,14 @@ const Employees = () => {
   const { data: employees, refetch } = useQuery({
     queryKey: ["allEmployees"],
     queryFn: async () => {
-      const response = await fetch(
-        `https://quiz-five-beta.vercel.app/onlyEmployees`
-      );
+      const response = await fetch(`http://localhost:5000/onlyEmployees`);
       return response.json();
     },
   });
 
   // delete an employee
   const handleDeleteEmployee = (id) => {
-    fetch(`https://quiz-five-beta.vercel.app/deleteEmployee?id=${id}`, {
+    fetch(`http://localhost:5000/deleteEmployee?id=${id}`, {
       method: "DELETE",
     })
       .then((res) => res.json())

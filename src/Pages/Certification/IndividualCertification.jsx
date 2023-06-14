@@ -26,14 +26,13 @@ const IndividualCertification = ({ course, employee, employeeInfo }) => {
   ) {
     const result = employee?.result[`${courseName}`];
     const latestExamDate = result[0]?.examDate;
-    const todayDate = `${d.getMonth() + 1}/${d.getDay()}/${d.getFullYear()}`;
+    const todayDate = `${d.getMonth() + 1}/${d.getDate()}/${d.getFullYear()}`;
 
     const date1 = new Date(`${latestExamDate.toString()}`);
     const date2 = new Date(`${todayDate.toString()}`);
+
     diffDays = parseInt((date2 - date1) / (1000 * 60 * 60 * 24), 10);
   }
-
-  console.log("CourseName", courseName, "diffDays", diffDays);
 
   // modal contains rules of the exam
   const toggleRuleModal = () => {
