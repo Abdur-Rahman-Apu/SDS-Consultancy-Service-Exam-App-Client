@@ -14,7 +14,7 @@ const AddEmployee = () => {
 
   // get employee info and add data into the database
   const onSubmit = (data) => {
-    fetch("http://localhost:5000/addEmployee", {
+    fetch("https://quiz-five-beta.vercel.app/addEmployee", {
       method: "POST",
       headers: {
         "content-type": "application/json",

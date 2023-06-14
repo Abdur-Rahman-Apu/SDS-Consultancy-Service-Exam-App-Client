@@ -4,7 +4,7 @@ const useEmployees = () => {
   const [employees, setEmployees] = useState(null);
 
   useEffect(() => {
-    fetch("http://localhost:5000/onlyEmployees")
+    fetch("https://quiz-five-beta.vercel.app/onlyEmployees")
       .then((res) => res.json())
       .then((data) => setEmployees(data));
   }, []);
