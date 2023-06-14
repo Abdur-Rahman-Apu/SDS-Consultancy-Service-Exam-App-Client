@@ -1,7 +1,6 @@
 import { createBrowserRouter } from "react-router-dom";
 
 import LogIn from "../../Pages/LogIn/LogIn";
-import Home from "../../Pages/Home/Home/Home";
 import Error from "../../Pages/Error/Error";
 import Certification from "../../Pages/Certification/Certification";
 import MainLayout from "../../Layout/MainLayout";
@@ -11,7 +10,6 @@ import DashboardLayout from "../../Layout/DashboardLayout";
 import Profile from "../../Pages/Dashboard/Admin/Profile/Profile";
 import AddEmployee from "../../Pages/Dashboard/Admin/AddEmployee/AddEmployee";
 import Employees from "../../Pages/Dashboard/Admin/Employees/Employees/Employees";
-import About from "../../Pages/About/About";
 import Courses from "../../Pages/Dashboard/Admin/Courses/Courses/Courses";
 import AddCourseQuestion from "../../Pages/Dashboard/Admin/Courses/AddCourseQuestion/AddCourseQuestion";
 import UpdateRegId from "../../Pages/Dashboard/Admin/Employees/UpdateRegId/UpdateRegId";
@@ -24,31 +22,28 @@ import Result from "../../Pages/ExamPage/Result";
 export const router = createBrowserRouter([
   {
     path: "/",
-    element: <MainLayout />,
+    element: <LogIn />,
     errorElement: <Error />,
-    children: [
-      {
-        path: "/",
-        element: <Home />,
-      },
-      {
-        path: "/login",
-        element: <LogIn />,
-      },
-      {
-        path: "/certifications",
-        element: (
-          <PrivateRoute>
-            <Certification />
-          </PrivateRoute>
-        ),
-      },
-      {
-        path: "/about",
-        element: <About />,
-      },
-    ],
   },
+  // {
+  //   path: "/",
+  //   element: <MainLayout />,
+  //   errorElement: <Error />,
+  //   children: [
+  //     {
+  //       path: "/",
+  //       element: <LogIn />,
+  //     },
+  //     {
+  //       path: "/certifications",
+  //       element: (
+  //         <PrivateRoute>
+  //           <Certification />
+  //         </PrivateRoute>
+  //       ),
+  //     },
+  //   ],
+  // },
   {
     path: "/certifications/:courseName/exam",
     element: <ExamPage />,

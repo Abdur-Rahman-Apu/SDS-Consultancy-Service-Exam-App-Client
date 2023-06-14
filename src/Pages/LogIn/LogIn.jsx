@@ -6,6 +6,7 @@ import LoginAnimation from "../../assets/LottieFiles/login.json";
 import { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
+import { FaUserAlt, FaLock, FaLockOpen } from "react-icons/fa";
 import Loading from "../Loading/Loading";
 import { toast } from "react-toastify";
 
@@ -80,88 +81,99 @@ const LogIn = () => {
   }
 
   return (
-    <div className="hero min-h-screen my-10">
-      <div className="hero-content w-[85%] flex-col lg:flex-row justify-between">
-        {/* left side  */}
-        <div className="text-center mb-10 lg:mb-0 lg:text-left">
-          <Lottie animationData={LoginAnimation} loop={true} />
-        </div>
-        <div className="card flex-shrink-0 w-full max-w-sm shadow-xl bg-base-100">
-          <div className="card-body">
-            <div>
-              <img
-                className="w-[150px] h-[150px] mx-auto"
-                src={Logo}
-                alt="logo"
-              />
+    <div>
+      <div>
+        <img className="w-[150px] h-[150px] mx-auto" src={Logo} alt="logo" />
+      </div>
+      <div className="hero  mb-10">
+        <div className="hero-content w-[95%] md:w-[85%] flex-col-reverse md:flex-col lg:flex-row justify-between items-start">
+          {/* left side  */}
+          <div className="hidden md:block text-center basis-[100%] md:basis-1/2 h-[400px] mb-10 lg:mb-0 lg:text-left">
+            <Lottie
+              className="w-[100%] h-full"
+              animationData={LoginAnimation}
+              loop={true}
+            />
+          </div>
+          <div className="basis-1/2  w-full  bg-base-100">
+            <div className="">
+              <div>
+                <h1 className="text-2xl text-center lg:text-start md:text-3xl font-bold tracking-wide">
+                  Welcome Back!
+                </h1>
+              </div>
 
-              <h1 className="text-center text-3xl font-bold">Welcome Back</h1>
-              <p className="text-center text-sm my-2">
-                Please enter your details
-              </p>
+              {/* login fields  */}
+              <form className="mt-14" onSubmit={handleSubmit(onSubmit)}>
+                {/* registration id field  */}
+                <div className="form-control relative">
+                  <input
+                    type="text"
+                    placeholder="Enter registration id"
+                    className="border border-black font-semibold py-4 pl-14  text-black text-sm md:text-base focus:outline-[#00ADB4] block w-full placeholder-black"
+                    {...register("regId", { required: true })}
+                    aria-invalid={errors.regId ? "true" : "false"}
+                  />
+
+                  {
+                    <FaUserAlt className="absolute text-[#00ADB4] top-[38%] left-6" />
+                  }
+
+                  {errors.regId?.type === "required" && (
+                    <p role="alert" className="my-1 text-red-600">
+                      Registration ID is required
+                    </p>
+                  )}
+                </div>
+
+                {/* password field  */}
+                <div className="form-control my-4 relative">
+                  <input
+                    type={passwordInputType}
+                    placeholder="Enter Password"
+                    className="border border-black font-semibold py-4 pl-14 text-black text-sm md:text-base focus:outline-[#00ADB4] block w-full placeholder-black"
+                    {...register("password", { required: true })}
+                    aria-invalid={errors.password ? "true" : "false"}
+                  />
+
+                  {passwordInputType === "password" ? (
+                    <FaLock
+                      onClick={togglePasswordInputType}
+                      className="absolute text-[#00ADB4] top-[38%] left-6 cursor-pointer"
+                    />
+                  ) : (
+                    <FaLockOpen
+                      onClick={togglePasswordInputType}
+                      className="absolute text-[#00ADB4] top-[38%] left-6 cursor-pointer"
+                    />
+                  )}
+                  {/* {passwordInputType === "password" ? (
+                    <AiFillEye
+                      onClick={togglePasswordInputType}
+                      className="absolute top-[62%] right-2 cursor-pointer"
+                    />
+                  ) : (
+                    <AiFillEyeInvisible
+                      onClick={togglePasswordInputType}
+                      className="absolute top-[62%] right-2 cursor-pointer"
+                    />
+                  )} */}
+
+                  {errors.regId?.type === "required" && (
+                    <p role="alert" className="my-1 text-red-600">
+                      password is required
+                    </p>
+                  )}
+                </div>
+                <div className="form-control mt-6">
+                  <input
+                    type="submit"
+                    value="LogIn"
+                    className="btn button-bg text-white w-fit mx-auto mt-6 px-16 rounded-full"
+                  />
+                </div>
+              </form>
             </div>
-
-            {/* login fields  */}
-            <form className="my-4" onSubmit={handleSubmit(onSubmit)}>
-              {/* registration id field  */}
-              <div className="form-control">
-                <label className="label">
-                  <span className="label-text font-bold">Registration ID</span>
-                </label>
-                <input
-                  type="text"
-                  placeholder="Enter registration id"
-                  className="input input-bordered"
-                  {...register("regId", { required: true })}
-                  aria-invalid={errors.regId ? "true" : "false"}
-                />
-
-                {errors.regId?.type === "required" && (
-                  <p role="alert" className="my-1 text-red-600">
-                    Registration ID is required
-                  </p>
-                )}
-              </div>
-
-              {/* password field  */}
-              <div className="form-control my-4 relative">
-                <label className="label">
-                  <span className="label-text font-bold">Password</span>
-                </label>
-                <input
-                  type={passwordInputType}
-                  placeholder="password"
-                  className="input input-bordered"
-                  {...register("password", { required: true })}
-                  aria-invalid={errors.password ? "true" : "false"}
-                />
-
-                {passwordInputType === "password" ? (
-                  <AiFillEye
-                    onClick={togglePasswordInputType}
-                    className="absolute top-[62%] right-2 cursor-pointer"
-                  />
-                ) : (
-                  <AiFillEyeInvisible
-                    onClick={togglePasswordInputType}
-                    className="absolute top-[62%] right-2 cursor-pointer"
-                  />
-                )}
-
-                {errors.regId?.type === "required" && (
-                  <p role="alert" className="my-1 text-red-600">
-                    password is required
-                  </p>
-                )}
-              </div>
-              <div className="form-control mt-6">
-                <input
-                  type="submit"
-                  value="LogIn"
-                  className="btn button-bg text-white"
-                />
-              </div>
-            </form>
           </div>
         </div>
       </div>
