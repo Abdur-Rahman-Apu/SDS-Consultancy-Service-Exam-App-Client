@@ -6,6 +6,7 @@ import "react-toastify/dist/ReactToastify.css";
 const AddEmployee = () => {
   const {
     register,
+
     handleSubmit,
     formState: { errors },
   } = useForm();
@@ -14,32 +15,94 @@ const AddEmployee = () => {
 
   // get employee info and add data into the database
   const onSubmit = (data) => {
-    fetch("https://quiz-five-beta.vercel.app/addEmployee", {
-      method: "POST",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify({
-        ...data,
-        result: {
-          Java: [],
-          Python: [],
-          CCNA: [],
-          CCSP: [],
-          Hadoop: [],
-        },
-      }),
-    })
-      .then((res) => res.json())
-      .then((result) => {
-        if (result.acknowledged) {
-          toast.success("You added an employee successfully.");
-          navigate("/dashboard/employees");
-        }
-      })
-      .catch(() => {
-        toast.error("Failed to add an employee.");
-      });
+    console.log(data);
+    const {
+      name,
+      role,
+      employee,
+      regId,
+      password,
+      AI,
+      AWS,
+      Angular,
+      ApacheFlink,
+      ApacheKafka,
+      ApacheSpark,
+      BigdataHadoop,
+      CCENT,
+      CCIE,
+      CCNA,
+      CCNP,
+      CCT,
+      DataScience,
+      Devops,
+      HTML,
+      Linux,
+      ML,
+      MicrosoftAzure,
+      Oracle,
+      Py,
+      Salesforce,
+      Scala,
+    } = data;
+
+    const courses = [
+      AI,
+      AWS,
+      Angular,
+      ApacheFlink,
+      ApacheKafka,
+      ApacheSpark,
+      BigdataHadoop,
+      CCENT,
+      CCIE,
+      CCNA,
+      CCNP,
+      CCT,
+      DataScience,
+      Devops,
+      HTML,
+      Linux,
+      ML,
+      MicrosoftAzure,
+      Oracle,
+      Py,
+      Salesforce,
+      Scala,
+    ];
+
+    const checkTrue = (element) => element === true;
+
+    if (courses.some(checkTrue)) {
+      // fetch("https://quiz-five-beta.vercel.app/addEmployee", {
+      //   method: "POST",
+      //   headers: {
+      //     "content-type": "application/json",
+      //   },
+      //   body: JSON.stringify({
+      //     ...data,
+      //     result: {
+      //       Java: [],
+      //       Python: [],
+      //       CCNA: [],
+      //       CCSP: [],
+      //       Hadoop: [],
+      //     },
+      //   }),
+      // })
+      //   .then((res) => res.json())
+      //   .then((result) => {
+      //     if (result.acknowledged) {
+      //       toast.success("You added an employee successfully.");
+      //       navigate("/dashboard/employees");
+      //     }
+      //   })
+      //   .catch(() => {
+      //     toast.error("Failed to add an employee.");
+      //   });
+    } else {
+      toast.error("Please assign a course");
+    }
   };
 
   return (
@@ -136,6 +199,311 @@ const AddEmployee = () => {
                 Password is required
               </p>
             )}
+          </div>
+
+          {/* assign courses  */}
+          <div>
+            <label className="block mb-2 text-sm font-medium text-gray-900">
+              Assign Courses <sup className="text-red-600">*</sup>
+            </label>
+
+            {/* courses  */}
+            <div className="my-3 flex justify-between">
+              <div>
+                {/* python course */}
+                <p className="flex items-center my-1">
+                  <input
+                    id="python"
+                    type="checkbox"
+                    className="checkbox checkbox-info w-[18px] h-[18px]"
+                    {...register("Py")}
+                  />
+                  <label
+                    htmlFor="python"
+                    className="font-roboto text-base ml-3"
+                  >
+                    Python
+                  </label>
+                </p>
+
+                {/* Artificial Intelligence */}
+                <p className="flex items-center my-1">
+                  <input
+                    id="ai"
+                    type="checkbox"
+                    className="checkbox checkbox-info w-[18px] h-[18px]"
+                    {...register("AI")}
+                  />
+                  <label htmlFor="ai" className="font-roboto text-base ml-3">
+                    Artificial Intelligence
+                  </label>
+                </p>
+
+                {/* CCNA */}
+                <p className="flex items-center my-1">
+                  <input
+                    id="ccna"
+                    type="checkbox"
+                    className="checkbox checkbox-info w-[18px] h-[18px]"
+                    {...register("CCNA")}
+                  />
+                  <label htmlFor="ccna" className="font-roboto text-base ml-3">
+                    CCNA
+                  </label>
+                </p>
+
+                {/* CCNP  */}
+                <p className="flex items-center my-1">
+                  <input
+                    id="ccnp"
+                    type="checkbox"
+                    className="checkbox checkbox-info w-[18px] h-[18px]"
+                    {...register("CCNP")}
+                  />
+                  <label htmlFor="ccnp" className="font-roboto text-base ml-3">
+                    CCNP
+                  </label>
+                </p>
+                {/* CCENT  */}
+                <p className="flex items-center my-1">
+                  <input
+                    id="ccent"
+                    type="checkbox"
+                    className="checkbox checkbox-info w-[18px] h-[18px]"
+                    {...register("CCENT")}
+                  />
+                  <label htmlFor="ccent" className="font-roboto text-base ml-3">
+                    CCENT
+                  </label>
+                </p>
+
+                {/* CCIE  */}
+                <p className="flex items-center my-1">
+                  <input
+                    id="ccie"
+                    type="checkbox"
+                    className="checkbox checkbox-info w-[18px] h-[18px]"
+                    {...register("CCIE")}
+                  />
+                  <label htmlFor="ccie" className="font-roboto text-base ml-3">
+                    CCIE
+                  </label>
+                </p>
+
+                {/* CCT  */}
+                <p className="flex items-center my-1">
+                  <input
+                    id="cct"
+                    type="checkbox"
+                    className="checkbox checkbox-info w-[18px] h-[18px]"
+                    {...register("CCT")}
+                  />
+                  <label htmlFor="cct" className="font-roboto text-base ml-3">
+                    CCT
+                  </label>
+                </p>
+
+                {/* Oracle  */}
+                <p className="flex items-center my-1">
+                  <input
+                    id="oracle"
+                    type="checkbox"
+                    className="checkbox checkbox-info w-[18px] h-[18px]"
+                    {...register("Oracle")}
+                  />
+                  <label
+                    htmlFor="oracle"
+                    className="font-roboto text-base ml-3"
+                  >
+                    Oracle
+                  </label>
+                </p>
+
+                {/* Machine Learning */}
+                <p className="flex items-center my-1">
+                  <input
+                    id="ml"
+                    type="checkbox"
+                    className="checkbox checkbox-info w-[18px] h-[18px]"
+                    {...register("ML")}
+                  />
+                  <label htmlFor="ml" className="font-roboto text-base ml-3">
+                    Machine Learning
+                  </label>
+                </p>
+                {/* Apache spark */}
+                <p className="flex items-center my-1">
+                  <input
+                    id="as"
+                    type="checkbox"
+                    className="checkbox checkbox-info w-[18px] h-[18px]"
+                    {...register("ApacheSpark")}
+                  />
+                  <label htmlFor="as" className="font-roboto text-base ml-3">
+                    Apache spark
+                  </label>
+                </p>
+                {/* Bigdata Hadoop */}
+                <p className="flex items-center my-1">
+                  <input
+                    id="bh"
+                    type="checkbox"
+                    className="checkbox checkbox-info w-[18px] h-[18px]"
+                    {...register("BigdataHadoop")}
+                  />
+                  <label htmlFor="bh" className="font-roboto text-base ml-3">
+                    Bigdata Hadoop
+                  </label>
+                </p>
+              </div>
+
+              <div>
+                {/* Apache Kafka */}
+                <p className="flex items-center my-1">
+                  <input
+                    id="ak"
+                    type="checkbox"
+                    className="checkbox checkbox-info w-[18px] h-[18px]"
+                    {...register("ApacheKafka")}
+                  />
+                  <label htmlFor="ak" className="font-roboto text-base ml-3">
+                    Apache Kafka
+                  </label>
+                </p>
+                {/* HTML, CSS & JS */}
+                <p className="flex items-center my-1">
+                  <input
+                    id="hcj"
+                    type="checkbox"
+                    className="checkbox checkbox-info w-[18px] h-[18px]"
+                    {...register("HTML")}
+                  />
+                  <label htmlFor="hcj" className="font-roboto text-base ml-3">
+                    HTML, CSS & JS
+                  </label>
+                </p>
+                {/* Scala */}
+                <p className="flex items-center my-1">
+                  <input
+                    id="scala"
+                    type="checkbox"
+                    className="checkbox checkbox-info w-[18px] h-[18px]"
+                    {...register("Scala")}
+                  />
+                  <label htmlFor="scala" className="font-roboto text-base ml-3">
+                    Scala
+                  </label>
+                </p>
+                {/* Angular */}
+                <p className="flex items-center my-1">
+                  <input
+                    id="angular"
+                    type="checkbox"
+                    className="checkbox checkbox-info w-[18px] h-[18px]"
+                    {...register("Angular")}
+                  />
+                  <label
+                    htmlFor="angular"
+                    className="font-roboto text-base ml-3"
+                  >
+                    Angular
+                  </label>
+                </p>
+                {/* AWS */}
+                <p className="flex items-center my-1">
+                  <input
+                    id="aws"
+                    type="checkbox"
+                    className="checkbox checkbox-info w-[18px] h-[18px]"
+                    {...register("AWS")}
+                  />
+                  <label htmlFor="aws" className="font-roboto text-base ml-3">
+                    AWS
+                  </label>
+                </p>
+                {/* Apache Flink */}
+                <p className="flex items-center my-1">
+                  <input
+                    id="apache_flink"
+                    type="checkbox"
+                    className="checkbox checkbox-info w-[18px] h-[18px]"
+                    {...register("ApacheFlink")}
+                  />
+                  <label
+                    htmlFor="apache_flink"
+                    className="font-roboto text-base ml-3"
+                  >
+                    Apache Flink
+                  </label>
+                </p>
+                {/* Devops */}
+                <p className="flex items-center my-1">
+                  <input
+                    id="devops"
+                    type="checkbox"
+                    className="checkbox checkbox-info w-[18px] h-[18px]"
+                    {...register("Devops")}
+                  />
+                  <label
+                    htmlFor="devops"
+                    className="font-roboto text-base ml-3"
+                  >
+                    Devops
+                  </label>
+                </p>
+                {/* Linux */}
+                <p className="flex items-center my-1">
+                  <input
+                    id="linux"
+                    type="checkbox"
+                    className="checkbox checkbox-info w-[18px] h-[18px]"
+                    {...register("Linux")}
+                  />
+                  <label htmlFor="linux" className="font-roboto text-base ml-3">
+                    Linux
+                  </label>
+                </p>
+                {/* Salesforce */}
+                <p className="flex items-center my-1">
+                  <input
+                    id="salesforce"
+                    type="checkbox"
+                    className="checkbox checkbox-info w-[18px] h-[18px]"
+                    {...register("Salesforce")}
+                  />
+                  <label
+                    htmlFor="salesforce"
+                    className="font-roboto text-base ml-3"
+                  >
+                    Salesforce
+                  </label>
+                </p>
+                {/* Microsoft Azure */}
+                <p className="flex items-center my-1">
+                  <input
+                    id="ma"
+                    type="checkbox"
+                    className="checkbox checkbox-info w-[18px] h-[18px]"
+                    {...register("MicrosoftAzure")}
+                  />
+                  <label htmlFor="ma" className="font-roboto text-base ml-3">
+                    Microsoft Azure
+                  </label>
+                </p>
+                {/* Data Science */}
+                <p className="flex items-center my-1">
+                  <input
+                    id="data"
+                    type="checkbox"
+                    className="checkbox checkbox-info w-[18px] h-[18px]"
+                    {...register("DataScience")}
+                  />
+                  <label htmlFor="data" className="font-roboto text-base ml-3">
+                    Data Science
+                  </label>
+                </p>
+              </div>
+            </div>
           </div>
         </div>
 
