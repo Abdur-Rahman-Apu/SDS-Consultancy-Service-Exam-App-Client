@@ -4,7 +4,7 @@ import AdminDashboard from "../Admin/AdminDashboard/AdminDashboard";
 import EmployeeDashboard from "../Employee/EmployeeDashboard/EmployeeDashboard";
 
 const Dashboard = () => {
-  const { employeeInfo } = useContext(AuthContext);
+  const employeeInfo = JSON.parse(localStorage.getItem("Employee-Info"));
   const { role } = employeeInfo;
 
   return (

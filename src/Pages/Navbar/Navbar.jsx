@@ -134,16 +134,18 @@ const Navbar = () => {
                 tabIndex={0}
                 className="menu menu-sm dropdown-content bg-white mt-3 p-2 shadow rounded-box w-52 font-roboto"
               >
-                <li>
-                  <Link
-                    to="/certifications"
-                    className={
-                      pathName === "/certifications" ? "active-link" : ""
-                    }
-                  >
-                    Examinations
-                  </Link>
-                </li>
+                {employeeInfo?.role === "employee" && (
+                  <li>
+                    <Link
+                      to="/certifications"
+                      className={
+                        pathName === "/certifications" ? "active-link" : ""
+                      }
+                    >
+                      Examinations
+                    </Link>
+                  </li>
+                )}
 
                 {/* if employee is logged in then show it  */}
                 {employeeInfo && (
@@ -164,16 +166,18 @@ const Navbar = () => {
 
             <div className="hidden lg:flex">
               <ul className="menu menu-horizontal px-1 text-base font-semibold font-roboto">
-                <li>
-                  <Link
-                    to="/certifications"
-                    className={
-                      pathName === "/certifications" ? "active-link" : ""
-                    }
-                  >
-                    Examinations
-                  </Link>
-                </li>
+                {employeeInfo?.role === "employee" && (
+                  <li>
+                    <Link
+                      to="/certifications"
+                      className={
+                        pathName === "/certifications" ? "active-link" : ""
+                      }
+                    >
+                      Examinations
+                    </Link>
+                  </li>
+                )}
 
                 {/* if employee is logged in then show it  */}
                 {employeeInfo && (

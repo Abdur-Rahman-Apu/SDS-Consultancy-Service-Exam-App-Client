@@ -55,7 +55,11 @@ const LogIn = () => {
             localStorage.setItem("Employee-Info", JSON.stringify(employeeInfo));
             toast.success("Login successfully");
             // document.getElementById("hiddenBtn").click();
-            navigate("/certifications");
+
+            console.log(JSON.parse(localStorage.getItem("Employee-Info")));
+            JSON.parse(localStorage.getItem("Employee-Info")).role == "admin"
+              ? navigate("/dashboard")
+              : navigate("/certifications");
           }
         });
         setLoader(false);
