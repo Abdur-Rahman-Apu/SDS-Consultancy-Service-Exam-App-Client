@@ -162,10 +162,6 @@ const Navbar = () => {
                 </div>
               </div>
 
-
-
-
-
             </div>
             {/* <a className="btn btn-ghost normal-case text-xl">daisyUI</a> */}
 
