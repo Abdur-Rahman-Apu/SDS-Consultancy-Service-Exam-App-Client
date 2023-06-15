@@ -79,6 +79,16 @@ const DashboardLayout = () => {
             <BsFillPeopleFill /> Employees
           </Link>
         </li>
+        <li>
+          <Link
+            to="/dashboard/marks"
+            className={
+              pathName.includes("/dashboard/marks") ? `${style.activeMenu}` : ""
+            }
+          >
+            <BsFillPeopleFill /> Marks
+          </Link>
+        </li>
       </>
     );
   } else if (employeeInfo?.role === "employee") {

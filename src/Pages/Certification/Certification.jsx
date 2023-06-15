@@ -6,9 +6,10 @@ import useSpecificEmployee from "../../CustomHook/useSpecificEmployee/useSpecifi
 import Loading2 from "../Loading2/Loading2";
 
 const Certification = () => {
-  const { employeeInfo } = useContext(AuthContext);
-  const [employee] = useSpecificEmployee(employeeInfo?._id);
+  const employeeInfo = JSON.parse(localStorage.getItem("Employee-Info"));
   const [courses] = useCourses();
+  const [employee] = useSpecificEmployee(employeeInfo?._id);
+  console.log(employee);
 
   useEffect(() => {
     window.scrollTo(0, 0);

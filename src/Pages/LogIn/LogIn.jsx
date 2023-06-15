@@ -52,8 +52,8 @@ const LogIn = () => {
           if (regId === givenId && password === givenPass) {
             flag = 1;
             //now click the hidden button using Javascript
-            toast.success("Login successfully");
             localStorage.setItem("Employee-Info", JSON.stringify(employeeInfo));
+            toast.success("Login successfully");
             // document.getElementById("hiddenBtn").click();
             navigate("/certifications");
           }
