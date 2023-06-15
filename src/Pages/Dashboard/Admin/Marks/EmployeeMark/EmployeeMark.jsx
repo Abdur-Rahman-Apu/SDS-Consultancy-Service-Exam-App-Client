@@ -25,13 +25,16 @@ const EmployeeMark = () => {
           <tbody className="font-roboto text-sm md:text-base">
             {employee &&
               Object.entries(employee.result).map((item, index) => {
-                console.log(item);
                 return (
                   <>
                     <tr className="bg-[#f7f1e3]">
                       <td>{item[0]}</td>
                       <td>
-                        {item[1].length ? item[1][0] : <p>No exam is given</p>}
+                        {item[1].length ? (
+                          item[1][0]["totalMark"]
+                        ) : (
+                          <p>No exam is given</p>
+                        )}
                       </td>
                     </tr>
                   </>
