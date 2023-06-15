@@ -19,6 +19,8 @@ import ExamPage from "../../Pages/ExamPage/ExamPage";
 import MarkDashboard from "../../Pages/Dashboard/Employee/Result/MarkDashboard/MarkDashboard";
 import Result from "../../Pages/ExamPage/Result";
 import AssignCourses from "../../Pages/Dashboard/Admin/AssignCourses/AssignCourses";
+import Marks from "../../Pages/Dashboard/Admin/Marks/Marks/Marks";
+import EmployeeMark from "../../Pages/Dashboard/Admin/Marks/EmployeeMark/EmployeeMark";
 
 export const router = createBrowserRouter([
   {
@@ -114,7 +116,22 @@ export const router = createBrowserRouter([
           </PrivateRoute>
         ),
       },
-
+      {
+        path: "/dashboard/marks",
+        element: (
+          <PrivateRoute>
+            <Marks />
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "/dashboard/employeeMarks/:id",
+        element: (
+          <PrivateRoute>
+            <EmployeeMark />
+          </PrivateRoute>
+        ),
+      },
       {
         path: "/dashboard/result",
         element: (

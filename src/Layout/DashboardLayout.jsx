@@ -86,7 +86,7 @@ const DashboardLayout = () => {
               pathName.includes("/dashboard/marks") ? `${style.activeMenu}` : ""
             }
           >
-            <BsFillPeopleFill /> Marks
+            <VscOutput /> Marks
           </Link>
         </li>
       </>
