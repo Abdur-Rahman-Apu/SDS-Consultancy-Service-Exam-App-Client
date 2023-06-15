@@ -4,16 +4,14 @@ import "../../Common/Css/Common.css";
 import Lottie from "lottie-react";
 import LoginAnimation from "../../assets/LottieFiles/login.json";
 import { useEffect, useState } from "react";
-import { useLocation, useNavigate } from "react-router-dom";
-import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
+import { useNavigate } from "react-router-dom";
 import { FaUserAlt, FaLock, FaLockOpen } from "react-icons/fa";
-import Loading from "../Loading/Loading";
 import { toast } from "react-toastify";
 import Loading2 from "../Loading2/Loading2";
 
 const LogIn = () => {
   const navigate = useNavigate();
-  const location = useLocation();
+
   const [Loader, setLoader] = useState(false);
 
   const [passwordInputType, setPasswordInputType] = useState("password");
@@ -28,8 +26,6 @@ const LogIn = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
-
-  const from = location?.from?.state?.pathname || "/";
 
   // get submitted form value & log in
   const onSubmit = (data) => {
@@ -150,17 +146,6 @@ const LogIn = () => {
                       className="absolute text-[#00ADB4] top-[38%] left-6 cursor-pointer"
                     />
                   )}
-                  {/* {passwordInputType === "password" ? (
-                    <AiFillEye
-                      onClick={togglePasswordInputType}
-                      className="absolute top-[62%] right-2 cursor-pointer"
-                    />
-                  ) : (
-                    <AiFillEyeInvisible
-                      onClick={togglePasswordInputType}
-                      className="absolute top-[62%] right-2 cursor-pointer"
-                    />
-                  )} */}
                 </div>
                 {errors.regId?.type === "required" && (
                   <p role="alert" className="mt-[-10px] text-red-600">
