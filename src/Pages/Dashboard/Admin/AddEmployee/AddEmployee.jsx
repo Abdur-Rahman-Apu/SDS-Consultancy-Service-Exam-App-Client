@@ -15,7 +15,6 @@ const AddEmployee = () => {
 
   // get employee info and add data into the database
   const onSubmit = (data) => {
-    console.log(data);
     const {
       name,
       role,
@@ -71,8 +70,6 @@ const AddEmployee = () => {
       { Scala },
     ];
 
-    console.log(courses);
-
     const selectedCourses = {};
 
     courses.forEach((course) => {
@@ -82,11 +79,8 @@ const AddEmployee = () => {
         selectedCourses[key] = course[key];
       }
     });
-    console.log(selectedCourses);
-    if (Object.keys(selectedCourses).length > 0) {
-      console.log("Any selected");
-      console.log(selectedCourses);
 
+    if (Object.keys(selectedCourses).length > 0) {
       const employeeInfo = {
         name,
         role,
@@ -95,8 +89,6 @@ const AddEmployee = () => {
         password,
         result: selectedCourses,
       };
-
-      console.log(employeeInfo);
 
       fetch("https://quiz-five-beta.vercel.app/addEmployee", {
         method: "POST",

@@ -4,7 +4,7 @@ import { LuEdit } from "react-icons/lu";
 import { MdAssignmentTurnedIn } from "react-icons/md";
 import { Link } from "react-router-dom";
 
-const Employee = ({ employee, handleDeleteEmployee, handleAssignCourses }) => {
+const Employee = ({ employee, handleDeleteEmployee }) => {
   return (
     <>
       <tr className="bg-[#f7f1e3]">

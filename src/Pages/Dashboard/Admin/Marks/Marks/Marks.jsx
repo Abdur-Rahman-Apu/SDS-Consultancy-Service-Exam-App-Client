@@ -1,4 +1,3 @@
-import React from "react";
 import useEmployees from "../../../../../CustomHook/useEmployees/useEmployees";
 import AllEmployees from "../AllEmployess/AllEmployees";
 

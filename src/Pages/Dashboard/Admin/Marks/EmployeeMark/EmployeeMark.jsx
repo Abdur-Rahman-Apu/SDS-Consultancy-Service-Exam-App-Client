@@ -3,9 +3,8 @@ import useSpecificEmployee from "../../../../../CustomHook/useSpecificEmployee/u
 
 const EmployeeMark = () => {
   const { id } = useParams();
-  console.log(id);
   const [employee] = useSpecificEmployee(id);
-  console.log(employee, "employee");
+
   return (
     <div>
       <h1 className="text-center font-roboto text-2xl md:text-3xl font-bold mt-16 mb-10">
@@ -24,14 +23,17 @@ const EmployeeMark = () => {
           </thead>
           <tbody className="font-roboto text-sm md:text-base">
             {employee &&
-              Object.entries(employee.result).map((item, index) => {
-                console.log(item);
+              Object.entries(employee.result).map((item) => {
                 return (
                   <>
                     <tr className="bg-[#f7f1e3]">
                       <td>{item[0]}</td>
                       <td>
-                        {item[1].length ? item[1][0] : <p>No exam is given</p>}
+                        {item[1].length ? (
+                          item[1][0]["totalMark"]
+                        ) : (
+                          <p>No exam is given</p>
+                        )}
                       </td>
                     </tr>
                   </>

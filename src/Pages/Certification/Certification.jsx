@@ -1,7 +1,6 @@
 import IndividualCertification from "./IndividualCertification";
 import useCourses from "../../CustomHook/useCourses/useCourses";
-import { useContext, useEffect, useState } from "react";
-import { AuthContext } from "../../Context/AuthProvider";
+import { useEffect } from "react";
 import useSpecificEmployee from "../../CustomHook/useSpecificEmployee/useSpecificEmployee";
 import Loading2 from "../Loading2/Loading2";
 
@@ -17,17 +16,12 @@ const Certification = () => {
   let specificCourses;
 
   if (courses && employeeInfo) {
-    console.log("Inside");
-
     const employeesCourses = Object.keys(employeeInfo?.result);
     specificCourses = courses.filter(
       (course) => employeesCourses.includes(course.courseName) === true
     );
-
-    console.log(specificCourses, "Inside specific courses");
   }
 
-  console.log(specificCourses, "outside speciifc");
   // loader
   if (!courses) {
     return <Loading2 />;

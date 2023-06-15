@@ -1,7 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
-import { useContext, useState } from "react";
+
 import { useForm } from "react-hook-form";
-import { AuthContext } from "../../../../Context/AuthProvider";
+
 import { useParams } from "react-router-dom";
 import { toast } from "react-toastify";
 
@@ -12,7 +12,6 @@ const AssignCourses = () => {
     register,
 
     handleSubmit,
-    formState: { errors },
   } = useForm();
 
   const { data: employee, refetch } = useQuery({
@@ -63,13 +62,8 @@ const AssignCourses = () => {
   }
 
   const onSubmit = (data) => {
-    console.log(data, "Data");
     const { assignCourse } = data;
     if (assignCourse !== "Select one course") {
-      console.log("NOT");
-      console.log("Employee", employee);
-      console.log(assignCourse);
-
       //   send assigned course to the database
       fetch(
         `https://quiz-five-beta.vercel.app/assignCourses?id=${employee?._id}`,

@@ -13,8 +13,6 @@ const MarkDashboard = () => {
   let specificCourses;
 
   if (courses) {
-    console.log("Inside");
-
     const employeesCourses = Object.keys(employeeInfo.result);
     specificCourses = courses.filter(
       (course) => employeesCourses.includes(course.courseName) === true
