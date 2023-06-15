@@ -50,7 +50,7 @@ const IndividualCertification = ({ course, employee, employeeInfo }) => {
         <img
           src={courseImg}
           alt="course image"
-          className="object-cover h-full w-full"
+          className="object-contain h-full w-full"
         />
       </figure>
       <div className="card-body">

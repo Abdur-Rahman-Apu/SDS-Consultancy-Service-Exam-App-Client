@@ -4,7 +4,7 @@ const useCourses = () => {
   const [courses, setCourses] = useState(null);
 
   useEffect(() => {
-    fetch("https://quiz-five-beta.vercel.app/certifications")
+    fetch("http://localhost:5000/certifications")
       .then((res) => res.json())
       .then((data) => setCourses(data))
       .catch((err) => {

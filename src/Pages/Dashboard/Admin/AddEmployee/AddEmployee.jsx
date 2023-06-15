@@ -98,7 +98,7 @@ const AddEmployee = () => {
 
       console.log(employeeInfo);
 
-      fetch("https://quiz-five-beta.vercel.app/addEmployee", {
+      fetch("http://localhost:5000/addEmployee", {
         method: "POST",
         headers: {
           "content-type": "application/json",

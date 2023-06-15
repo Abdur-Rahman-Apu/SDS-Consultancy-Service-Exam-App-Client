@@ -19,7 +19,7 @@ const AssignCourses = () => {
     queryKey: ["specificEmployee"],
     queryFn: async () => {
       const response = await fetch(
-        `https://quiz-five-beta.vercel.app/onlySpecificEmployee?id=${id}`
+        `http://localhost:5000/onlySpecificEmployee?id=${id}`
       );
       return response.json();
     },
@@ -71,16 +71,13 @@ const AssignCourses = () => {
       console.log(assignCourse);
 
       //   send assigned course to the database
-      fetch(
-        `https://quiz-five-beta.vercel.app/assignCourses?id=${employee?._id}`,
-        {
-          method: "PATCH",
-          headers: {
-            "content-type": "application/json",
-          },
-          body: JSON.stringify({ assignCourse }),
-        }
-      )
+      fetch(`http://localhost:5000/assignCourses?id=${employee?._id}`, {
+        method: "PATCH",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify({ assignCourse }),
+      })
         .then((res) => res.json())
         .then((result) => {
           if (result.acknowledged) {
