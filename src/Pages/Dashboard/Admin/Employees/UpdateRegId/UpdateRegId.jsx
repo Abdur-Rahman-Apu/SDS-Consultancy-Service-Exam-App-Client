@@ -10,7 +10,7 @@ const UpdateRegId = () => {
     event.preventDefault();
     const newId = event.target.regId.value;
 
-    fetch(`http://localhost:5000/updateEmployeeId?id=${id}`, {
+    fetch(`https://quiz-five-beta.vercel.app/updateEmployeeId?id=${id}`, {
       method: "PATCH",
       headers: {
         "content-type": "application/json",
