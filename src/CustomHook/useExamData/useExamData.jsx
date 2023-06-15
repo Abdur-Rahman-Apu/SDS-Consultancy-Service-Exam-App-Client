@@ -6,7 +6,7 @@ const useExamData = (pathCourseName) => {
   const [RandomExamData, setRandomExamData] = useState(null);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/certifications/${pathCourseName}`)
+    fetch(`https://quiz-five-beta.vercel.app/certifications/${pathCourseName}`)
       .then((res) => res.json())
       .then((data) => {
         setRandomExamData(

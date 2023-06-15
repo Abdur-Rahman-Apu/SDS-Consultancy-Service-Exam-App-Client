@@ -32,8 +32,8 @@ const Navbar = () => {
   const handleLogOut = () => {
     logOut();
     toast.success("Logout successfully");
-    setEmployeeInfo(null);
     navigate("/");
+    setEmployeeInfo(null);
   };
 
   return (
