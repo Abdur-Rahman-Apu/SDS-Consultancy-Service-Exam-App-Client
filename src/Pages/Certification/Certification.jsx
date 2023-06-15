@@ -10,19 +10,16 @@ const Certification = () => {
   const [courses] = useCourses();
   const [employee] = useSpecificEmployee(employeeInfo?._id);
 
-  console.log(employee, "Certification page");
-  console.log(courses, "courses");
-
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
   let specificCourses;
 
-  if (courses) {
+  if (courses && employeeInfo) {
     console.log("Inside");
 
-    const employeesCourses = Object.keys(employee.result);
+    const employeesCourses = Object.keys(employeeInfo?.result);
     specificCourses = courses.filter(
       (course) => employeesCourses.includes(course.courseName) === true
     );
