@@ -1,5 +1,5 @@
 import Nav from "./Navbar.module.css";
-import Logo from "../../assets/Logo/logo.jpg";
+import Logo from "../../assets/Logo/logo-bg-none.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faFacebookF,
@@ -38,10 +38,10 @@ const Navbar = () => {
 
   return (
     <>
-      <div className={`${Nav.container}`}>
+      <div className={`${Nav.container} dark:bg-black`}>
         {/* upper part  */}
         <div
-          className={`${Nav.upper} pb-2  flex  md:items-center md:justify-between z-10`}
+          className={`${Nav.upper} pb-2  flex  md:items-center md:justify-between z-10 dark:bg-black`}
         >
           <div
             className={`${Nav.logo} md:basis-1/2 flex justify-center items-center md:justify-start`}
@@ -59,7 +59,7 @@ const Navbar = () => {
             </div>
           </div>
 
-          <div className="md:flex justify-between basis-1/2 hidden ">
+          <div className="md:flex justify-between basis-1/2 hidden">
             {/* call info  */}
             <div className="flex">
               <div className="mr-2">
@@ -110,7 +110,7 @@ const Navbar = () => {
       </div>
 
       {/* menus  */}
-      <div className="pt-3 px-[4%] sticky top-0 z-[100] bg-white shadow-md">
+      <div className="pt-3 px-[4%] sticky top-0 z-[100] bg-white dark:bg-black shadow-md">
         <div className="navbar bg-base-100 ">
           <div className="navbar-start">
             <div className="dropdown">
