@@ -41,27 +41,25 @@ const Navbar = () => {
       <div className={`${Nav.container}`}>
         {/* upper part  */}
         <div
-          className={`${Nav.upper} pb-2  flex  md:items-center md:justify-between z-10`}
+          className={`${Nav.upper} pb-2  flex justify-center  items-center  z-10`}
         >
-          <div
-            className={`${Nav.logo} md:basis-1/2 flex justify-center items-center md:justify-start`}
-          >
+          <div className={`${Nav.logo} flex justify-center items-center `}>
             <img src={Logo} alt="Logo" />
 
             {/* company name  */}
-            <div className="flex flex-col ml-2">
+            {/* <div className="flex flex-col ml-2">
               <p className={`font-bold text-2xl font-roboto ${Nav.highlight}`}>
                 SDS
               </p>
               <span className="text-sm text-gray-400 font-poppins">
                 Consultancy Service
               </span>
-            </div>
+            </div> */}
           </div>
 
-          <div className="md:flex justify-between basis-1/2 hidden ">
-            {/* call info  */}
-            <div className="flex">
+          {/* <div className="md:flex justify-between basis-1/2 hidden "> */}
+          {/* call info  */}
+          {/* <div className="flex">
               <div className="mr-2">
                 <FontAwesomeIcon className="text-[#42BEC3]" icon={faPhone} />
               </div>
@@ -71,10 +69,10 @@ const Navbar = () => {
                   +44-7689789898
                 </span>
               </div>
-            </div>
+            </div> */}
 
-            {/* work time info  */}
-            <div className="flex ">
+          {/* work time info  */}
+          {/* <div className="flex ">
               <div className="mr-2">
                 <FontAwesomeIcon className="text-[#42BEC3]" icon={faClock} />
               </div>
@@ -84,10 +82,10 @@ const Navbar = () => {
                   Mon-Fri 8AM -5PM
                 </span>
               </div>
-            </div>
+            </div> */}
 
-            {/* address info  */}
-            <div className="flex">
+          {/* address info  */}
+          {/* <div className="flex">
               <div className="mr-2">
                 <FontAwesomeIcon
                   className="text-[#42BEC3]"
@@ -100,8 +98,9 @@ const Navbar = () => {
                   Franklin st. Avenue
                 </span>
               </div>
-            </div>
-          </div>
+            </div> */}
+
+          {/* </div> */}
         </div>
 
         <hr />
@@ -110,7 +109,7 @@ const Navbar = () => {
       </div>
 
       {/* menus  */}
-      <div className="pt-3 px-[4%] sticky top-0 z-[100] bg-white shadow-md">
+      <div className="pt-3 px-[4%] sticky top-0 z-[100] bg-white dark:bg-black shadow-md">
         <div className="navbar bg-base-100 ">
           <div className="navbar-start">
             <div className="dropdown">
@@ -196,7 +195,7 @@ const Navbar = () => {
             </div>
           </div>
           <div className="navbar-end">
-            <div
+            {/* <div
               className={`hidden w-[120px] md:flex justify-between mr-4 ${Nav.socialIcon}`}
             >
               <a
@@ -220,7 +219,7 @@ const Navbar = () => {
               >
                 <FontAwesomeIcon icon={faInstagram} />
               </a>
-            </div>
+            </div> */}
             {/* <button
               style={{ display: "none" }}
               onClick={getEmployeeInfo}
@@ -230,6 +229,9 @@ const Navbar = () => {
             </button> */}
             {employeeInfo ? (
               <>
+                <p className="mr-3 capitalize text-base font-bold font-roboto">
+                  {employeeInfo?.name}
+                </p>
                 <div
                   className="tooltip tooltip-bottom"
                   data-tip={employeeInfo?.name}
