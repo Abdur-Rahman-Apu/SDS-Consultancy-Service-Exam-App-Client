@@ -379,16 +379,16 @@ const ExamPage = () => {
       )}
 
       {/* Question Scrolling Button */}
-      <div className="  fixed top-60 right-1 lg:top-36 lg:right-[60px] space-y-3">
+      <div className="fixed top-60 right-1 lg:top-36 lg:right-16 space-y-2">
         {ExamData.questionPaper.map((question, index) => {
-          if (index % 10 === 0 || index === 0) {
+          if (index % 10 === 0 || index === (0 || 99)) {
             return (
               <div key={index}>
                 <a
-                  href={`#${index === 0 ? 1 : index}`}
-                  className="btn bg-green-200 btn-sm border-none w-[25px] h-[25px] md:w-[40px] md:h-[40px] rounded-full text-xs lg:text-lg"
+                  href={`#${index === 0? 1 : index===99?index+1:index}`}
+                  className="btn bg-green-200 btn-sm border-none w-[25px] h-[25px] rounded-full text-xs"
                 >
-                  {index === 0 ? 1 : index}
+                  {index === 0? 1 : index===99?index+1:index}
                 </a>
               </div>
             );
