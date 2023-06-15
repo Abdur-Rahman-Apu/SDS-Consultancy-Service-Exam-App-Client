@@ -1,6 +1,6 @@
 import IndividualCertification from "./IndividualCertification";
 import useCourses from "../../CustomHook/useCourses/useCourses";
-import { useContext, useEffect } from "react";
+import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../Context/AuthProvider";
 import useSpecificEmployee from "../../CustomHook/useSpecificEmployee/useSpecificEmployee";
 import Loading2 from "../Loading2/Loading2";
@@ -9,12 +9,28 @@ const Certification = () => {
   const employeeInfo = JSON.parse(localStorage.getItem("Employee-Info"));
   const [courses] = useCourses();
   const [employee] = useSpecificEmployee(employeeInfo?._id);
-  console.log(employee);
+
+  console.log(employee, "Certification page");
+  console.log(courses, "courses");
 
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
+  let specificCourses;
+
+  if (courses) {
+    console.log("Inside");
+
+    const employeesCourses = Object.keys(employee.result);
+    specificCourses = courses.filter(
+      (course) => employeesCourses.includes(course.courseName) === true
+    );
+
+    console.log(specificCourses, "Inside specific courses");
+  }
+
+  console.log(specificCourses, "outside speciifc");
   // loader
   if (!courses) {
     return <Loading2 />;
@@ -33,9 +49,9 @@ const Certification = () => {
 
       {/* certifications  */}
 
-      {courses ? (
+      {specificCourses.length > 0 ? (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 my-16">
-          {courses?.map((course) => (
+          {specificCourses?.map((course) => (
             <IndividualCertification
               key={course.courseId}
               course={course}
