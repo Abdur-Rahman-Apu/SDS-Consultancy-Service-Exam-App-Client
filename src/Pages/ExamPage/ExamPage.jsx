@@ -81,7 +81,7 @@ const ExamPage = () => {
 							 target="_blank" style='display: inline-block;padding: 10px 20px;background-color: #007bff; color: #fff;text-decoration: none;border-radius: 4px;box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);transition: background-color 0.3s;font-size: 16px;font-weight: bold;'> Show Result</a>`,
             });
             delete localStorage.TempSubmittedData;
-            navigate("/");
+            navigate("/dashboard");
           }
         });
       }
@@ -208,7 +208,7 @@ const ExamPage = () => {
         });
         delete localStorage.TempSubmittedData;
 
-        navigate("/");
+        navigate("/dashboard");
       }
     });
   };
@@ -300,7 +300,7 @@ const ExamPage = () => {
             html: `<a href="/certifications/${PathCourseName}/result" target="_blank" onClick=${setToDatabase()} style='display: inline-block;padding: 10px 20px;background-color: #007bff;color: #fff;text-decoration: none;border-radius: 4px;box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);transition: background-color 0.3s;font-size: 16px;font-weight: bold;'> Show Result</a>`,
           });
           delete localStorage.TempSubmittedData;
-          return navigate("/");
+          return navigate("/dashboard");
         }
       })
     : "";

@@ -44,7 +44,6 @@ const LogIn = () => {
       .then((res) => res.json())
       .then((data) => {
         setLoader(false);
-        console.log(data);
         data.forEach((employeeInfo) => {
           const { regId, password } = employeeInfo;
 
@@ -56,7 +55,6 @@ const LogIn = () => {
             toast.success("Login successfully");
             // document.getElementById("hiddenBtn").click();
 
-            console.log(JSON.parse(localStorage.getItem("Employee-Info")));
             JSON.parse(localStorage.getItem("Employee-Info")).role == "admin"
               ? navigate("/dashboard")
               : navigate("/certifications");
