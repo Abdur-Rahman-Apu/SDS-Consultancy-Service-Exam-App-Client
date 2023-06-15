@@ -122,9 +122,9 @@ const IndividualCertification = ({ course, employee, employeeInfo }) => {
           )}
         </div>
 
-        <p className="font-poppins text-sm text-justify">
+        {/* <p className="font-poppins text-sm text-justify">
           {courseDesc.split(".")[0]}
-        </p>
+        </p> */}
 
         <div className="card-actions justify-center">
           {/* modal of confirmation  */}
