@@ -38,7 +38,7 @@ const Navbar = () => {
 
   return (
     <>
-      <div className={`${Nav.container}`}>
+      <div className={`${Nav.container} `}>
         {/* upper part  */}
         <div
           className={`${Nav.upper} pb-2  flex justify-center  items-center  z-10`}
@@ -108,7 +108,7 @@ const Navbar = () => {
             </div>
             {/* <a className="btn btn-ghost normal-case text-xl">daisyUI</a> */}
 
-            <div className="hidden lg:flex">
+            <div className="hidden lg:flex ">
               <ul className="menu menu-horizontal px-1 text-base font-semibold font-roboto">
                 {employeeInfo?.role === "employee" && (
                   <li>
@@ -189,7 +189,7 @@ const Navbar = () => {
                 </div>
                 <button
                   onClick={handleLogOut}
-                  className={`btn text-white font-roboto ${Nav.gradientBg}`}
+                  className={`btn bg-[#F5DF4E] font-bold font-roboto `}
                 >
                   LogOut
                 </button>

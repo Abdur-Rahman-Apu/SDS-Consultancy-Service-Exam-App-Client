@@ -54,22 +54,20 @@ const IndividualCertification = ({ course, employee, employeeInfo }) => {
         />
       </figure>
       <div className="card-body">
-        <div className="flex justify-between">
+        <div className="flex justify-center">
           <h2 className="card-title font-bold text-2xl font-roboto">
             {courseName}
           </h2>
 
-          {/* rule modal  */}
-          <button onClick={toggleRuleModal}>
+          {/* <button onClick={toggleRuleModal}>
             <img src={RuleImage} alt="image" className="w-[50px] h-[50px]" />
           </button>
 
-          {/* modal box of rules  */}
           {ruleModalOpen && (
             <div className={`${style.popup} px-[6%]`}>
               <div className={`${style.overlay}`}>
                 <div className={`${style.content}`}>
-                  {/* course image  */}
+               
                   <div className="mb-10 sm:w-[50%] sm:mx-auto">
                     <img
                       src={courseImg}
@@ -78,18 +76,18 @@ const IndividualCertification = ({ course, employee, employeeInfo }) => {
                     />
                   </div>
 
-                  {/* course name  */}
+                 
                   <h1 className="text-3xl font-bold my-4">
                     {courseName} Certification Exam
                   </h1>
 
-                  {/* course description  */}
+                  
                   <h2 className="font-bold text-start text-2xl mb-3">
                     Description:
                   </h2>
                   <p className="text-start">{courseDesc}</p>
 
-                  {/* Exam rules  */}
+                 
                   <h2 className="text-2xl text-start font-bold my-3">Rules:</h2>
                   <ol
                     className={`${style.orderList} text-start list-disc ml-[10%] pb-5`}
@@ -119,7 +117,7 @@ const IndividualCertification = ({ course, employee, employeeInfo }) => {
                 </div>
               </div>
             </div>
-          )}
+          )} */}
         </div>
 
         {/* <p className="font-poppins text-sm text-justify">
