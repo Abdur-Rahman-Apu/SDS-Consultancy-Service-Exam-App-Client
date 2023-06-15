@@ -50,21 +50,21 @@ const AddEmployee = () => {
       { Artificial_Intelligence: AI },
       { AWS },
       { Angular },
-      { ApacheFlink },
-      { ApacheKafka },
-      { ApacheSpark },
-      { BigdataHadoop },
+      { Apache_Flink: ApacheFlink },
+      { Apache_Kafka: ApacheKafka },
+      { Apache_Spark: ApacheSpark },
+      { Bigdata_Hadoop: BigdataHadoop },
       { CCENT },
       { CCIE },
       { CCNA },
       { CCNP },
       { CCT },
-      { DataScience },
+      { Data_Science: DataScience },
       { Devops },
-      { HTML },
+      { HTML_CSS_JS: HTML },
       { Linux },
       { ML },
-      { MicrosoftAzure },
+      { Microsoft_Azure: MicrosoftAzure },
       { Oracle },
       { Python: Py },
       { Salesforce },
@@ -98,7 +98,7 @@ const AddEmployee = () => {
 
       console.log(employeeInfo);
 
-      fetch("https://quiz-five-beta.vercel.app/addEmployee", {
+      fetch("http://localhost:5000/addEmployee", {
         method: "POST",
         headers: {
           "content-type": "application/json",

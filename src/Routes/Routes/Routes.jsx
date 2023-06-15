@@ -18,6 +18,7 @@ import EachCourseResult from "../../Pages/Dashboard/Employee/Result/EachCourseRe
 import ExamPage from "../../Pages/ExamPage/ExamPage";
 import MarkDashboard from "../../Pages/Dashboard/Employee/Result/MarkDashboard/MarkDashboard";
 import Result from "../../Pages/ExamPage/Result";
+import AssignCourses from "../../Pages/Dashboard/Admin/AssignCourses/AssignCourses";
 
 export const router = createBrowserRouter([
   {
@@ -105,6 +106,15 @@ export const router = createBrowserRouter([
           </PrivateRoute>
         ),
       },
+      {
+        path: "/dashboard/employees/assignCourses/:id",
+        element: (
+          <PrivateRoute>
+            <AssignCourses />
+          </PrivateRoute>
+        ),
+      },
+
       {
         path: "/dashboard/result",
         element: (
