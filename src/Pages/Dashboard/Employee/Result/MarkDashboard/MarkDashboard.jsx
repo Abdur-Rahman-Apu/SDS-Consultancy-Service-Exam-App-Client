@@ -1,10 +1,25 @@
+import { useContext } from "react";
 import useCourses from "../../../../../CustomHook/useCourses/useCourses";
 import Loading2 from "../../../../Loading2/Loading2";
 import Course from "../../../Admin/Courses/Course/Course";
+import { AuthContext } from "../../../../../Context/AuthProvider";
 
 const MarkDashboard = () => {
   // get all courses
   const [courses] = useCourses();
+
+  const { employeeInfo } = useContext(AuthContext);
+
+  let specificCourses;
+
+  if (courses) {
+    console.log("Inside");
+
+    const employeesCourses = Object.keys(employeeInfo.result);
+    specificCourses = courses.filter(
+      (course) => employeesCourses.includes(course.courseName) === true
+    );
+  }
 
   // loader
   if (!courses) {
@@ -33,7 +48,7 @@ const MarkDashboard = () => {
             {
               /* display all courses  */
 
-              courses?.map((course) => (
+              specificCourses?.map((course) => (
                 <Course key={course._id} course={course} />
               ))
             }
