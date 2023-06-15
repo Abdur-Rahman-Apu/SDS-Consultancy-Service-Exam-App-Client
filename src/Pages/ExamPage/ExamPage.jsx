@@ -188,6 +188,9 @@ const ExamPage = () => {
       title: "Are you want to Submit?",
       text: "You won't be able to back on exam page!",
       icon: "info",
+      showClass: {
+        popup: 'animate__animated animate__fadeInDown'
+      },
       allowOutsideClick: false,
       allowEscapeKey: false,
       showCancelButton: true,
