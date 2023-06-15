@@ -45,62 +45,7 @@ const Navbar = () => {
         >
           <div className={`${Nav.logo} flex justify-center items-center `}>
             <img src={Logo} alt="Logo" />
-
-            {/* company name  */}
-            {/* <div className="flex flex-col ml-2">
-              <p className={`font-bold text-2xl font-roboto ${Nav.highlight}`}>
-                SDS
-              </p>
-              <span className="text-sm text-gray-400 font-poppins">
-                Consultancy Service
-              </span>
-            </div> */}
           </div>
-
-          {/* <div className="md:flex justify-between basis-1/2 hidden "> */}
-          {/* call info  */}
-          {/* <div className="flex">
-              <div className="mr-2">
-                <FontAwesomeIcon className="text-[#42BEC3]" icon={faPhone} />
-              </div>
-              <div className="flex flex-col">
-                <p className="font-bold text-sm font-roboto">Call</p>
-                <span className="text-xs mt-1 text-gray-500 font-poppins">
-                  +44-7689789898
-                </span>
-              </div>
-            </div> */}
-
-          {/* work time info  */}
-          {/* <div className="flex ">
-              <div className="mr-2">
-                <FontAwesomeIcon className="text-[#42BEC3]" icon={faClock} />
-              </div>
-              <div className="flex flex-col">
-                <p className="font-bold text-sm font-roboto">Work Time</p>
-                <span className="text-xs mt-1 text-gray-500 font-poppins">
-                  Mon-Fri 8AM -5PM
-                </span>
-              </div>
-            </div> */}
-
-          {/* address info  */}
-          {/* <div className="flex">
-              <div className="mr-2">
-                <FontAwesomeIcon
-                  className="text-[#42BEC3]"
-                  icon={faLocationDot}
-                />
-              </div>
-              <div className="flex flex-col">
-                <p className="font-bold text-sm font-roboto">Address</p>
-                <span className="text-xs mt-1 text-gray-500 font-poppins">
-                  Franklin st. Avenue
-                </span>
-              </div>
-            </div> */}
-
-          {/* </div> */}
         </div>
 
         <hr />
