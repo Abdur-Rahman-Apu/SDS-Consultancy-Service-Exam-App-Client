@@ -4,7 +4,7 @@ function ExamPageTitle({ ExamData, Logo, formatTime, timeRemaining }) {
   return (
     <>
       {" "}
-      <div className="p-5 bg-[#12bcb833] md:rounded-3xl md:mt-5">
+      <div className="p-5 bg-[#f5df4e80] md:rounded-3xl md:mt-5">
         <div className="w-[60%] mx-auto">
           <img
             src={Logo}
@@ -18,13 +18,12 @@ function ExamPageTitle({ ExamData, Logo, formatTime, timeRemaining }) {
           <p>Duration: {ExamData.examInfo.duration}</p>
           <p>Total Marks: {ExamData.examInfo.questions}</p>
         </div>
-       
       </div>
-      <div className="fixed border-2 border-[#12bcb8] rounded-full w-[55px] h-[55px] lg:w-[80px] lg:h-[80px] right-0 md:right-3 lg:top-10 lg:right-10">
-            <p className="absolute top-[16px] right-[6px] lg:top-[25px] lg:left-[12px] font-bold font-roboto text-sm lg:text-xl">
-              {formatTime(timeRemaining)}
-            </p>
-          </div>
+      <div className="fixed border-2 border-black rounded-full w-[55px] h-[55px] lg:w-[80px] lg:h-[80px] right-0 md:right-3 lg:top-10 lg:right-10">
+        <p className="absolute top-[16px] right-[6px] lg:top-[25px] lg:left-[12px] font-bold font-roboto text-sm lg:text-xl">
+          {formatTime(timeRemaining)}
+        </p>
+      </div>
     </>
   );
 }

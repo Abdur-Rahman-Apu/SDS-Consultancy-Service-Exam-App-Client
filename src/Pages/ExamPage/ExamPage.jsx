@@ -189,7 +189,7 @@ const ExamPage = () => {
       text: "You won't be able to back on exam page!",
       icon: "info",
       showClass: {
-        popup: 'animate__animated animate__fadeInDown'
+        popup: "animate__animated animate__fadeInDown",
       },
       allowOutsideClick: false,
       allowEscapeKey: false,
@@ -329,7 +329,7 @@ const ExamPage = () => {
             id={index + 1}
           >
             <div className="my-10 ml-5 lg:ml-0 bg-gray-100 shadow-xl px-8 lg:px-10 py-5 rounded-lg w-[100%]">
-              <p className="text-sm md:text-lg  text-white bg-black inline-block rounded p-1">
+              <p className="text-smf px-3  md:text-lg  text-white  bg-black inline-block rounded p-1">
                 Question-{index + 1}
               </p>
               <h3 className="my-5 font-bold font-roboto font-IBM text-base md:text-xl">
@@ -346,12 +346,12 @@ const ExamPage = () => {
                       onClick={() => handleAnswerChange(questionNo, id, option)}
                       className={`p-4  rounded-md flex items-center cursor-pointer ${
                         userAnswers[questionNo] === id
-                          ? "bg-[#1dd1a180] text-white"
+                          ? "bg-[#f5df4e80] text-white"
                           : "border bg-gray-50 border-gray-300"
                       } 
 														${OptionStyle === option ? "font-extrabold" : "font-normal"}`}
                     >
-                      <span className="pt-1 md:pt-2 text-center rounded-full w-[25px] h-[25px] md:w-[40px] md:h-[40px] bg-[#1dd1a1] text-white text-xs md:text-base">
+                      <span className="pt-1 md:pt-2 text-center rounded-full w-[25px] h-[25px] md:w-[40px] md:h-[40px] bg-[#F5DF4E] text-black font-roboto font-bold text-xs md:text-base">
                         {id}
                       </span>
                       <span className={`pl-3 text-black text-xs md:text-base`}>
@@ -368,7 +368,7 @@ const ExamPage = () => {
       {/* Question Submit Button */}
       <button
         onClick={handleSubmit}
-        className="btn bg-[#1dd1a1]  text-base font-roboto rounded-full font-semibold py-2 px-4 block w-fit mx-auto"
+        className="btn bg-[#F5DF4E]  text-base font-roboto rounded-full font-semibold py-2 px-4 block w-fit mx-auto"
       >
         {" "}
         Submit Answers{" "}
@@ -388,10 +388,12 @@ const ExamPage = () => {
             return (
               <div key={index}>
                 <a
-                  href={`#${index === 0? 1 : index===99?index+1:index}`}
-                  className="btn bg-green-200 btn-sm border-none w-[25px] h-[25px] rounded-full text-xs"
+                  href={`#${
+                    index === 0 ? 1 : index === 99 ? index + 1 : index
+                  }`}
+                  className="btn bg-[#f5df4e80] btn-sm border-none w-[25px] h-[25px] rounded-full text-xs"
                 >
-                  {index === 0? 1 : index===99?index+1:index}
+                  {index === 0 ? 1 : index === 99 ? index + 1 : index}
                 </a>
               </div>
             );

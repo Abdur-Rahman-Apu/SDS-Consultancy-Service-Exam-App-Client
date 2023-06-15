@@ -127,7 +127,7 @@ const IndividualCertification = ({ course, employee, employeeInfo }) => {
         <div className="card-actions justify-center">
           {/* modal of confirmation  */}
           <button
-            className="btn bg-[#42B2BE] font-roboto px-8 mt-6 text-white rounded-full"
+            className="btn bg-[#F5DF4E] font-roboto px-8 mt-6  rounded-full"
             onClick={toggleConfirmationModal}
             disabled={
               employeeInfo?.role === "admin" ||
@@ -179,14 +179,14 @@ const IndividualCertification = ({ course, employee, employeeInfo }) => {
 
                   <div className="flex justify-between md:w-[30%] mx-auto my-10">
                     <button
-                      className="bg-[#e74c3c] text-white font-bold font-roboto py-[15px] px-[20px] rounded-full"
+                      className="bg-[#000] text-white font-bold font-roboto py-[15px] px-[20px] rounded-full"
                       onClick={toggleConfirmationModal}
                     >
                       Cancel
                     </button>
                     <Link
                       to={`/certifications/${courseName}/exam`}
-                      className="bg-[#2ecc71] text-white font-bold py-[15px] px-[20px] font-roboto rounded-full"
+                      className="bg-[#F5DF4E] text-black font-bold py-[15px] px-[20px] font-roboto rounded-full"
                     >
                       Start
                     </Link>

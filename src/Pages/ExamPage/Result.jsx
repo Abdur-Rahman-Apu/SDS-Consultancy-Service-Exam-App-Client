@@ -76,9 +76,9 @@ const Result = () => {
       style={{ fontFamily: "Roboto Slab, serif" }}
     >
       {/* Exam Title */}
-      <div className="  text-lg sm:text-sm items-center rounded-3xl px-4 font-roboto font-bold md:text-xl min-h-[450px]  border-2 border-[#1dd1a180] py-8 mt-10 ">
+      <div className="  text-lg sm:text-sm items-center rounded-3xl px-4 font-roboto font-bold md:text-xl min-h-[450px]  border-2 border-[#000] py-8 mt-10 ">
         <h1 className="text-3xl md:text-4xl text-center">
-          Your <span className="text-[#2CB7BB]">Result</span>
+          Your <span className="text-[#F5DF4E]">Result</span>
         </h1>
         <div className="flex flex-col md:flex-row justify-evenly items-center  mt-8">
           <div className="mt-7 text-center md:text-start">
