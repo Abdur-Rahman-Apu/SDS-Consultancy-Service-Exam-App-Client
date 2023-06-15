@@ -83,7 +83,10 @@ const DashboardLayout = () => {
           <Link
             to="/dashboard/marks"
             className={
-              pathName.includes("/dashboard/marks") ? `${style.activeMenu}` : ""
+              pathName.includes("/dashboard/marks") ||
+              pathName.includes("/dashboard/employeeMarks")
+                ? `${style.activeMenu}`
+                : ""
             }
           >
             <VscOutput /> Marks

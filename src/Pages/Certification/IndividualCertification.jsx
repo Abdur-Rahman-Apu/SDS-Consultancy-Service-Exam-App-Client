@@ -126,10 +126,10 @@ const IndividualCertification = ({ course, employee, employeeInfo }) => {
           {courseDesc.split(".")[0]}
         </p>
 
-        <div className="card-actions justify-end">
+        <div className="card-actions justify-center">
           {/* modal of confirmation  */}
           <button
-            className="btn bg-[#42B2BE] font-roboto text-white rounded-full"
+            className="btn bg-[#42B2BE] font-roboto px-8 mt-6 text-white rounded-full"
             onClick={toggleConfirmationModal}
             disabled={
               employeeInfo?.role === "admin" ||

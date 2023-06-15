@@ -30,7 +30,9 @@ const EmployeeMark = () => {
                   <>
                     <tr className="bg-[#f7f1e3]">
                       <td>{item[0]}</td>
-                      <td>{item[1].length ? item[1] : 0}</td>
+                      <td>
+                        {item[1].length ? item[1][0] : <p>No exam is given</p>}
+                      </td>
                     </tr>
                   </>
                 );
