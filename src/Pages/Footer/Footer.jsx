@@ -86,7 +86,7 @@ const Footer = () => {
         </div>
         <div className="basis-1/3 justify-center">
           <div className="z-0">
-          <iframe className="rounded-xl" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d53373.205217826566!2d-0.4064048787166974!3d51.87525359532576!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x487637d0e4f706d5%3A0x2e06e7f34ad91ad0!2sLondon%20Luton%20Airport!5e0!3m2!1sen!2sbd!4v1686822908299!5m2!1sen!2sbd" width="400" height="300" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+          <iframe className="rounded-xl" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d53373.205217826566!2d-0.4064048787166974!3d51.87525359532576!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x487637d0e4f706d5%3A0x2e06e7f34ad91ad0!2sLondon%20Luton%20Airport!5e0!3m2!1sen!2sbd!4v1686822908299!5m2!1sen!2sbd" width="400" height="400" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
           </div>
         </div>
       </footer>
