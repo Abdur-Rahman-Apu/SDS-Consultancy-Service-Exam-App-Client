@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import useCourses from "../../../../../CustomHook/useCourses/useCourses";
 import Loading2 from "../../../../Loading2/Loading2";
 import Course from "../../../Admin/Courses/Course/Course";
@@ -9,6 +9,10 @@ const MarkDashboard = () => {
   const [courses] = useCourses();
 
   const { employeeInfo } = useContext(AuthContext);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   let specificCourses;
 

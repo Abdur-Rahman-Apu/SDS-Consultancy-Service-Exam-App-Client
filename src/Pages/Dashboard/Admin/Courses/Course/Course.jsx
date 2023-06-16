@@ -1,11 +1,15 @@
 /* eslint-disable react/prop-types */
 
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../../../../Context/AuthProvider";
 
 const Course = ({ course }) => {
   const { employeeInfo } = useContext(AuthContext);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <tr className="font-roboto">
       <td>
@@ -33,7 +37,6 @@ const Course = ({ course }) => {
           >
             Add Questions
           </Link>
-          {/* <button className="btn btn-warning btn-xs">View Questions</button> */}
         </th>
       ) : (
         <th>

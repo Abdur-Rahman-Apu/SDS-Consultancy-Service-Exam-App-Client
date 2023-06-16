@@ -1,8 +1,13 @@
+import { useEffect } from "react";
 import useEmployees from "../../../../../CustomHook/useEmployees/useEmployees";
 import AllEmployees from "../AllEmployess/AllEmployees";
 
 const Marks = () => {
   const [employees] = useEmployees();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <div>
       <h1 className="text-2xl md:text-3xl text-center mt-16 mb-10 font-roboto font-bold">

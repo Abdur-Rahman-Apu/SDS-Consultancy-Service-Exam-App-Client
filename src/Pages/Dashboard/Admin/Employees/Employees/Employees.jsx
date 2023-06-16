@@ -2,8 +2,13 @@ import { useQuery } from "@tanstack/react-query";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Employee from "../Employee/Employee";
+import { useEffect } from "react";
 
 const Employees = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   // fetch employee info
   const { data: employees, refetch } = useQuery({
     queryKey: ["allEmployees"],

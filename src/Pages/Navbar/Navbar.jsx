@@ -1,16 +1,5 @@
 import Nav from "./Navbar.module.css";
 import Logo from "../../assets/Logo/logo.jpg";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faFacebookF,
-  faInstagram,
-  faLinkedin,
-} from "@fortawesome/free-brands-svg-icons";
-import {
-  faClock,
-  faLocationDot,
-  faPhone,
-} from "@fortawesome/free-solid-svg-icons";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useContext, useEffect } from "react";
 import { AuthContext } from "../../Context/AuthProvider";
@@ -140,38 +129,6 @@ const Navbar = () => {
             </div>
           </div>
           <div className="navbar-end">
-            {/* <div
-              className={`hidden w-[120px] md:flex justify-between mr-4 ${Nav.socialIcon}`}
-            >
-              <a
-                href="https://www.facebook.com/"
-                target="_blank"
-                rel="noreferrer"
-              >
-                <FontAwesomeIcon icon={faFacebookF} />
-              </a>
-              <a
-                href="https://www.linkedin.com/"
-                target="_blank"
-                rel="noreferrer"
-              >
-                <FontAwesomeIcon icon={faLinkedin} />
-              </a>
-              <a
-                href="https://www.instagram.com/"
-                target="_blank"
-                rel="noreferrer"
-              >
-                <FontAwesomeIcon icon={faInstagram} />
-              </a>
-            </div> */}
-            {/* <button
-              style={{ display: "none" }}
-              onClick={getEmployeeInfo}
-              id="hiddenBtn"
-            >
-              Hidden Button
-            </button> */}
             {employeeInfo ? (
               <>
                 <p className="mr-3 capitalize text-base font-bold font-roboto">

@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import useCourses from "../../../../../CustomHook/useCourses/useCourses";
 import Course from "../Course/Course";
 import style from "./Courses.module.css";
@@ -5,6 +6,10 @@ import style from "./Courses.module.css";
 const Courses = () => {
   // get all courses
   const [courses] = useCourses();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   return (
     <div className="mt-10">

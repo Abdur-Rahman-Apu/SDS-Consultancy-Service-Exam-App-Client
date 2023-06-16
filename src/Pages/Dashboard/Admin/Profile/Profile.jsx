@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { AuthContext } from "../../../../Context/AuthProvider";
 import { toast } from "react-toastify";
@@ -10,6 +10,7 @@ import ProfileAvatar from "../../../../assets/Profile/profile.png";
 const Profile = () => {
   const { employeeInfo, setEmployeeInfo } = useContext(AuthContext);
   const { _id, role, name, regId, password } = employeeInfo;
+
   const {
     register,
     handleSubmit,
@@ -17,6 +18,10 @@ const Profile = () => {
   } = useForm();
 
   const navigate = useNavigate();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   // update password
   const onSubmit = (data) => {

@@ -3,11 +3,16 @@ import Loading from "../Loading/Loading";
 import useExamData from "../../CustomHook/useExamData/useExamData";
 import PassImg from "../../assets/Result/pass.jpg";
 import FailImg from "../../assets/Result/fail.jpg";
+import { useEffect } from "react";
 
 const Result = () => {
   const Params = useParams();
   const PathCourseName = Params.courseName;
   const [ExamData] = useExamData(PathCourseName);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   let totalMark;
 

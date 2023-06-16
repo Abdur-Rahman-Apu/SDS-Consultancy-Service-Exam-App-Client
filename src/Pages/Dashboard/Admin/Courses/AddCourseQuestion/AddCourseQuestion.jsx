@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { useParams } from "react-router-dom";
 import { toast } from "react-toastify";
@@ -9,6 +10,10 @@ const AddCourseQuestion = () => {
     formState: { errors },
     handleSubmit,
   } = useForm();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   const { courseName } = useParams();
 

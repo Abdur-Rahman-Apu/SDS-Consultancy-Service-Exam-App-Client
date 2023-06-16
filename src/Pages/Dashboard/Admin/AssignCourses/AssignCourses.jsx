@@ -1,7 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
-
+import { useEffect } from "react";
 import { useForm } from "react-hook-form";
-
 import { useParams } from "react-router-dom";
 import { toast } from "react-toastify";
 
@@ -13,6 +12,10 @@ const AssignCourses = () => {
 
     handleSubmit,
   } = useForm();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   const { data: employee, refetch } = useQuery({
     queryKey: ["specificEmployee"],

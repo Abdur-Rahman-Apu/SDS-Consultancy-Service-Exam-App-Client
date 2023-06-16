@@ -31,6 +31,10 @@ const ExamPage = () => {
     JSON.stringify({ Title: PathCourseName, userAnswers })
   );
 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   // Show confirm page before Reload the website
   useEffect(() => {
     const unloadCallback = (event) => {

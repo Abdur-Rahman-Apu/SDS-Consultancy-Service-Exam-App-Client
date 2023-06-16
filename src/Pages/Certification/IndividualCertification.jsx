@@ -2,13 +2,11 @@
 
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import RuleImage from "../../assets/Certifications/rule.png";
 import ReadyImg from "../../assets/Certifications/7494932.jpg";
 import style from "./individualCertification.module.css";
 
 const IndividualCertification = ({ course, employee, employeeInfo }) => {
-  const { courseName, courseImg, courseDesc } = course;
-  const [ruleModalOpen, setRuleModalOpen] = useState(false);
+  const { courseName, courseImg } = course;
   const [confirmModalOpen, setConfirmModalOpen] = useState(false);
 
   const d = new Date();
@@ -34,11 +32,6 @@ const IndividualCertification = ({ course, employee, employeeInfo }) => {
     diffDays = parseInt((date2 - date1) / (1000 * 60 * 60 * 24), 10);
   }
 
-  // modal contains rules of the exam
-  const toggleRuleModal = () => {
-    setRuleModalOpen(ruleModalOpen === true ? false : true);
-  };
-
   // modal contains confirmation message to proceed
   const toggleConfirmationModal = () => {
     setConfirmModalOpen(confirmModalOpen === true ? false : true);
@@ -58,72 +51,7 @@ const IndividualCertification = ({ course, employee, employeeInfo }) => {
           <h2 className="card-title font-bold text-2xl font-roboto">
             {courseName}
           </h2>
-
-          {/* <button onClick={toggleRuleModal}>
-            <img src={RuleImage} alt="image" className="w-[50px] h-[50px]" />
-          </button>
-
-          {ruleModalOpen && (
-            <div className={`${style.popup} px-[6%]`}>
-              <div className={`${style.overlay}`}>
-                <div className={`${style.content}`}>
-               
-                  <div className="mb-10 sm:w-[50%] sm:mx-auto">
-                    <img
-                      src={courseImg}
-                      alt="course image"
-                      className="w-full object-cover rounded-lg"
-                    />
-                  </div>
-
-                 
-                  <h1 className="text-3xl font-bold my-4">
-                    {courseName} Certification Exam
-                  </h1>
-
-                  
-                  <h2 className="font-bold text-start text-2xl mb-3">
-                    Description:
-                  </h2>
-                  <p className="text-start">{courseDesc}</p>
-
-                 
-                  <h2 className="text-2xl text-start font-bold my-3">Rules:</h2>
-                  <ol
-                    className={`${style.orderList} text-start list-disc ml-[10%] pb-5`}
-                  >
-                    <li>The exam duration is 2 hours</li>
-                    <li>Total number of question is 100</li>
-                    <li>
-                      Each correct answer will be awarded +1 mark, while each
-                      wrong answer will result in -1 mark.
-                    </li>
-                    <li>
-                      If you minimize your window of the browser, then your exam
-                      will be finished.
-                    </li>
-                    <li>
-                      Users scoring 80 marks or more will pass, while those
-                      scoring less than 80 will fail.
-                    </li>
-                  </ol>
-
-                  <button
-                    className="font-roboto bg-[#1abc9c] text-white py-[10px] px-[30px] rounded-full"
-                    onClick={toggleRuleModal}
-                  >
-                    Close
-                  </button>
-                </div>
-              </div>
-            </div>
-          )} */}
         </div>
-
-        {/* <p className="font-poppins text-sm text-justify">
-          {courseDesc.split(".")[0]}
-        </p> */}
-
         <div className="card-actions justify-center">
           {/* modal of confirmation  */}
           <button

@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { AuthContext } from "../../../../../Context/AuthProvider";
 import useSpecificEmployee from "../../../../../CustomHook/useSpecificEmployee/useSpecificEmployee";
@@ -10,6 +10,10 @@ const EachCourseResult = () => {
   const { employeeInfo } = useContext(AuthContext);
   const [employee] = useSpecificEmployee(employeeInfo?._id);
   const allResult = employee?.result[`${courseName}`];
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   // loader
   if (!allResult) {

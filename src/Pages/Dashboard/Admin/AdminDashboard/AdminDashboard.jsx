@@ -2,10 +2,15 @@ import { BsFillPeopleFill, BsBookHalf } from "react-icons/bs";
 import style from "./AdminDashboard.module.css";
 import useEmployees from "../../../../CustomHook/useEmployees/useEmployees";
 import useCourses from "../../../../CustomHook/useCourses/useCourses";
+import { useEffect } from "react";
 
 const AdminDashboard = () => {
   const [employees] = useEmployees();
   const [courses] = useCourses();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <div className="flex flex-col items-center  md:flex-row justify-evenly">
       {/* card 1  */}

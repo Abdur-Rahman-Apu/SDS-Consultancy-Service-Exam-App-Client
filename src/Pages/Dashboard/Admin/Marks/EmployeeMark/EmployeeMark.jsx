@@ -1,9 +1,14 @@
 import { useParams } from "react-router-dom";
 import useSpecificEmployee from "../../../../../CustomHook/useSpecificEmployee/useSpecificEmployee";
+import { useEffect } from "react";
 
 const EmployeeMark = () => {
   const { id } = useParams();
   const [employee] = useSpecificEmployee(id);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   return (
     <div>

@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import Chart from "react-apexcharts";
 import { AuthContext } from "../../../../Context/AuthProvider";
 import useSpecificEmployee from "../../../../CustomHook/useSpecificEmployee/useSpecificEmployee";
@@ -7,6 +7,10 @@ const EmployeeDashboard = () => {
   const { employeeInfo } = useContext(AuthContext);
   const [employee] = useSpecificEmployee(employeeInfo?._id);
   const resultOfEmployee = employee?.result;
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   // calculate highest mark of each course
   const courseHighestMark = [];
