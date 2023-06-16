@@ -1,5 +1,5 @@
 import { useForm } from "react-hook-form";
-import Logo from "../../assets/Logo/logo-bg-none.png";
+import Logo from "../../assets/Logo/logo.jpg";
 import "../../Common/Css/Common.css";
 import Lottie from "lottie-react";
 import LoginAnimation from "../../assets/LottieFiles/login.json";
@@ -83,7 +83,7 @@ const LogIn = () => {
   return (
     <div className="min-h-[100vh]">
       <div>
-        <img className="w-[150px] h-[150px] mx-auto" src={Logo} alt="logo" />
+        <img className="w-[160px] h-full my-5 mx-auto" src={Logo} alt="logo" />
       </div>
       <div className="hero  mb-10">
         <div className="hero-content w-[95%] md:w-[85%] flex-col-reverse md:flex-col lg:flex-row justify-between items-start">
@@ -98,7 +98,7 @@ const LogIn = () => {
           <div className="basis-1/2  w-full  bg-base-100">
             <div className="">
               <div>
-                <h1 className="text-2xl text-center lg:text-start md:text-3xl font-bold tracking-wide">
+                <h1 className="text-2xl text-center lg:text-start md:text-3xl font-bold tracking-wider font-inter ">
                   Welcome Back!
                 </h1>
               </div>

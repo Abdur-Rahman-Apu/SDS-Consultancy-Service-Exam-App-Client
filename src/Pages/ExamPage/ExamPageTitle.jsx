@@ -4,12 +4,12 @@ function ExamPageTitle({ ExamData, Logo, formatTime, timeRemaining }) {
   return (
     <>
       {" "}
-      <div className="p-5 bg-[#f5df4e80] md:rounded-3xl md:mt-5">
-        <div className="w-[60%] mx-auto">
+      <div className="p-5 border-2 border-black  md:rounded-3xl md:mt-5">
+        <div className="w-[100%] mx-auto">
           <img
             src={Logo}
             alt="logo"
-            className="object-cover w-[100px] h-[100px] md:w-[150px] md:h-[150px] mx-auto"
+            className="object-contain w-[100%] mb-5 h-[150px] mx-auto"
           />
         </div>
 

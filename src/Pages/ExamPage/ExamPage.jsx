@@ -65,8 +65,10 @@ const ExamPage = () => {
           text: "Screen minimized, now you are outside of the exam page. Fear not! Discover your previous marked answers, hidden treasures of progress",
           icon: "error",
           showCancelButton: false,
-          confirmButtonColor: "#000",
           confirmButtonText: "Submit",
+          customClass: {
+            confirmButton: "sweet-alert-confirm-button",
+          },
         }).then((result) => {
           const SumbitData = JSON.parse(
             localStorage.getItem("TempSubmittedData")
@@ -198,9 +200,11 @@ const ExamPage = () => {
       allowOutsideClick: false,
       allowEscapeKey: false,
       showCancelButton: true,
-      confirmButtonColor: "#F5DF4E",
       cancelButtonColor: "#000",
       confirmButtonText: "Submit!",
+      customClass: {
+        confirmButton: "sweet-alert-confirm-button",
+      },
     }).then((result) => {
       if (result.isConfirmed) {
         AddResultToLocal(userAnswers, Title);
@@ -291,9 +295,11 @@ const ExamPage = () => {
         allowOutsideClick: false,
         allowEscapeKey: false,
         showCancelButton: false,
-        confirmButtonColor: "#3085d6",
         cancelButtonColor: "#d33",
         confirmButtonText: "Submit!",
+        customClass: {
+          confirmButton: "sweet-alert-confirm-button",
+        },
       }).then((result) => {
         if (result.isConfirmed) {
           AddResultToLocal(userAnswers, Title);
@@ -304,7 +310,7 @@ const ExamPage = () => {
             showConfirmButton: false,
             icon: "success",
             title: "Your work has been saved",
-            html: `<a href="/certifications/${PathCourseName}/result" target="_blank" onClick=${setToDatabase()} style='display: inline-block;padding: 10px 20px;background-color: #007bff;color: #fff;text-decoration: none;border-radius: 4px;box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);transition: background-color 0.3s;font-size: 16px;font-weight: bold;'> Show Result</a>`,
+            html: `<a href="/certifications/${PathCourseName}/result" target="_blank" onClick=${setToDatabase()} style='display: inline-block;padding: 10px 20px;background-color: #F5DF4E;color: #000;text-decoration: none;border-radius: 4px;box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);transition: background-color 0.3s;font-size: 16px;font-weight: bold;'> Show Result</a>`,
           });
           delete localStorage.TempSubmittedData;
           return navigate("/dashboard");

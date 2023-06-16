@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&family=Roboto+Condensed:wght@400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Poppins:wght@400;700&family=Roboto+Condensed:wght@400;700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap");
 
 .font-roboto {
@@ -7,6 +7,10 @@
 
 .font-poppins {
   font-family: "Poppins", sans-serif;
+}
+
+.font-inter {
+  font-family: "Inter", sans-serif;
 }
 
 .active-link {
@@ -18,4 +22,11 @@ input[type="submit"] {
   background: #f5df4e;
   color: black;
   font-weight: bold;
+}
+
+.sweet-alert-confirm-button {
+  background-color: #f5df4e !important;
+  color: black !important;
+  font-weight: bold;
+  font-family: "Roboto Condensed", sans-serif;
 }
