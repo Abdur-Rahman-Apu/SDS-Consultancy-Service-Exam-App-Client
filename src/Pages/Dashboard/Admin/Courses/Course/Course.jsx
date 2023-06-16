@@ -21,7 +21,9 @@ const Course = ({ course }) => {
           </div>
         </div>
       </td>
-      <td className="text-sm md:text-base">{course?.courseName}</td>
+      <td className="text-sm font-roboto font-bold md:text-base">
+        {course?.courseName}
+      </td>
 
       {employeeInfo?.role === "admin" ? (
         <th>

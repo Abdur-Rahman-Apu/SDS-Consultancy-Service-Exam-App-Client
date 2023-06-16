@@ -27,7 +27,7 @@ const EachCourseResult = () => {
         <div className="overflow-x-auto my-10">
           <table className={`table text-center w-[90%] mx-auto`}>
             {/* head */}
-            <thead className=" text-lg md:text-xl text-white font-roboto font-bold bg-[#FD7272]">
+            <thead className=" text-lg md:text-xl text-black font-roboto font-bold bg-[#F5DF4E]">
               <tr>
                 <th>
                   <p>Date</p>

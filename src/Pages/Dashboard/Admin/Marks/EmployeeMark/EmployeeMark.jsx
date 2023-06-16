@@ -17,7 +17,6 @@ const EmployeeMark = () => {
           <thead className="bg-[#F5DF4E]">
             <tr className="text-base md:text-lg font-roboto font-bold text-black">
               <th>Name</th>
-
               <th>Action</th>
             </tr>
           </thead>
@@ -27,12 +26,14 @@ const EmployeeMark = () => {
                 return (
                   <>
                     <tr className="bg-[#f7f1e3]">
-                      <td>{item[0]}</td>
-                      <td>
+                      <td className="text-base font-roboto font-bold">
+                        {item[0]}
+                      </td>
+                      <td className="text-base font-roboto font-bold">
                         {item[1].length ? (
                           item[1][0]["totalMark"]
                         ) : (
-                          <p>No exam is given</p>
+                          <p className="text-red-500">No exam is given</p>
                         )}
                       </td>
                     </tr>
