@@ -42,6 +42,11 @@ const EmployeeDashboard = () => {
                 categories: [...Object.keys(resultOfEmployee)],
               },
               colors: ["#F5DF4E"],
+              dataLabels: {
+                style: {
+                  colors: ["#000"],
+                },
+              },
             }}
             series={[
               {
