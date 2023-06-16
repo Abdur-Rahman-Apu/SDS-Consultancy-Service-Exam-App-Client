@@ -43,7 +43,7 @@ const Employees = () => {
       <div className="w-full overflow-x-auto">
         <table className="table w-[100%] text-center">
           {/* head */}
-          <thead className="bg-[#30b6bc4d]">
+          <thead className="bg-[#f5df4e80]">
             <tr className="text-base md:text-lg font-roboto font-bold text-black">
               <th>Name</th>
               <th>Registration Id</th>

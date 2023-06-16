@@ -27,7 +27,7 @@ const Course = ({ course }) => {
         <th>
           <Link
             to={`/dashboard/addQuestion/${course?.courseName}`}
-            className="btn btn-success btn-xs"
+            className="btn btn-warning btn-xs"
           >
             Add Questions
           </Link>
@@ -37,7 +37,7 @@ const Course = ({ course }) => {
         <th>
           <Link
             to={`/dashboard/result/seeMark/${course?.courseName}`}
-            className="btn btn-success btn-xs mb-3 md:mr-3"
+            className="btn btn-warning btn-xs mb-3 md:mr-3"
           >
             See Mark
           </Link>

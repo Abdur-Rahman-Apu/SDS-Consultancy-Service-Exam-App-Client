@@ -81,7 +81,7 @@ const AddCourseQuestion = () => {
         <input
           type="submit"
           value="Upload the file"
-          className=" mt-10 px-[8px] py-[10px] font-roboto font-bold rounded-lg text-white cursor-pointer"
+          className=" mt-10 px-[8px] py-[10px] font-roboto font-bold rounded-lg  cursor-pointer"
         />
       </form>
 

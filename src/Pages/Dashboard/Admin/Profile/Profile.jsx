@@ -56,7 +56,7 @@ const Profile = () => {
   };
   return (
     <div>
-      <div className="w-[90%] md:w-[60%] mx-auto mt-20 mb-10   border border-[#1dd1a1] rounded-lg shadow">
+      <div className="w-[90%] md:w-[60%] mx-auto mt-20 mb-10   border border-[#F5DF4E] rounded-lg shadow">
         <div className=" py-10">
           <h1 className="text-2xl md:text-3xl text-center font-bold font-roboto uppercase">
             Your Profile
@@ -111,7 +111,7 @@ const Profile = () => {
                 <input
                   type="submit"
                   value="Update Password"
-                  className={`inline-block w-fit mx-auto my-6 px-[10px] py-[15px] rounded-full ${style.submitBtn}`}
+                  className={`inline-block font-roboto font-bold w-fit mx-auto my-6 px-[10px] py-[15px] rounded-full ${style.submitBtn}`}
                 />
               </div>
             </form>

@@ -197,7 +197,7 @@ const Navbar = () => {
             ) : (
               <Link
                 to="/login"
-                className={`btn text-white font-roboto ${Nav.gradientBg}`}
+                className={`btn bg-[#F5DF4E] font-bold font-roboto ${Nav.gradientBg}`}
               >
                 LogIn
               </Link>

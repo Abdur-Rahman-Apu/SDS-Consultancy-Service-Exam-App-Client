@@ -37,7 +37,7 @@ const EmployeeDashboard = () => {
               xaxis: {
                 categories: [...Object.keys(resultOfEmployee)],
               },
-              colors: ["#12BCB8"],
+              colors: ["#F5DF4E"],
             }}
             series={[
               {

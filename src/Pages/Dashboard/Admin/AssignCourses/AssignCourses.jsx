@@ -102,7 +102,7 @@ const AssignCourses = () => {
         className="flex flex-col items-center"
       >
         <select
-          className="select select-info w-full max-w-xs"
+          className="select select-warning w-full max-w-xs"
           {...register("assignCourse")}
         >
           <option>Select one course</option>

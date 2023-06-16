@@ -14,18 +14,18 @@ const Employee = ({ employee, handleDeleteEmployee }) => {
         <th className="flex flex-col md:flex-row md:justify-evenly items-center ">
           <Link
             to={`/dashboard/employees/updateRegId/${employee?._id}`}
-            className="btn btn-success btn-sm flex items-center tooltip  mb-3 md:mb-0"
+            className="btn bg-[#F5DF4E] btn-sm flex items-center tooltip  mb-3 md:mb-0"
             data-tip="Edit RegId"
           >
-            <LuEdit className="text-white" />
+            <LuEdit className="text-black" />
           </Link>
 
           <Link
             to={`/dashboard/employees/assignCourses/${employee?._id}`}
-            className="btn btn-success flex items-center tooltip btn-sm  mb-3 md:mb-0"
+            className="btn bg-[#F5DF4E] flex items-center tooltip btn-sm  mb-3 md:mb-0"
             data-tip="assign course"
           >
-            <MdAssignmentTurnedIn className="text-white" />
+            <MdAssignmentTurnedIn className="text-black" />
           </Link>
 
           <button

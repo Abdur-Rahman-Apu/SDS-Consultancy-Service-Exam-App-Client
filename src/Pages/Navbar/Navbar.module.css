@@ -3,20 +3,6 @@
   padding: 0 6%;
 }
 
-.gradientBg {
-  background: #06beb6; /* fallback for old browsers */
-  background: -webkit-linear-gradient(
-    to right,
-    #48b1bf,
-    #06beb6
-  ); /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(
-    to right,
-    #48b1bf,
-    #06beb6
-  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-}
-
 .upper {
   height: 50%;
   background-color: #fff;
@@ -30,15 +16,4 @@
 .logo img {
   width: 100px;
   height: 100%;
-}
-
-.socialIcon a {
-  display: inline-flex;
-  justify-content: center;
-  align-items: center;
-  background-color: #42bec3;
-  width: 30px;
-  height: 30px;
-  color: #fff;
-  border-radius: 50%;
 }

@@ -35,7 +35,7 @@ const MarkDashboard = () => {
       <div className="overflow-x-auto my-10">
         <table className={`table text-center w-[90%] mx-auto`}>
           {/* head */}
-          <thead className="text-base md:text-lg text-black font-roboto font-bold bg-[#706fd333]">
+          <thead className="text-base md:text-lg text-black font-roboto font-bold bg-[#f5df4e80]">
             <tr>
               <th>Image</th>
               <th>Name</th>

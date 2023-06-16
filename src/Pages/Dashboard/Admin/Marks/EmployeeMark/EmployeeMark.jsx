@@ -14,7 +14,7 @@ const EmployeeMark = () => {
       <div className="w-full md:w-[80%] mx-auto overflow-x-auto">
         <table className="table w-[100%] text-center">
           {/* head */}
-          <thead className="bg-[#30b6bc4d]">
+          <thead className="bg-[#F5DF4E]">
             <tr className="text-base md:text-lg font-roboto font-bold text-black">
               <th>Name</th>
 

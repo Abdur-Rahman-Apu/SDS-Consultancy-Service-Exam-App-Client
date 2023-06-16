@@ -222,7 +222,7 @@ const AddEmployee = () => {
                   <input
                     id="python"
                     type="checkbox"
-                    className="checkbox checkbox-info w-[18px] h-[18px]"
+                    className="checkbox checkbox-warning w-[18px] h-[18px]"
                     {...register("Py")}
                   />
                   <label
@@ -238,7 +238,7 @@ const AddEmployee = () => {
                   <input
                     id="ai"
                     type="checkbox"
-                    className="checkbox checkbox-info w-[18px] h-[18px]"
+                    className="checkbox checkbox-warning w-[18px] h-[18px]"
                     {...register("AI")}
                   />
                   <label htmlFor="ai" className="font-roboto text-base ml-3">
@@ -251,7 +251,7 @@ const AddEmployee = () => {
                   <input
                     id="ccna"
                     type="checkbox"
-                    className="checkbox checkbox-info w-[18px] h-[18px]"
+                    className="checkbox checkbox-warning w-[18px] h-[18px]"
                     {...register("CCNA")}
                   />
                   <label htmlFor="ccna" className="font-roboto text-base ml-3">
@@ -264,7 +264,7 @@ const AddEmployee = () => {
                   <input
                     id="ccnp"
                     type="checkbox"
-                    className="checkbox checkbox-info w-[18px] h-[18px]"
+                    className="checkbox checkbox-warning w-[18px] h-[18px]"
                     {...register("CCNP")}
                   />
                   <label htmlFor="ccnp" className="font-roboto text-base ml-3">
@@ -276,7 +276,7 @@ const AddEmployee = () => {
                   <input
                     id="ccent"
                     type="checkbox"
-                    className="checkbox checkbox-info w-[18px] h-[18px]"
+                    className="checkbox checkbox-warning w-[18px] h-[18px]"
                     {...register("CCENT")}
                   />
                   <label htmlFor="ccent" className="font-roboto text-base ml-3">
@@ -289,7 +289,7 @@ const AddEmployee = () => {
                   <input
                     id="ccie"
                     type="checkbox"
-                    className="checkbox checkbox-info w-[18px] h-[18px]"
+                    className="checkbox checkbox-warning w-[18px] h-[18px]"
                     {...register("CCIE")}
                   />
                   <label htmlFor="ccie" className="font-roboto text-base ml-3">
@@ -302,7 +302,7 @@ const AddEmployee = () => {
                   <input
                     id="cct"
                     type="checkbox"
-                    className="checkbox checkbox-info w-[18px] h-[18px]"
+                    className="checkbox checkbox-warning w-[18px] h-[18px]"
                     {...register("CCT")}
                   />
                   <label htmlFor="cct" className="font-roboto text-base ml-3">
@@ -315,7 +315,7 @@ const AddEmployee = () => {
                   <input
                     id="oracle"
                     type="checkbox"
-                    className="checkbox checkbox-info w-[18px] h-[18px]"
+                    className="checkbox checkbox-warning w-[18px] h-[18px]"
                     {...register("Oracle")}
                   />
                   <label
@@ -331,7 +331,7 @@ const AddEmployee = () => {
                   <input
                     id="ml"
                     type="checkbox"
-                    className="checkbox checkbox-info w-[18px] h-[18px]"
+                    className="checkbox checkbox-warning w-[18px] h-[18px]"
                     {...register("ML")}
                   />
                   <label htmlFor="ml" className="font-roboto text-base ml-3">
@@ -343,7 +343,7 @@ const AddEmployee = () => {
                   <input
                     id="as"
                     type="checkbox"
-                    className="checkbox checkbox-info w-[18px] h-[18px]"
+                    className="checkbox checkbox-warning w-[18px] h-[18px]"
                     {...register("ApacheSpark")}
                   />
                   <label htmlFor="as" className="font-roboto text-base ml-3">
@@ -355,7 +355,7 @@ const AddEmployee = () => {
                   <input
                     id="bh"
                     type="checkbox"
-                    className="checkbox checkbox-info w-[18px] h-[18px]"
+                    className="checkbox checkbox-warning w-[18px] h-[18px]"
                     {...register("BigdataHadoop")}
                   />
                   <label htmlFor="bh" className="font-roboto text-base ml-3">
@@ -370,7 +370,7 @@ const AddEmployee = () => {
                   <input
                     id="ak"
                     type="checkbox"
-                    className="checkbox checkbox-info w-[18px] h-[18px]"
+                    className="checkbox checkbox-warning w-[18px] h-[18px]"
                     {...register("ApacheKafka")}
                   />
                   <label htmlFor="ak" className="font-roboto text-base ml-3">
@@ -382,7 +382,7 @@ const AddEmployee = () => {
                   <input
                     id="hcj"
                     type="checkbox"
-                    className="checkbox checkbox-info w-[18px] h-[18px]"
+                    className="checkbox checkbox-warning w-[18px] h-[18px]"
                     {...register("HTML")}
                   />
                   <label htmlFor="hcj" className="font-roboto text-base ml-3">
@@ -394,7 +394,7 @@ const AddEmployee = () => {
                   <input
                     id="scala"
                     type="checkbox"
-                    className="checkbox checkbox-info w-[18px] h-[18px]"
+                    className="checkbox checkbox-warning w-[18px] h-[18px]"
                     {...register("Scala")}
                   />
                   <label htmlFor="scala" className="font-roboto text-base ml-3">
@@ -406,7 +406,7 @@ const AddEmployee = () => {
                   <input
                     id="angular"
                     type="checkbox"
-                    className="checkbox checkbox-info w-[18px] h-[18px]"
+                    className="checkbox checkbox-warning w-[18px] h-[18px]"
                     {...register("Angular")}
                   />
                   <label
@@ -421,7 +421,7 @@ const AddEmployee = () => {
                   <input
                     id="aws"
                     type="checkbox"
-                    className="checkbox checkbox-info w-[18px] h-[18px]"
+                    className="checkbox checkbox-warning w-[18px] h-[18px]"
                     {...register("AWS")}
                   />
                   <label htmlFor="aws" className="font-roboto text-base ml-3">
@@ -433,7 +433,7 @@ const AddEmployee = () => {
                   <input
                     id="apache_flink"
                     type="checkbox"
-                    className="checkbox checkbox-info w-[18px] h-[18px]"
+                    className="checkbox checkbox-warning w-[18px] h-[18px]"
                     {...register("ApacheFlink")}
                   />
                   <label
@@ -448,7 +448,7 @@ const AddEmployee = () => {
                   <input
                     id="devops"
                     type="checkbox"
-                    className="checkbox checkbox-info w-[18px] h-[18px]"
+                    className="checkbox checkbox-warning w-[18px] h-[18px]"
                     {...register("Devops")}
                   />
                   <label
@@ -463,7 +463,7 @@ const AddEmployee = () => {
                   <input
                     id="linux"
                     type="checkbox"
-                    className="checkbox checkbox-info w-[18px] h-[18px]"
+                    className="checkbox checkbox-warning w-[18px] h-[18px]"
                     {...register("Linux")}
                   />
                   <label htmlFor="linux" className="font-roboto text-base ml-3">
@@ -475,7 +475,7 @@ const AddEmployee = () => {
                   <input
                     id="salesforce"
                     type="checkbox"
-                    className="checkbox checkbox-info w-[18px] h-[18px]"
+                    className="checkbox checkbox-warning w-[18px] h-[18px]"
                     {...register("Salesforce")}
                   />
                   <label
@@ -490,7 +490,7 @@ const AddEmployee = () => {
                   <input
                     id="ma"
                     type="checkbox"
-                    className="checkbox checkbox-info w-[18px] h-[18px]"
+                    className="checkbox checkbox-warning w-[18px] h-[18px]"
                     {...register("MicrosoftAzure")}
                   />
                   <label htmlFor="ma" className="font-roboto text-base ml-3">
@@ -502,7 +502,7 @@ const AddEmployee = () => {
                   <input
                     id="data"
                     type="checkbox"
-                    className="checkbox checkbox-info w-[18px] h-[18px]"
+                    className="checkbox checkbox-warning w-[18px] h-[18px]"
                     {...register("DataScience")}
                   />
                   <label htmlFor="data" className="font-roboto text-base ml-3">

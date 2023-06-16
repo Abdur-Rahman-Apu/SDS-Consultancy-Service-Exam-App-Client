@@ -110,14 +110,12 @@ const LogIn = () => {
                   <input
                     type="text"
                     placeholder="Enter Registration ID"
-                    className="border border-black rounded-xl font-semibold py-4 pl-14  text-black text-sm md:text-base focus:outline-[#00ADB4] block w-full placeholder-black"
+                    className="border border-black rounded-xl font-semibold py-4 pl-14  text-black text-sm md:text-base focus:outline-[#000] block w-full placeholder-black"
                     {...register("regId", { required: true })}
                     aria-invalid={errors.regId ? "true" : "false"}
                   />
 
-                  {
-                    <FaUserAlt className="absolute text-[#00ADB4] top-[38%] left-6" />
-                  }
+                  {<FaUserAlt className="absolute  top-[38%] left-6" />}
                 </div>
                 {errors.regId?.type === "required" && (
                   <p role="alert" className="my-1 text-red-600">
@@ -130,7 +128,7 @@ const LogIn = () => {
                   <input
                     type={passwordInputType}
                     placeholder="Enter Password"
-                    className="border border-black rounded-xl font-semibold py-4 pl-14 text-black text-sm md:text-base focus:outline-[#00ADB4] block w-full placeholder-black"
+                    className="border border-black rounded-xl font-semibold py-4 pl-14 text-black text-sm md:text-base focus:outline-[#000] block w-full placeholder-black"
                     {...register("password", { required: true })}
                     aria-invalid={errors.password ? "true" : "false"}
                   />
@@ -138,12 +136,12 @@ const LogIn = () => {
                   {passwordInputType === "password" ? (
                     <FaLock
                       onClick={togglePasswordInputType}
-                      className="absolute text-[#00ADB4] top-[38%] left-6 cursor-pointer"
+                      className="absolute top-[38%] left-6 cursor-pointer"
                     />
                   ) : (
                     <FaLockOpen
                       onClick={togglePasswordInputType}
-                      className="absolute text-[#00ADB4] top-[38%] left-6 cursor-pointer"
+                      className="absolute top-[38%] left-6 cursor-pointer"
                     />
                   )}
                 </div>
