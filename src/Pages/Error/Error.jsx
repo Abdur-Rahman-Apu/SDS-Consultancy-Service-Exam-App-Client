@@ -1,7 +1,6 @@
 import Lottie from "lottie-react";
 import ErrorAnimation from "../../assets/LottieFiles/error.json";
 import Navbar from "../Navbar/Navbar";
-import Footer from "../Footer/Footer";
 import { useEffect } from "react";
 
 const Error = () => {
@@ -15,7 +14,6 @@ const Error = () => {
       <div>
         <Lottie animationData={ErrorAnimation} loop={true} />
       </div>
-      <Footer />
     </div>
   );
 };
