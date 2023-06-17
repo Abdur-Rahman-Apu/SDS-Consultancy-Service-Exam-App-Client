@@ -11,7 +11,6 @@ import AddEmployee from "../../Pages/Dashboard/Admin/AddEmployee/AddEmployee";
 import Employees from "../../Pages/Dashboard/Admin/Employees/Employees/Employees";
 import Courses from "../../Pages/Dashboard/Admin/Courses/Courses/Courses";
 import AddCourseQuestion from "../../Pages/Dashboard/Admin/Courses/AddCourseQuestion/AddCourseQuestion";
-import UpdateRegId from "../../Pages/Dashboard/Admin/Employees/UpdateRegId/UpdateRegId";
 import EachCourseResult from "../../Pages/Dashboard/Employee/Result/EachCourseResult/EachCourseResult";
 import ExamPage from "../../Pages/ExamPage/ExamPage";
 import MarkDashboard from "../../Pages/Dashboard/Employee/Result/MarkDashboard/MarkDashboard";

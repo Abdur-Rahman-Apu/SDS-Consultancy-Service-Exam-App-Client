@@ -89,11 +89,6 @@ const Profile = () => {
               {" " + role}
             </h5>
 
-            {/* <h5 className="mb-1 text-lg md:text-xl font-medium text-gray-900  mt-4">
-              <span className="font-bold">Registration Id:</span>
-              {" " + regId}
-            </h5> */}
-
             <form className="my-4" onSubmit={handleSubmit(onSubmit)}>
               {/* registration id field  */}
               <div className="form-control">

@@ -1,15 +1,18 @@
-import React from "react";
 import { useForm } from "react-hook-form";
 import { useParams } from "react-router-dom";
 import useSpecificEmployee from "../../../../../CustomHook/useSpecificEmployee/useSpecificEmployee";
 import { toast } from "react-toastify";
+import { useEffect } from "react";
 
 const UpdateEmployeeInfo = () => {
   const { id } = useParams();
-  console.log(id);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   const [employee] = useSpecificEmployee(id);
-  console.log(employee);
+
   const {
     register,
 
@@ -18,7 +21,6 @@ const UpdateEmployeeInfo = () => {
   } = useForm();
 
   const onSubmit = (data) => {
-    console.log(data);
     const { name, regId, password } = data;
 
     if (
@@ -48,7 +50,7 @@ const UpdateEmployeeInfo = () => {
           }
         })
         .catch(() => {
-          console.log("Server failed");
+          toast.error("Server failed");
         });
     } else {
       toast.error("Please update one field");
