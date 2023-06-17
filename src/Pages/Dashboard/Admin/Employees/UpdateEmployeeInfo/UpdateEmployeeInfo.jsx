@@ -31,13 +31,16 @@ const UpdateEmployeeInfo = () => {
         regId,
         password,
       };
-      fetch(`http://localhost:5000/updateEmployeeInfo?id=${employee?._id}`, {
-        method: "PATCH",
-        headers: {
-          "content-type": "application/json",
-        },
-        body: JSON.stringify(updateData),
-      })
+      fetch(
+        `https://quiz-five-beta.vercel.app/updateEmployeeInfo?id=${employee?._id}`,
+        {
+          method: "PATCH",
+          headers: {
+            "content-type": "application/json",
+          },
+          body: JSON.stringify(updateData),
+        }
+      )
         .then((res) => res.json())
         .then((res) => {
           if (res.acknowledged) {

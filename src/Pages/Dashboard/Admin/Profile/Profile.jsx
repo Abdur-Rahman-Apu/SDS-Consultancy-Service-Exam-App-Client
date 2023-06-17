@@ -25,10 +25,11 @@ const Profile = () => {
 
   // update password
   const onSubmit = (data) => {
+    console.log(data);
     // check new password is given in the field or not
-    if (password != data.password) {
+    if (password != data.password || regId != data.regId) {
       // update password using patch method to update specific admin
-      fetch(`https://quiz-five-beta.vercel.app/updateAdminPassword?id=${_id}`, {
+      fetch(`http://localhost:5000/updateAdminInfo?id=${_id}`, {
         method: "PATCH",
         headers: {
           "content-type": "application/json",
@@ -38,13 +39,14 @@ const Profile = () => {
         .then((res) => res.json())
         .then((result) => {
           if (result.acknowledged) {
-            toast.success("Update password successfully");
+            toast.success("Updated successfully");
 
             // get previous admin info from the local-storage
             const adminInfo = JSON.parse(localStorage.getItem("Employee-Info"));
 
             // update the password in the local-storage
             adminInfo["password"] = data.password;
+            adminInfo["regId"] = data.regId;
             localStorage.setItem("Employee-Info", JSON.stringify(adminInfo));
             setEmployeeInfo(JSON.parse(localStorage.getItem("Employee-Info")));
 
@@ -56,7 +58,7 @@ const Profile = () => {
           toast.error("Something went wrong!");
         });
     } else {
-      toast.error("New password is not given.");
+      toast.error("Please provide new info.");
     }
   };
   return (
@@ -87,13 +89,34 @@ const Profile = () => {
               {" " + role}
             </h5>
 
-            <h5 className="mb-1 text-lg md:text-xl font-medium text-gray-900  mt-4">
+            {/* <h5 className="mb-1 text-lg md:text-xl font-medium text-gray-900  mt-4">
               <span className="font-bold">Registration Id:</span>
               {" " + regId}
-            </h5>
+            </h5> */}
 
             <form className="my-4" onSubmit={handleSubmit(onSubmit)}>
               {/* registration id field  */}
+              <div className="form-control">
+                <h5 className="mb-1 text-lg md:text-xl font-medium text-gray-900 capitalize mt-4">
+                  <span className=" font-bold">Registration Id</span>
+                </h5>
+                <input
+                  type="text"
+                  placeholder="Enter password"
+                  defaultValue={regId}
+                  className="input input-bordered"
+                  {...register("regId", { required: true })}
+                  aria-invalid={errors.regId ? "true" : "false"}
+                />
+
+                {errors.regId?.type === "required" && (
+                  <p role="alert" className="my-1 text-red-600">
+                    Registration Id is required
+                  </p>
+                )}
+              </div>
+
+              {/* password field  */}
               <div className="form-control">
                 <h5 className="mb-1 text-lg md:text-xl font-medium text-gray-900 capitalize mt-4">
                   <span className=" font-bold">Password</span>
@@ -112,13 +135,13 @@ const Profile = () => {
                     Password is required
                   </p>
                 )}
-
-                <input
-                  type="submit"
-                  value="Update Password"
-                  className={`inline-block font-roboto font-bold w-fit mx-auto my-6 px-[10px] py-[15px] rounded-full ${style.submitBtn}`}
-                />
               </div>
+
+              <input
+                type="submit"
+                value="Update Password"
+                className={`block font-roboto font-bold w-fit mx-auto my-6 px-[10px] py-[15px] rounded-full ${style.submitBtn}`}
+              />
             </form>
           </div>
         </div>
