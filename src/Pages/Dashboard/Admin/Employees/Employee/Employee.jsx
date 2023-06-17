@@ -13,9 +13,9 @@ const Employee = ({ employee, handleDeleteEmployee }) => {
         <td>{employee?.password}</td>
         <th className="flex flex-col md:flex-row md:justify-evenly items-center ">
           <Link
-            to={`/dashboard/employees/updateRegId/${employee?._id}`}
+            to={`/dashboard/employees/updateEmployeeInfo/${employee?._id}`}
             className="btn bg-[#F5DF4E] btn-sm flex items-center tooltip  mb-3 md:mb-0"
-            data-tip="Edit RegId"
+            data-tip="Edit"
           >
             <LuEdit className="text-black" />
           </Link>

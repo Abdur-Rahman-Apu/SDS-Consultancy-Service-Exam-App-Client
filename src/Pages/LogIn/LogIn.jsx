@@ -32,7 +32,7 @@ const LogIn = () => {
     setLoader(true);
 
     const { regId: givenId, password: givenPass } = data;
-
+    console.log(data, "data");
     // setLoading(true);
     let flag = 0;
 
@@ -40,8 +40,11 @@ const LogIn = () => {
       .then((res) => res.json())
       .then((data) => {
         setLoader(false);
+
         data.forEach((employeeInfo) => {
           const { regId, password } = employeeInfo;
+
+          console.log(regId, password);
 
           // matching user id and password
           if (regId === givenId && password === givenPass) {

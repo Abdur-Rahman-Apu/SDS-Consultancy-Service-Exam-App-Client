@@ -19,6 +19,7 @@ import Result from "../../Pages/ExamPage/Result";
 import AssignCourses from "../../Pages/Dashboard/Admin/AssignCourses/AssignCourses";
 import Marks from "../../Pages/Dashboard/Admin/Marks/Marks/Marks";
 import EmployeeMark from "../../Pages/Dashboard/Admin/Marks/EmployeeMark/EmployeeMark";
+import UpdateEmployeeInfo from "../../Pages/Dashboard/Admin/Employees/UpdateEmployeeInfo/UpdateEmployeeInfo";
 
 export const router = createBrowserRouter([
   {
@@ -95,10 +96,10 @@ export const router = createBrowserRouter([
         ),
       },
       {
-        path: "/dashboard/employees/updateRegId/:id",
+        path: "/dashboard/employees/updateEmployeeInfo/:id",
         element: (
           <PrivateRoute>
-            <UpdateRegId />
+            <UpdateEmployeeInfo />
           </PrivateRoute>
         ),
       },
