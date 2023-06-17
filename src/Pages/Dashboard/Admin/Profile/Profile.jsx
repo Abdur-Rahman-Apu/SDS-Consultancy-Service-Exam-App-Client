@@ -139,8 +139,8 @@ const Profile = () => {
 
               <input
                 type="submit"
-                value="Update"
-                className={`block font-roboto font-bold w-fit mx-auto my-6 px-[10px] py-[15px] rounded-full ${style.submitBtn}`}
+                value="Update Admin Info"
+                className={`block font-roboto font-bold w-fit mx-auto my-6 px-[30px] py-[15px] rounded-full ${style.submitBtn}`}
               />
             </form>
           </div>
