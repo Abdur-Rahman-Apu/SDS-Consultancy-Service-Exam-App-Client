@@ -19,22 +19,18 @@ SDS Consultancy Service Exam app is a website of giving exams of registered stud
 
 ![Courses page](src/assets/screenshots/exam.png)
 
-![Exam page](src/assets/screenshots/exam paper.jpg)
+![Exam page](src/assets/screenshots/exam_paper.jpg)
 
-![Dahboard page](https://i.ibb.co/prXJTtQ/screencapture-phone-store-de866-web-app-dashboard-2023-02-21-10-24-03.png)
+![Result page](src/assets/screenshots/result.jpg)
 
-![Toggle page](https://i.ibb.co/qFMZVDT/screencapture-phone-store-de866-web-app-dashboard-2023-02-21-10-27-22.png)
+![Dashboard page](src/assets/screenshots/dashboard.png)
 
-![Seller page](https://i.ibb.co/ZmSVDdc/screencapture-phone-store-de866-web-app-dashboard-add-Item-2023-02-21-10-27-34.png)
+![Course result page](src/assets/screenshots/course_result.jpg)
+
+![Mark page](src/assets/screenshots/mark.jpg)
 
 ## Tech Stack
 
-**Client:** TailwindCSS, ES6, JavaScript, DaisyUi, React, TanStackQuery, React-FontAwesome, Lottie, React-paginate, EmailJS, React-hook-form, Stripe, React-router, React-hot-toast, Swiper.js, JWT
+**Client:** TailwindCSS, ES6, JavaScript, DaisyUi, React, React-FontAwesome, Lottie, React-hook-form, React-router, React-hot-toast,
 
-**Server:** Node, Express, Firebase, MongoDB, ImageBB
-
-## Admin
-
-Email: abdurrahman@gmail.com
-
-password: 123456
+**Server:** Node, Express, MongoDB, ImageBB
