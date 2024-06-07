@@ -1,4 +1,4 @@
-# Phone store
+# SDS Consultancy Service Exam Application
 
 SDS Consultancy Service Exam app is a website of giving exams of registered students.
 
@@ -15,15 +15,11 @@ SDS Consultancy Service Exam app is a website of giving exams of registered stud
 
 ## Screenshots
 
-![Home page](https://i.ibb.co/HB4LSNW/screencapture-phone-store-de866-web-app-2023-02-21-10-21-27.png)
+![Log in page](src/assets/screenshots/login.png)
 
-![Log in page](https://i.ibb.co/wz8c8Ls/screencapture-phone-store-de866-web-app-login-2023-02-21-10-26-34.png)
+![Courses page](src/assets/screenshots/exam.png)
 
-![Register page](https://i.ibb.co/xMr8N04/screencapture-phone-store-de866-web-app-register-2023-02-21-10-26-46.png)
-
-![Contact page](https://i.ibb.co/K7WfgR2/screencapture-phone-store-de866-web-app-contact-2023-02-21-10-23-47.png)
-
-![Profile page](https://i.ibb.co/Xt43dQK/screencapture-phone-store-de866-web-app-profile-2023-02-21-10-26-19.png)
+![Exam page](src/assets/screenshots/exam paper.jpg)
 
 ![Dahboard page](https://i.ibb.co/prXJTtQ/screencapture-phone-store-de866-web-app-dashboard-2023-02-21-10-24-03.png)
 
