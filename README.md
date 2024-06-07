@@ -4,7 +4,7 @@ SDS Consultancy Service Exam app is a website of giving exams of registered stud
 
 ### Live website link: [https://superb-pika-bd1acd.netlify.app/)
 
-![Logo](https://i.ibb.co/t8jkvLv/pic.png)
+![Logo](src/assets/Logo/logo.png)
 
 ## Features
 
