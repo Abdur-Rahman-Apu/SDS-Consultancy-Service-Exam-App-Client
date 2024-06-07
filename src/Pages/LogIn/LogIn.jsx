@@ -1,12 +1,12 @@
-import { useForm } from "react-hook-form";
-import Logo from "../../assets/Logo/logo.jpg";
-import "../../Common/Css/Common.css";
 import Lottie from "lottie-react";
-import LoginAnimation from "../../assets/LottieFiles/login.json";
 import { useEffect, useState } from "react";
+import { useForm } from "react-hook-form";
+import { FaLock, FaLockOpen, FaUserAlt } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
-import { FaUserAlt, FaLock, FaLockOpen } from "react-icons/fa";
 import { toast } from "react-toastify";
+import "../../Common/Css/Common.css";
+import Logo from "../../assets/Logo/logo.jpg";
+import LoginAnimation from "../../assets/LottieFiles/login.json";
 import Loading2 from "../Loading2/Loading2";
 
 const LogIn = () => {
@@ -21,7 +21,12 @@ const LogIn = () => {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm();
+  } = useForm({
+    defaultValues: {
+      regId: "test",
+      password: "test",
+    },
+  });
 
   useEffect(() => {
     window.scrollTo(0, 0);
